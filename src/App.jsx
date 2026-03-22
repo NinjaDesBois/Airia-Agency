@@ -20,7 +20,11 @@ const Probleme = lazy(() => import('./sections/Probleme'))
 const HowItWorks = lazy(() => import('./sections/HowItWorks'))
 const Features = lazy(() => import('./sections/Features'))
 const ROI = lazy(() => import('./sections/ROI'))
+const DemoSection = lazy(() => import('./components/DemoSection'))
 const Temoignages = lazy(() => import('./sections/Temoignages'))
+
+/* Pages */
+const Dashboard = lazy(() => import('./components/Dashboard'))
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -29,7 +33,14 @@ function SectionSkeleton() {
   return <div style={{ height: '400px' }} aria-hidden="true" />
 }
 
-export default function App() {
+/* Routeur minimal — sans dépendance externe
+   TODO : remplacer par react-router-dom pour des routes plus complexes */
+function useRoute() {
+  return typeof window !== 'undefined' ? window.location.pathname : '/'
+}
+
+/* ===== Page d'accueil — landing page principale ===== */
+function PageAccueil() {
   // Initialisation de Lenis pour le smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
@@ -70,7 +81,7 @@ export default function App() {
         {/* 2. Logos outils intégrés */}
         <LogosClients />
 
-        {/* 3–8. Sections chargées en lazy avec Suspense */}
+        {/* 3–9. Sections chargées en lazy avec Suspense */}
         <Suspense fallback={<SectionSkeleton />}>
           {/* 3. Chiffres clés */}
           <Stats />
@@ -87,7 +98,10 @@ export default function App() {
           {/* 7. Calculateur ROI interactif */}
           <ROI />
 
-          {/* 8. Témoignages */}
+          {/* 8. Démo interactive — Chat IA + Voix IA par secteur */}
+          <DemoSection />
+
+          {/* 9. Témoignages */}
           <Temoignages />
         </Suspense>
       </main>
@@ -102,4 +116,19 @@ export default function App() {
       <ChatWidget />
     </>
   )
+}
+
+/* ===== Composant racine — routing basique ===== */
+export default function App() {
+  const route = useRoute()
+
+  if (route.startsWith('/dashboard')) {
+    return (
+      <Suspense fallback={<SectionSkeleton />}>
+        <Dashboard />
+      </Suspense>
+    )
+  }
+
+  return <PageAccueil />
 }
