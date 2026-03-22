@@ -170,6 +170,13 @@
 }
 
 /* === Responsive === */
+@media (max-width: 1024px) {
+  /* Masque uniquement les liens nav sur tablette, garde le switcher + CTA */
+  .navbar__liens {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar__liens,
   .navbar__contrôles {
@@ -178,5 +185,9 @@
 
   .navbar__burger {
     display: flex;
+  }
+
+  .navbar__conteneur {
+    gap: var(--espace-4);
   }
 }

@@ -172,9 +172,13 @@
 
 /* === Responsive === */
 @media (max-width: 768px) {
+  .hiw {
+    padding: var(--espace-20) 0;
+  }
+
   .hiw__étapes {
     grid-template-columns: 1fr;
-    max-width: 480px;
+    max-width: 100%;
     margin: 0 auto;
   }
 
@@ -194,5 +198,9 @@
 
   .hiw__titre {
     font-size: var(--texte-4xl);
+  }
+
+  .hiw__carte {
+    padding: var(--espace-6);
   }
 }

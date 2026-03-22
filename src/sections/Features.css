@@ -12,7 +12,7 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
+  width: min(800px, 100%);
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(0,245,255,0.2), transparent);
 }
@@ -194,11 +194,19 @@
 }
 
 @media (max-width: 640px) {
+  .features {
+    padding: var(--espace-20) 0;
+  }
+
   .features__grille {
     grid-template-columns: 1fr;
   }
 
   .features__titre {
     font-size: var(--texte-4xl);
+  }
+
+  .feature__carte {
+    padding: var(--espace-6);
   }
 }

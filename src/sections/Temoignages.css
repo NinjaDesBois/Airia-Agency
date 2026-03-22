@@ -202,6 +202,18 @@
 }
 
 @media (max-width: 640px) {
+  .temoignages {
+    padding: var(--espace-20) 0;
+  }
+
+  .temoignages__grille {
+    max-width: 100%;
+  }
+
+  .témoignage__carte {
+    padding: var(--espace-6);
+  }
+
   .temoignages__titre {
     font-size: var(--texte-4xl);
   }

@@ -146,8 +146,16 @@
 }
 
 @media (max-width: 640px) {
+  .probleme {
+    padding: var(--espace-20) 0;
+  }
+
   .probleme__bento {
     grid-template-columns: 1fr;
+  }
+
+  .probleme__carte {
+    padding: var(--espace-6);
   }
 
   .probleme__titre {

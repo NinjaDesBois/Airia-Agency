@@ -180,11 +180,12 @@
 
 @media (max-width: 768px) {
     .hero__titre {
-        font-size: clamp(2.2rem, 8vw, 3rem);
-        max-width: 20ch;
+        font-size: clamp(2rem, 8vw, 3rem);
+        max-width: 100%;
     }
     .hero__sous-titre {
         font-size: var(--texte-base);
+        max-width: 100%;
     }
     .hero__actions {
         flex-direction: column;
@@ -194,8 +195,26 @@
     .hero__btn-principal,
     .hero__btn-secondaire {
         width: 100%;
+        justify-content: center;
     }
     .hero__confiance-séparateur {
+        display: none;
+    }
+    .hero__contenu {
+        gap: var(--espace-6);
+        padding-top: calc(var(--hauteur-navbar) + var(--espace-4));
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__titre {
+        font-size: clamp(1.875rem, 9vw, 2.5rem);
+    }
+    .hero__confiance-texte {
+        flex-direction: column;
+        gap: var(--espace-2);
+    }
+    .hero__confiance-point {
         display: none;
     }
 }

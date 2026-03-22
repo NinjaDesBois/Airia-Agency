@@ -99,6 +99,10 @@
 }
 
 @media (max-width: 480px) {
+  .stats {
+    padding: var(--espace-16) 0;
+  }
+
   .stats__grille {
     grid-template-columns: 1fr;
   }
