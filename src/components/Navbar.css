@@ -5,8 +5,11 @@
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  max-width: 100vw;
   z-index: var(--z-sticky);
   padding: var(--espace-4) 0;
+  overflow: hidden;
   transition: background var(--transition-lente), backdrop-filter var(--transition-lente), border-color var(--transition-lente);
 }
 
@@ -17,22 +20,26 @@
   border-bottom: 1px solid var(--verre-bordure);
 }
 
+/* === Conteneur — layout 3 colonnes : [logo] [liens] [contrôles] === */
 .navbar__conteneur {
+  width: 100%;
   max-width: var(--conteneur-max);
   margin: 0 auto;
   padding: 0 var(--espace-6);
   display: flex;
   align-items: center;
-  gap: var(--espace-8);
+  box-sizing: border-box;
 }
 
-/* === Logo === */
+/* === Logo — colonne gauche === */
 .navbar__logo {
+  flex: 1;
   display: flex;
   align-items: center;
   gap: var(--espace-2);
   text-decoration: none;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .navbar__logo-texte {
@@ -55,15 +62,16 @@
   background: var(--cyan);
   box-shadow: 0 0 10px var(--cyan);
   margin-bottom: 10px;
+  flex-shrink: 0;
 }
 
-/* === Liens === */
+/* === Liens — colonne centrale (centrés) === */
 .navbar__liens {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: var(--espace-1);
   list-style: none;
-  margin: 0 auto;
 }
 
 .navbar__lien {
@@ -74,6 +82,7 @@
   border-radius: var(--rayon-md);
   transition: color var(--transition-rapide), background var(--transition-rapide);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .navbar__lien:hover {
@@ -81,13 +90,14 @@
   background: rgba(255,255,255,0.05);
 }
 
-/* === Contrôles desktop (lang switcher + CTA) === */
+/* === Contrôles — colonne droite (lang switcher + CTA) === */
 .navbar__contrôles {
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: var(--espace-4);
-  margin-left: auto;
-  flex-shrink: 0;
+  min-width: 0;
 }
 
 /* === CTA === */
@@ -95,6 +105,7 @@
   padding: var(--espace-3) var(--espace-6);
   font-size: var(--texte-sm);
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 /* === Lang switcher mobile === */
@@ -106,10 +117,14 @@
 .navbar__burger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   padding: var(--espace-2);
   cursor: pointer;
-  margin-left: auto;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  /* Pas de margin-left: auto — le flex: 1 du logo pousse déjà le burger à droite */
 }
 
 .navbar__burger span {
@@ -137,11 +152,12 @@
   border-top: 1px solid var(--verre-bordure);
   background: rgba(5,5,8,0.95);
   backdrop-filter: blur(24px);
+  width: 100%;
 }
 
 .navbar__menu-mobile ul {
   list-style: none;
-  padding: var(--espace-4) var(--espace-6);
+  padding: var(--espace-4) var(--espace-4);
   display: flex;
   flex-direction: column;
   gap: var(--espace-2);
@@ -170,13 +186,20 @@
 }
 
 /* === Responsive === */
+
+/* Tablette : masque les liens nav, garde lang + CTA visibles */
 @media (max-width: 1024px) {
-  /* Masque uniquement les liens nav sur tablette, garde le switcher + CTA */
   .navbar__liens {
     display: none;
   }
+
+  /* Le logo prend flex:1 gauche, contrôles restent à droite */
+  .navbar__logo {
+    flex: 1;
+  }
 }
 
+/* Mobile : masque tout sauf logo + burger */
 @media (max-width: 768px) {
   .navbar__liens,
   .navbar__contrôles {
@@ -188,6 +211,17 @@
   }
 
   .navbar__conteneur {
-    gap: var(--espace-4);
+    padding: 0 var(--espace-4);
+  }
+
+  /* Sur mobile : logo à gauche, burger à droite via flex */
+  .navbar__logo {
+    flex: 1;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar__conteneur {
+    padding: 0 var(--espace-3);
   }
 }
