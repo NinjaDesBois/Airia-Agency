@@ -64,10 +64,10 @@
 .hero__titre {
     font-size: var(--texte-hero);
     font-weight: 700;
-    line-height: 1.05;
+    line-height: 1.1;
     letter-spacing: -0.04em;
     color: var(--white);
-    max-width: 14ch;
+    max-width: 16ch;
     opacity: 0;
     /* Animé par GSAP */
     text-shadow: 0 2px 24px rgba(5, 5, 8, 0.9), 0 4px 48px rgba(5, 5, 8, 0.7);
@@ -114,6 +114,47 @@
     gap: var(--espace-2);
 }
 
+
+/* === Slot machine — titre + sous-titre animés ensemble === */
+
+/* "Votre" reste inline, ne participe pas à l'animation */
+.hero__slot-statique {
+    display: inline;
+}
+
+/* Conteneur animé — inline-block pour supporter transform */
+.hero__slot-dynamique {
+    display: inline-block;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.38s ease, transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* Phase sortie : monte et disparaît */
+.hero__slot-dynamique--sortie {
+    opacity: 0;
+    transform: translateY(-22px);
+}
+
+/* Phase entrée : positionné sous la ligne, sans transition (repositionnement instantané) */
+.hero__slot-dynamique--entree {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: none;
+}
+
+/* Phase visible : glisse vers la position normale */
+.hero__slot-dynamique--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mot sectoriel en cyan */
+.hero__slot-mot {
+    color: #00e5cc;
+    font-style: normal;
+}
 
 /* === Barre de confiance === */
 
