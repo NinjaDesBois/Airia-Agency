@@ -150,14 +150,14 @@ function LueurAmbiante() {
   )
 }
 
-/* ===== Paires slot machine — titre + sous-titre par secteur ===== */
+/* ===== Paires slot machine — mot sectoriel + sous-titre ===== */
 const pairesSlot = [
-  { mot: 'agence',     reste: ' tourne toute seule.', sousTitre: 'Vous fermez les deals.' },
-  { mot: 'cabinet',    reste: ' tourne tout seul.',   sousTitre: 'Vous soignez vos patients.' },
-  { mot: 'atelier',    reste: ' tourne tout seul.',   sousTitre: 'Vous intervenez sur le terrain.' },
-  { mot: 'étude',      reste: ' tourne toute seule.', sousTitre: 'Vous défendez vos clients.' },
-  { mot: 'entreprise', reste: ' tourne toute seule.', sousTitre: 'Vous développez votre activité.' },
-  { mot: 'cabinet',    reste: ' tourne tout seul.',   sousTitre: 'Vous conseillez vos clients.' },
+  { mot: 'agence',     sousTitre: 'Vous fermez les deals.' },
+  { mot: 'cabinet',    sousTitre: 'Vous soignez vos patients.' },
+  { mot: 'atelier',    sousTitre: 'Vous intervenez sur le terrain.' },
+  { mot: 'étude',      sousTitre: 'Vous défendez vos clients.' },
+  { mot: 'entreprise', sousTitre: 'Vous développez votre activité.' },
+  { mot: 'cabinet',    sousTitre: 'Vous conseillez vos clients.' },
 ]
 
 /* ===== Composant principal Hero ===== */
@@ -254,17 +254,17 @@ export default function Hero() {
           {t('hero.badge')}
         </div>
 
-        {/* Titre principal — slot machine sectoriel */}
+        {/* Titre principal — seul le mot sectoriel anime, le reste est statique */}
         <h1 className="hero__titre">
           <span className="hero__slot-statique">Votre&nbsp;</span>
           <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
             <span className="hero__slot-mot">{pairesSlot[indexSlot].mot}</span>
-            {pairesSlot[indexSlot].reste}
           </span>
+          <span className="hero__slot-statique">&nbsp;tourne toute seule.</span>
         </h1>
 
-        {/* Sous-titre — slot machine synchronisé */}
-        <p className="hero__sous-titre">
+        {/* Sous-titre — anime en sync avec le mot, même taille que le titre */}
+        <p className="hero__sous-titre hero__slot-sous-titre">
           <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
             {pairesSlot[indexSlot].sousTitre}
           </span>
