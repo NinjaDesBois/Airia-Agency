@@ -74,7 +74,10 @@ export default function ChatWidget() {
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-airia-token': 'airia2024'
+        },
         body: JSON.stringify({ messages: historiqueAnthropic }),
         signal: controller.signal,
       })
