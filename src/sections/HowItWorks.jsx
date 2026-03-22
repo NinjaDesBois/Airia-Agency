@@ -3,51 +3,31 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../i18n/translations'
 import './HowItWorks.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const étapes = [
-  {
-    numéro: '01',
-    titre: 'Audit & Configuration',
-    description: 'On analyse vos workflows actuels, vos outils, et les points de friction. En 24h, on définit exactement ce que l\'IA va automatiser pour vous.',
-    détails: ['Audit de vos processus', 'Cartographie des automatisations', 'Plan de déploiement personnalisé'],
-    durée: 'Jour 1',
-    icône: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-      </svg>
-    ),
-  },
-  {
-    numéro: '02',
-    titre: 'Déploiement IA',
-    description: 'On installe et configure vos agents IA : réceptionniste vocale, séquences de prospection, campagnes Meta. Tout est connecté à vos outils existants.',
-    détails: ['Installation des agents IA', 'Intégration à vos outils', 'Tests & validation'],
-    durée: 'Jour 1 → 2',
-    icône: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-      </svg>
-    ),
-  },
-  {
-    numéro: '03',
-    titre: 'Vous récoltez',
-    description: 'Vos clients reçoivent des leads qualifiés, des appels répondus, des campagnes actives. Vous encaissez l\'abonnement mensuel récurrent — sans effort.',
-    détails: ['Monitoring en temps réel', 'Rapports hebdomadaires', 'Support continu inclus'],
-    durée: 'Dès le Jour 3',
-    icône: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-      </svg>
-    ),
-  },
+/* Icônes SVG stables */
+const icônesÉtapes = [
+  <svg key="audit" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+    <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+  </svg>,
+  <svg key="deploy" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+  </svg>,
+  <svg key="harvest" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+    <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+  </svg>,
 ]
+
+const numÉtapes = ['01', '02', '03']
 
 export default function HowItWorks() {
   const refSection = useRef(null)
+  const { language, t } = useLanguage()
+  const steps = translations[language].howItWorks.steps
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -72,7 +52,6 @@ export default function HowItWorks() {
         }
       )
 
-      // Ligne de connexion animée
       gsap.fromTo(
         '.hiw__ligne-connexion',
         { scaleX: 0, transformOrigin: 'left' },
@@ -91,40 +70,38 @@ export default function HowItWorks() {
       <div className="conteneur">
         {/* En-tête */}
         <div className="hiw__en-tête">
-          <span className="badge">Process</span>
+          <span className="badge">{t('howItWorks.badge')}</span>
           <h2 id="hiw-titre" className="hiw__titre">
-            Opérationnel en <span className="texte-dégradé">48h</span>
+            {t('howItWorks.title')} <span className="texte-dégradé">{t('howItWorks.titleHighlight')}</span>
           </h2>
           <p className="hiw__sous-titre">
-            De la signature au premier lead qualifié — en deux jours.
+            {t('howItWorks.subtitle')}
           </p>
         </div>
 
         {/* Étapes */}
         <div className="hiw__étapes-wrapper">
-          {/* Ligne de connexion desktop */}
           <div className="hiw__ligne-connexion" aria-hidden="true" />
 
           <div className="hiw__étapes">
-            {étapes.map((étape, index) => (
+            {steps.map((étape, index) => (
               <motion.div
-                key={étape.numéro}
+                key={numÉtapes[index]}
                 className="hiw__étape"
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
                 {/* Numéro */}
                 <div className="hiw__numéro-wrapper">
-                  <span className="hiw__numéro">{étape.numéro}</span>
+                  <span className="hiw__numéro">{numÉtapes[index]}</span>
                 </div>
 
                 {/* Carte */}
                 <div className="hiw__carte carte-verre">
-                  <div className="hiw__icône">{étape.icône}</div>
+                  <div className="hiw__icône">{icônesÉtapes[index]}</div>
                   <div className="hiw__durée">{étape.durée}</div>
                   <h3 className="hiw__étape-titre">{étape.titre}</h3>
                   <p className="hiw__étape-desc">{étape.description}</p>
 
-                  {/* Liste des détails */}
                   <ul className="hiw__détails" role="list">
                     {étape.détails.map((détail) => (
                       <li key={détail} className="hiw__détail">

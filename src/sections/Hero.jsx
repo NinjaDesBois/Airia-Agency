@@ -6,6 +6,7 @@ import * as THREE from 'three'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ouvrirModalContact } from '../components/ModalContact'
+import { useLanguage } from '../context/LanguageContext'
 import './Hero.css'
 
 /* ===== Shader personnalisé pour la sphère cyan ===== */
@@ -152,6 +153,7 @@ function LueurAmbiante() {
 /* ===== Composant principal Hero ===== */
 export default function Hero() {
   const refContenu = useRef(null)
+  const { t } = useLanguage()
 
   // Animation d'entrée GSAP pour le contenu
   useEffect(() => {
@@ -208,23 +210,21 @@ export default function Hero() {
       <div className="hero__contenu conteneur" ref={refContenu}>
         {/* Badge */}
         <div className="hero__badge badge">
-          Nouveau · Déployé en 48h
+          {t('hero.badge')}
         </div>
 
         {/* Titre principal */}
         <h1 className="hero__titre">
-          Votre agence tourne
+          {t('hero.title1')}
           <br />
-          <span className="texte-dégradé">toute seule.</span>
+          <span className="texte-dégradé">{t('hero.title2')}</span>
           <br />
-          Vous fermez les deals.
+          {t('hero.title3')}
         </h1>
 
         {/* Sous-titre */}
         <p className="hero__sous-titre">
-          Airia automatise la prospection, les appels et les campagnes
-          <br className="hero__saut-ligne" />
-          de vos clients PME. Vous récoltez les abonnements.
+          {t('hero.subtitle')}
         </p>
 
         {/* Boutons CTA */}
@@ -233,14 +233,14 @@ export default function Hero() {
             className="btn-primaire hero__btn-principal"
             onClick={ouvrirModalContact}
           >
-            Réserver un appel stratégique
+            {t('hero.cta1')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </BoutonMagnétique>
 
           <a href="#fonctionnalites" className="btn-secondaire hero__btn-secondaire">
-            Voir la démo
+            {t('hero.cta2')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/>
               <polygon points="10,8 16,12 10,16 10,8"/>
@@ -256,12 +256,12 @@ export default function Hero() {
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
               </svg>
-              12 agences déjà testées
+              {t('hero.trust1')}
             </span>
             <span className="hero__confiance-point" aria-hidden="true">·</span>
-            <span className="hero__confiance-item">Déployé en 48h</span>
+            <span className="hero__confiance-item">{t('hero.trust2')}</span>
             <span className="hero__confiance-point" aria-hidden="true">·</span>
-            <span className="hero__confiance-item">Sans engagement</span>
+            <span className="hero__confiance-item">{t('hero.trust3')}</span>
           </p>
           <div className="hero__confiance-séparateur" aria-hidden="true" />
         </div>
@@ -315,7 +315,6 @@ function BoutonMagnétique({ children, className, href, onClick }) {
     onMouseLeave: handleMouseLeave,
   }
 
-  /* Rendu <button> si onClick fourni, <a> si href fourni */
   if (onClick) {
     return (
       <button {...propsCommuns} onClick={onClick}>

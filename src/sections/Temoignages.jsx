@@ -4,41 +4,17 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
 import { ouvrirModalContact } from '../components/ModalContact'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../i18n/translations'
 import './Temoignages.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const témoignages = [
-  {
-    id: 'marc',
-    texte: "La réceptionniste IA répond à 80% des appels entrants. Mon équipe ne traite plus que les leads vraiment chauds. On a gagné 3h par jour et signé 4 nouveaux mandats en un mois.",
-    auteur: 'Marc Dubois',
-    rôle: 'Directeur, Agence Immobilière',
-    entreprise: 'ImmoCore Bruxelles',
-    note: 5,
-    résultat: '+4 mandats / mois',
-    avatar: 'M',
-  },
-  {
-    id: 'sophie',
-    texte: "En 2 semaines, notre séquence de prospection email IA a généré 23 rendez-vous qualifiés. Avant, on en avait 3-4 par mois avec une équipe dédiée. Le ROI était immédiat.",
-    auteur: 'Sophie Verlinden',
-    rôle: 'CEO',
-    entreprise: 'FlexWork Liège',
-    note: 5,
-    résultat: '23 RDV en 2 semaines',
-    avatar: 'S',
-  },
-  {
-    id: 'thomas',
-    texte: "Les campagnes Meta tournent toutes seules. L'IA ajuste les budgets en temps réel selon les performances. +340% de leads en 3 mois pour 3 de nos clients. Ils ont tous renouvelé.",
-    auteur: 'Thomas Bernard',
-    rôle: 'Fondateur',
-    entreprise: 'DigitalEdge Gand',
-    note: 5,
-    résultat: '+340% leads Meta',
-    avatar: 'T',
-  },
+/* Données non-traduites (auteurs, résultats, avatars) */
+const témoignagesMeta = [
+  { id: 'marc', auteur: 'Marc Dubois', entreprise: 'ImmoCore Bruxelles', note: 5, résultat: '+4 mandats / mois', avatar: 'M' },
+  { id: 'sophie', auteur: 'Sophie Verlinden', entreprise: 'FlexWork Liège', note: 5, résultat: '23 RDV en 2 semaines', avatar: 'S' },
+  { id: 'thomas', auteur: 'Thomas Bernard', entreprise: 'DigitalEdge Gand', note: 5, résultat: '+340% leads Meta', avatar: 'T' },
 ]
 
 /* Étoiles de notation */
@@ -66,6 +42,8 @@ function Étoiles({ note }) {
 
 export default function Temoignages() {
   const refSection = useRef(null)
+  const { language, t } = useLanguage()
+  const items = translations[language].testimonials.items
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -99,72 +77,71 @@ export default function Temoignages() {
       <div className="conteneur">
         {/* En-tête */}
         <div className="temoignages__en-tête">
-          <span className="badge">Témoignages</span>
+          <span className="badge">{t('testimonials.badge')}</span>
           <h2 id="temoignages-titre" className="temoignages__titre">
-            Ce que disent les agences
+            {t('testimonials.title1')}
             <br />
-            <span className="texte-dégradé">qui utilisent Airia</span>
+            <span className="texte-dégradé">{t('testimonials.title2')}</span>
           </h2>
           <p className="temoignages__sous-titre">
-            12 agences belges. Des résultats mesurables dès les premières semaines.
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
         {/* Grille de témoignages */}
         <div className="temoignages__grille">
-          {témoignages.map((tém, index) => (
-            <motion.article
-              key={tém.id}
-              className={`témoignage__carte carte-verre ${index === 1 ? 'témoignage__carte--centrale' : ''}`}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              aria-label={`Témoignage de ${tém.auteur}`}
-            >
-              {/* Badge résultat */}
-              <div className="témoignage__résultat">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                  <polyline points="23,6 13.5,15.5 8.5,10.5 1,18"/>
-                  <polyline points="17,6 23,6 23,12"/>
-                </svg>
-                {tém.résultat}
-              </div>
-
-              {/* Corps du témoignage */}
-              <blockquote className="témoignage__texte">
-                <p>"{tém.texte}"</p>
-              </blockquote>
-
-              {/* Étoiles */}
-              <Étoiles note={tém.note} />
-
-              {/* Auteur */}
-              <div className="témoignage__auteur">
-                <div
-                  className="témoignage__avatar"
-                  aria-hidden="true"
-                >
-                  {tém.avatar}
+          {items.map((tém, index) => {
+            const meta = témoignagesMeta[index]
+            return (
+              <motion.article
+                key={meta.id}
+                className={`témoignage__carte carte-verre ${index === 1 ? 'témoignage__carte--centrale' : ''}`}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                aria-label={`Témoignage de ${meta.auteur}`}
+              >
+                {/* Badge résultat */}
+                <div className="témoignage__résultat">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                    <polyline points="23,6 13.5,15.5 8.5,10.5 1,18"/>
+                    <polyline points="17,6 23,6 23,12"/>
+                  </svg>
+                  {meta.résultat}
                 </div>
-                <div className="témoignage__identité">
-                  <strong className="témoignage__nom">{tém.auteur}</strong>
-                  <span className="témoignage__rôle">
-                    {tém.rôle} · {tém.entreprise}
-                  </span>
-                </div>
-              </div>
 
-              {/* Lueur décorative */}
-              <div className="témoignage__lueur" aria-hidden="true" />
-            </motion.article>
-          ))}
+                {/* Corps du témoignage */}
+                <blockquote className="témoignage__texte">
+                  <p>"{tém.texte}"</p>
+                </blockquote>
+
+                {/* Étoiles */}
+                <Étoiles note={meta.note} />
+
+                {/* Auteur */}
+                <div className="témoignage__auteur">
+                  <div className="témoignage__avatar" aria-hidden="true">
+                    {meta.avatar}
+                  </div>
+                  <div className="témoignage__identité">
+                    <strong className="témoignage__nom">{meta.auteur}</strong>
+                    <span className="témoignage__rôle">
+                      {tém.rôle} · {meta.entreprise}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="témoignage__lueur" aria-hidden="true" />
+              </motion.article>
+            )
+          })}
         </div>
 
         {/* CTA final */}
         <div className="temoignages__cta">
           <p className="temoignages__cta-texte">
-            Rejoignez les 12 agences qui automatisent déjà avec Airia
+            {t('testimonials.ctaText')}
           </p>
           <button className="btn-primaire" onClick={ouvrirModalContact}>
-            Réserver un appel stratégique
+            {t('testimonials.cta')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>

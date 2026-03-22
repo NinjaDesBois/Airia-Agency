@@ -3,58 +3,36 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
+import { translations } from '../i18n/translations'
 import './Stats.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const donnéesStats = [
-  {
-    valeur: 92,
-    suffixe: '%',
-    label: 'Taux de qualification IA',
-    description: 'Des leads qualifiés automatiquement avant votre équipe',
-    icône: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-      </svg>
-    ),
-  },
-  {
-    valeur: 48,
-    suffixe: 'h',
-    label: 'Déploiement',
-    description: 'De la signature au lancement complet de votre système IA',
-    icône: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <circle cx="12" cy="12" r="10"/>
-        <polyline points="12,6 12,12 16,14"/>
-      </svg>
-    ),
-  },
-  {
-    valeur: 24,
-    suffixe: '/7',
-    label: 'Disponibilité',
-    description: 'Votre réceptionniste IA ne prend jamais de congé',
-    icône: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/>
-        <path d="M12 6v6l4 2"/>
-      </svg>
-    ),
-  },
-  {
-    valeur: 0,
-    suffixe: '€',
-    préfixe: '',
-    label: 'Setup',
-    description: 'Aucun frais d\'installation. Vous payez uniquement le récurrent.',
-    icône: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-      </svg>
-    ),
-  },
+/* Données numériques stables */
+const valeursStats = [
+  { valeur: 92, suffixe: '%', icône: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+    </svg>
+  )},
+  { valeur: 48, suffixe: 'h', icône: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12,6 12,12 16,14"/>
+    </svg>
+  )},
+  { valeur: 24, suffixe: '/7', icône: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/>
+      <path d="M12 6v6l4 2"/>
+    </svg>
+  )},
+  { valeur: 0, suffixe: '€', icône: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+    </svg>
+  )},
 ]
 
 /* Composant compteur animé */
@@ -87,10 +65,11 @@ function CompteurAnimé({ valeurCible, suffixe, préfixe = '', actif }) {
 export default function Stats() {
   const refSection = useRef(null)
   const [compteurActif, setCompteurActif] = useState(false)
+  const { language } = useLanguage()
+  const items = translations[language].stats.items
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Révèle les cartes en cascade
       gsap.fromTo(
         '.stat__carte',
         { y: 40, opacity: 0 },
@@ -115,20 +94,19 @@ export default function Stats() {
     <section className="stats" ref={refSection} aria-label="Chiffres clés">
       <div className="conteneur">
         <div className="stats__grille">
-          {donnéesStats.map((stat, index) => (
+          {items.map((stat, index) => (
             <motion.div
-              key={stat.label}
+              key={valeursStats[index].valeur + '-' + index}
               className="stat__carte carte-verre"
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
             >
               <div className="stat__icône">
-                {stat.icône}
+                {valeursStats[index].icône}
               </div>
               <div className="stat__chiffre">
                 <CompteurAnimé
-                  valeurCible={stat.valeur}
-                  suffixe={stat.suffixe}
-                  préfixe={stat.préfixe}
+                  valeurCible={valeursStats[index].valeur}
+                  suffixe={valeursStats[index].suffixe}
                   actif={compteurActif}
                 />
               </div>

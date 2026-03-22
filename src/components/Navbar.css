@@ -81,12 +81,25 @@
   background: rgba(255,255,255,0.05);
 }
 
+/* === Contrôles desktop (lang switcher + CTA) === */
+.navbar__contrôles {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-4);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
 /* === CTA === */
 .navbar__cta {
   padding: var(--espace-3) var(--espace-6);
   font-size: var(--texte-sm);
-  margin-left: auto;
   flex-shrink: 0;
+}
+
+/* === Lang switcher mobile === */
+.navbar__mobile-lang {
+  padding: var(--espace-2) var(--espace-4);
 }
 
 /* === Burger mobile === */
@@ -159,7 +172,7 @@
 /* === Responsive === */
 @media (max-width: 768px) {
   .navbar__liens,
-  .navbar__cta {
+  .navbar__contrôles {
     display: none;
   }
 

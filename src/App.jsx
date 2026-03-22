@@ -1,5 +1,5 @@
 /* Application principale — Airia Landing Page */
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -8,18 +8,26 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ModalContact from './components/ModalContact'
+import ChatWidget from './components/ChatWidget'
+import SEO from './components/SEO'
 
-/* Sections de la landing page */
+/* Sections de la landing page — chargement lazy pour le code splitting */
 import Hero from './sections/Hero'
 import LogosClients from './sections/LogosClients'
-import Stats from './sections/Stats'
-import Probleme from './sections/Probleme'
-import HowItWorks from './sections/HowItWorks'
-import Features from './sections/Features'
-import ROI from './sections/ROI'
-import Temoignages from './sections/Temoignages'
+
+const Stats = lazy(() => import('./sections/Stats'))
+const Probleme = lazy(() => import('./sections/Probleme'))
+const HowItWorks = lazy(() => import('./sections/HowItWorks'))
+const Features = lazy(() => import('./sections/Features'))
+const ROI = lazy(() => import('./sections/ROI'))
+const Temoignages = lazy(() => import('./sections/Temoignages'))
 
 gsap.registerPlugin(ScrollTrigger)
+
+/* Fallback de chargement léger */
+function SectionSkeleton() {
+  return <div style={{ height: '400px' }} aria-hidden="true" />
+}
 
 export default function App() {
   // Initialisation de Lenis pour le smooth scroll
@@ -48,6 +56,9 @@ export default function App() {
 
   return (
     <>
+      {/* Balises SEO dynamiques */}
+      <SEO />
+
       {/* Navigation sticky */}
       <Navbar />
 
@@ -59,23 +70,26 @@ export default function App() {
         {/* 2. Logos outils intégrés */}
         <LogosClients />
 
-        {/* 3. Chiffres clés */}
-        <Stats />
+        {/* 3–8. Sections chargées en lazy avec Suspense */}
+        <Suspense fallback={<SectionSkeleton />}>
+          {/* 3. Chiffres clés */}
+          <Stats />
 
-        {/* 4. Section problème — bento grid */}
-        <Probleme />
+          {/* 4. Section problème — bento grid */}
+          <Probleme />
 
-        {/* 5. Comment ça marche — 3 étapes */}
-        <HowItWorks />
+          {/* 5. Comment ça marche — 3 étapes */}
+          <HowItWorks />
 
-        {/* 6. Fonctionnalités — 6 cartes */}
-        <Features />
+          {/* 6. Fonctionnalités — 6 cartes */}
+          <Features />
 
-        {/* 7. Calculateur ROI interactif */}
-        <ROI />
+          {/* 7. Calculateur ROI interactif */}
+          <ROI />
 
-        {/* 8. Témoignages */}
-        <Temoignages />
+          {/* 8. Témoignages */}
+          <Temoignages />
+        </Suspense>
       </main>
 
       {/* Pied de page */}
@@ -83,6 +97,9 @@ export default function App() {
 
       {/* Modal de contact — ouvert via événement 'airia:ouvrir-modal-contact' */}
       <ModalContact />
+
+      {/* Widget chat IA flottant */}
+      <ChatWidget />
     </>
   )
 }

@@ -1,21 +1,24 @@
-/* Navbar sticky avec logo + liens + CTA — Airia */
+/* Navbar sticky avec logo + liens + sélecteur de langue + CTA — Airia */
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ouvrirModalContact } from './ModalContact'
+import LanguageSwitcher from './LanguageSwitcher'
+import { useLanguage } from '../context/LanguageContext'
 import './Navbar.css'
 
-const liensNavigation = [
-  { label: 'Services', href: '#fonctionnalites' },
-  { label: 'Comment ça marche', href: '#comment-ca-marche' },
-  { label: 'Témoignages', href: '#temoignages' },
-  { label: 'Tarifs', href: '#roi' },
-]
-
 export default function Navbar() {
-  const [défiléé, setDéfilé] = useState(false)
+  const { t } = useLanguage()
+  const [défilé, setDéfilé] = useState(false)
   const [menuOuvert, setMenuOuvert] = useState(false)
   const refNavbar = useRef(null)
+
+  const liensNavigation = [
+    { label: t('nav.services'), href: '#fonctionnalites' },
+    { label: t('nav.howItWorks'), href: '#comment-ca-marche' },
+    { label: t('nav.testimonials'), href: '#temoignages' },
+    { label: t('nav.pricing'), href: '#roi' },
+  ]
 
   // Détection du défilement pour changer l'apparence
   useEffect(() => {
@@ -47,7 +50,7 @@ export default function Navbar() {
   return (
     <motion.nav
       ref={refNavbar}
-      className={`navbar ${défiléé ? 'navbar--défilée' : ''}`}
+      className={`navbar ${défilé ? 'navbar--défilée' : ''}`}
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -74,19 +77,22 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA desktop */}
-        <button
-          className="navbar__cta btn-primaire"
-          onClick={ouvrirModalContact}
-        >
-          Réserver un appel
-        </button>
+        {/* Contrôles desktop : sélecteur de langue + CTA */}
+        <div className="navbar__contrôles">
+          <LanguageSwitcher />
+          <button
+            className="navbar__cta btn-primaire"
+            onClick={ouvrirModalContact}
+          >
+            {t('nav.cta')}
+          </button>
+        </div>
 
         {/* Burger mobile */}
         <button
           className={`navbar__burger ${menuOuvert ? 'navbar__burger--ouvert' : ''}`}
           onClick={() => setMenuOuvert(!menuOuvert)}
-          aria-label={menuOuvert ? 'Fermer le menu' : 'Ouvrir le menu'}
+          aria-label={menuOuvert ? t('nav.burgerClose') : t('nav.burgerOpen')}
           aria-expanded={menuOuvert}
         >
           <span />
@@ -116,13 +122,16 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li className="navbar__mobile-lang">
+            <LanguageSwitcher />
+          </li>
           <li>
             <button
               className="btn-primaire navbar__cta-mobile"
               onClick={() => { setMenuOuvert(false); ouvrirModalContact() }}
               tabIndex={menuOuvert ? 0 : -1}
             >
-              Réserver un appel
+              {t('nav.cta')}
             </button>
           </li>
         </ul>

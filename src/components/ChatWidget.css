@@ -1,0 +1,358 @@
+/* ===== ChatWidget — Bouton flottant + panneau ===== */
+
+/* --- Bouton flottant --- */
+.chat__bouton-flottant {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 90;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--rayon-full);
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--accent2) 100%);
+  color: var(--noir);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(0, 245, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: box-shadow var(--transition-base);
+  flex-shrink: 0;
+}
+
+.chat__bouton-flottant:hover {
+  box-shadow: 0 6px 32px rgba(0, 245, 255, 0.55), 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.chat__bouton-flottant span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Indicateur "en ligne" */
+.chat__badge-en-ligne {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--rayon-full);
+  background: #22c55e;
+  border: 2px solid var(--noir-profond);
+  animation: pulse-point 2s infinite;
+}
+
+/* --- Panneau de chat --- */
+.chat__panneau {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 2rem;
+  z-index: 89;
+  width: 380px;
+  max-width: calc(100vw - 2rem);
+  max-height: 520px;
+  border-radius: var(--rayon-xl);
+  background: rgba(8, 12, 24, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 245, 255, 0.18);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 245, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* --- En-tête --- */
+.chat__en-tête {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+  background: rgba(0, 245, 255, 0.04);
+  flex-shrink: 0;
+}
+
+.chat__en-tête-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chat__avatar-ia {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--rayon-full);
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.2), rgba(0, 196, 204, 0.15));
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+.chat__titre {
+  font-family: var(--police-titre);
+  font-size: var(--texte-sm);
+  font-weight: 600;
+  color: var(--blanc);
+  line-height: 1.2;
+}
+
+.chat__sous-titre {
+  font-size: var(--texte-xs);
+  color: var(--gris-400);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1px;
+}
+
+.chat__point-vert {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--rayon-full);
+  background: #22c55e;
+  flex-shrink: 0;
+}
+
+.chat__fermer {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gris-400);
+  padding: 0.35rem;
+  border-radius: var(--rayon-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-rapide), background var(--transition-rapide);
+}
+
+.chat__fermer:hover {
+  color: var(--blanc);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Zone messages --- */
+.chat__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 245, 255, 0.2) transparent;
+}
+
+.chat__messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat__messages::-webkit-scrollbar-thumb {
+  background: rgba(0, 245, 255, 0.2);
+  border-radius: 2px;
+}
+
+/* --- Messages --- */
+.chat__message {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  animation: apparition 0.2s ease-out;
+}
+
+.chat__message--user {
+  flex-direction: row-reverse;
+}
+
+.chat__icône-message {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--rayon-full);
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.15), rgba(0, 196, 204, 0.1));
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cyan);
+  flex-shrink: 0;
+  font-family: var(--police-titre);
+}
+
+.chat__bulle {
+  max-width: 78%;
+  padding: 0.625rem 0.875rem;
+  border-radius: 14px;
+  font-size: var(--texte-sm);
+  line-height: 1.55;
+  color: var(--blanc);
+  white-space: pre-wrap;
+  word-break: break-word;
+  position: relative;
+}
+
+.chat__message--assistant .chat__bulle {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px 14px 14px 14px;
+}
+
+.chat__message--user .chat__bulle {
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.18), rgba(0, 196, 204, 0.14));
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  border-radius: 14px 4px 14px 14px;
+}
+
+/* --- Curseur de streaming --- */
+.chat__curseur {
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background: var(--cyan);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: clignoter 0.8s step-end infinite;
+}
+
+@keyframes clignoter {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --- Typing indicator --- */
+.chat__typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 0;
+}
+
+.chat__typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: var(--rayon-full);
+  background: var(--gris-400);
+  animation: typing-bounce 1.2s ease-in-out infinite;
+}
+
+.chat__typing span:nth-child(2) { animation-delay: 0.2s; }
+.chat__typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+  40% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* --- Erreur --- */
+.chat__erreur {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-top: 1px solid rgba(239, 68, 68, 0.2);
+  font-size: var(--texte-xs);
+  color: #fca5a5;
+  flex-shrink: 0;
+}
+
+/* --- Zone de saisie --- */
+.chat__saisie {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.625rem;
+  padding: 0.875rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.chat__input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--rayon-lg);
+  padding: 0.625rem 1rem;
+  font-family: var(--police-corps);
+  font-size: var(--texte-sm);
+  color: var(--blanc);
+  resize: none;
+  min-height: 40px;
+  max-height: 100px;
+  line-height: 1.5;
+  transition: border-color var(--transition-rapide);
+  scrollbar-width: none;
+}
+
+.chat__input::-webkit-scrollbar {
+  display: none;
+}
+
+.chat__input::placeholder {
+  color: var(--gris-500);
+}
+
+.chat__input:focus {
+  outline: none;
+  border-color: rgba(0, 245, 255, 0.35);
+}
+
+.chat__input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chat__envoyer {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rayon-full);
+  background: linear-gradient(135deg, var(--cyan), var(--accent2));
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--noir);
+  flex-shrink: 0;
+  transition: opacity var(--transition-rapide), transform var(--transition-rapide);
+}
+
+.chat__envoyer:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.chat__envoyer:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  .chat__panneau {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: var(--rayon-xl) var(--rayon-xl) 0 0;
+  }
+
+  .chat__bouton-flottant {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+}
