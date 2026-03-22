@@ -1,0 +1,101 @@
+/* === Section Logos Clients — Airia === */
+
+.logos {
+  padding: var(--espace-16) 0;
+  background: var(--gris-950);
+  border-top: 1px solid var(--verre-bordure);
+  border-bottom: 1px solid var(--verre-bordure);
+  overflow: hidden;
+}
+
+.logos__titre {
+  text-align: center;
+  font-size: var(--texte-sm);
+  font-weight: 500;
+  color: var(--gris-400);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--espace-10);
+  opacity: 0; /* Animé par GSAP */
+}
+
+/* === Piste défilante === */
+.logos__piste {
+  position: relative;
+  /* Masques en fondu sur les côtés */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,1) 12%,
+    rgba(0,0,0,1) 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,1) 12%,
+    rgba(0,0,0,1) 88%,
+    transparent 100%
+  );
+}
+
+.logos__rail {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-10);
+  width: max-content;
+  animation: slide-gauche 28s linear infinite;
+}
+
+.logos__rail:hover {
+  animation-play-state: paused;
+}
+
+/* === Item logo === */
+.logos__item {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-3);
+  padding: var(--espace-3) var(--espace-6);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--verre-bordure);
+  border-radius: var(--rayon-full);
+  white-space: nowrap;
+  cursor: default;
+  transition: background var(--transition-base), border-color var(--transition-base);
+  flex-shrink: 0;
+}
+
+.logos__item:hover {
+  background: rgba(0,245,255,0.06);
+  border-color: rgba(0,245,255,0.2);
+}
+
+.logos__icône {
+  width: 20px;
+  height: 20px;
+  color: var(--gris-300);
+  flex-shrink: 0;
+  transition: color var(--transition-base);
+}
+
+.logos__item:hover .logos__icône {
+  color: var(--cyan);
+}
+
+.logos__nom {
+  font-size: var(--texte-sm);
+  font-weight: 500;
+  color: var(--gris-300);
+  transition: color var(--transition-base);
+}
+
+.logos__item:hover .logos__nom {
+  color: var(--white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logos__rail {
+    animation: none;
+  }
+}

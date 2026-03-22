@@ -1,0 +1,175 @@
+/* === Footer — Airia === */
+
+.footer {
+  position: relative;
+  background: var(--gris-950);
+  border-top: 1px solid var(--verre-bordure);
+  overflow: hidden;
+}
+
+.footer__conteneur {
+  padding-top: var(--espace-16);
+  padding-bottom: var(--espace-8);
+}
+
+.footer__haut {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: var(--espace-16);
+  margin-bottom: var(--espace-12);
+}
+
+/* === Marque === */
+.footer__marque {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+  font-family: var(--police-titre);
+  font-size: var(--texte-xl);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--white);
+}
+
+.footer__logo-point {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  margin-bottom: 12px;
+}
+
+.footer__slogan {
+  font-size: var(--texte-base);
+  color: var(--gris-300);
+  line-height: 1.5;
+}
+
+.footer__localisation {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+  font-size: var(--texte-sm);
+  color: var(--gris-400);
+}
+
+.footer__localisation svg {
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* === Liens === */
+.footer__liens-grille {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espace-8);
+}
+
+.footer__colonne {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+}
+
+.footer__titre-col {
+  font-family: var(--police-titre);
+  font-size: var(--texte-sm);
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer__colonne ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-3);
+}
+
+.footer__colonne a {
+  font-size: var(--texte-sm);
+  color: var(--gris-400);
+  transition: color var(--transition-rapide);
+}
+
+.footer__colonne a:hover {
+  color: var(--cyan);
+}
+
+/* === Séparateur === */
+.footer__séparateur {
+  height: 1px;
+  background: var(--verre-bordure);
+  margin-bottom: var(--espace-8);
+}
+
+/* === Bas === */
+.footer__bas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espace-4);
+}
+
+.footer__copyright {
+  font-size: var(--texte-sm);
+  color: var(--gris-400);
+}
+
+.footer__légal {
+  display: flex;
+  gap: var(--espace-6);
+}
+
+.footer__légal a {
+  font-size: var(--texte-sm);
+  color: var(--gris-400);
+  transition: color var(--transition-rapide);
+}
+
+.footer__légal a:hover {
+  color: var(--white);
+}
+
+/* === Lueur décorative === */
+.footer__lueur {
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(0,245,255,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .footer__haut {
+    grid-template-columns: 1fr;
+    gap: var(--espace-10);
+  }
+
+  .footer__liens-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__bas {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__liens-grille {
+    grid-template-columns: 1fr;
+  }
+}

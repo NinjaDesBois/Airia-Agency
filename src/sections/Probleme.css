@@ -1,0 +1,156 @@
+/* === Section Problème — Bento Grid — Airia === */
+
+.probleme {
+  padding: var(--espace-32) 0;
+  background: var(--black);
+  position: relative;
+}
+
+/* === En-tête === */
+.probleme__en-tête {
+  text-align: center;
+  margin-bottom: var(--espace-16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espace-5);
+  opacity: 0; /* Animé par GSAP */
+}
+
+.probleme__titre {
+  font-size: var(--texte-6xl);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  max-width: 16ch;
+}
+
+.probleme__sous-titre {
+  font-size: var(--texte-lg);
+  color: var(--gris-400);
+  max-width: 54ch;
+  line-height: 1.65;
+}
+
+/* === Bento Grid asymétrique === */
+.probleme__bento {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
+  grid-template-rows: auto;
+  gap: var(--espace-4);
+}
+
+/* === Cartes === */
+.probleme__carte {
+  padding: var(--espace-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-5);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  opacity: 0; /* Animé par GSAP */
+  transition: box-shadow var(--transition-base);
+}
+
+.probleme__carte--grande {
+  grid-row: span 1;
+}
+
+.probleme__carte:hover {
+  box-shadow: var(--ombre-cyan-sm), var(--ombre-carte);
+  border-color: rgba(0,245,255,0.1);
+}
+
+/* === Icône === */
+.probleme__carte-icône {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,245,255,0.07);
+  border: 1px solid rgba(0,245,255,0.12);
+  border-radius: var(--rayon-xl);
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* === Contenu === */
+.probleme__carte-contenu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-3);
+}
+
+.probleme__carte-titre {
+  font-size: var(--texte-xl);
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.probleme__carte-desc {
+  font-size: var(--texte-sm);
+  color: var(--gris-400);
+  line-height: 1.65;
+}
+
+/* === Statistique === */
+.probleme__carte-stat {
+  display: flex;
+  align-items: baseline;
+  gap: var(--espace-2);
+  margin-top: auto;
+  padding-top: var(--espace-4);
+  border-top: 1px solid var(--verre-bordure);
+}
+
+.probleme__stat-valeur {
+  font-family: var(--police-titre);
+  font-size: var(--texte-2xl);
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: -0.03em;
+}
+
+.probleme__stat-label {
+  font-size: var(--texte-sm);
+  color: var(--gris-400);
+}
+
+/* === Lueur décorative === */
+.probleme__carte-lueur {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(0,245,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-lente);
+}
+
+.probleme__carte:hover .probleme__carte-lueur {
+  opacity: 1;
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .probleme__bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .probleme__bento {
+    grid-template-columns: 1fr;
+  }
+
+  .probleme__titre {
+    font-size: var(--texte-4xl);
+  }
+}

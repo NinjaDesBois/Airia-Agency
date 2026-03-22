@@ -1,0 +1,109 @@
+/* === Section Stats — Airia === */
+
+.stats {
+  padding: var(--espace-24) 0;
+  background: var(--black);
+}
+
+.stats__grille {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--espace-4);
+}
+
+/* === Carte stat === */
+.stat__carte {
+  padding: var(--espace-8) var(--espace-6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espace-3);
+  position: relative;
+  overflow: hidden;
+  opacity: 0; /* Animé par GSAP */
+  cursor: default;
+  transition: box-shadow var(--transition-base);
+}
+
+.stat__carte::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient-cyan);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.stat__carte:hover {
+  box-shadow: var(--ombre-cyan-sm), var(--ombre-carte);
+}
+
+.stat__carte:hover::before {
+  opacity: 1;
+}
+
+/* === Icône === */
+.stat__icône {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,245,255,0.08);
+  border: 1px solid rgba(0,245,255,0.15);
+  border-radius: var(--rayon-lg);
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* === Chiffre === */
+.stat__chiffre {
+  margin-top: var(--espace-2);
+}
+
+.stat__chiffre-valeur {
+  font-family: var(--police-titre);
+  font-size: var(--texte-4xl);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.04em;
+  background: var(--gradient-texte);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === Label === */
+.stat__label {
+  font-family: var(--police-titre);
+  font-size: var(--texte-base);
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* === Description === */
+.stat__description {
+  font-size: var(--texte-sm);
+  color: var(--gris-400);
+  line-height: 1.5;
+}
+
+/* === Responsive === */
+@media (max-width: 1024px) {
+  .stats__grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats__grille {
+    grid-template-columns: 1fr;
+  }
+
+  .stat__chiffre-valeur {
+    font-size: var(--texte-3xl);
+  }
+}

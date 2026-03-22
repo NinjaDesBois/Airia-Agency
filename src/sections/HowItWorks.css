@@ -1,0 +1,198 @@
+/* === Section Comment ça marche — Airia === */
+
+.hiw {
+  padding: var(--espace-32) 0;
+  background: var(--gris-950);
+  position: relative;
+}
+
+/* === En-tête === */
+.hiw__en-tête {
+  text-align: center;
+  margin-bottom: var(--espace-16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espace-5);
+  opacity: 0; /* Animé par GSAP */
+}
+
+.hiw__titre {
+  font-size: var(--texte-6xl);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.hiw__sous-titre {
+  font-size: var(--texte-lg);
+  color: var(--gris-400);
+  max-width: 42ch;
+}
+
+/* === Wrapper étapes === */
+.hiw__étapes-wrapper {
+  position: relative;
+}
+
+/* Ligne de connexion entre les étapes */
+.hiw__ligne-connexion {
+  position: absolute;
+  top: 44px; /* Centre sur les numéros */
+  left: calc(16.66% + 24px);
+  right: calc(16.66% + 24px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--accent2), transparent);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.hiw__étapes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espace-6);
+  position: relative;
+  z-index: 1;
+}
+
+/* === Étape === */
+.hiw__étape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espace-4);
+  opacity: 0; /* Animé par GSAP */
+}
+
+/* === Numéro === */
+.hiw__numéro-wrapper {
+  width: 48px;
+  height: 48px;
+  background: var(--gradient-cyan);
+  border-radius: var(--rayon-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--ombre-cyan-sm);
+  z-index: 1;
+}
+
+.hiw__numéro {
+  font-family: var(--police-titre);
+  font-size: var(--texte-sm);
+  font-weight: 700;
+  color: #0a0a0a;
+  letter-spacing: 0.05em;
+}
+
+/* === Carte === */
+.hiw__carte {
+  width: 100%;
+  padding: var(--espace-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.hiw__carte:hover {
+  box-shadow: var(--ombre-cyan-sm), var(--ombre-carte);
+  border-color: rgba(0,245,255,0.1);
+}
+
+/* === Icône === */
+.hiw__icône {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,245,255,0.07);
+  border: 1px solid rgba(0,245,255,0.12);
+  border-radius: var(--rayon-xl);
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* === Durée === */
+.hiw__durée {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--espace-1) var(--espace-3);
+  background: rgba(0,245,255,0.08);
+  border: 1px solid rgba(0,245,255,0.15);
+  border-radius: var(--rayon-full);
+  font-size: var(--texte-xs);
+  font-family: var(--police-titre);
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+/* === Titre étape === */
+.hiw__étape-titre {
+  font-size: var(--texte-xl);
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+/* === Description === */
+.hiw__étape-desc {
+  font-size: var(--texte-sm);
+  color: var(--gris-400);
+  line-height: 1.65;
+}
+
+/* === Détails === */
+.hiw__détails {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-2);
+  padding-top: var(--espace-4);
+  border-top: 1px solid var(--verre-bordure);
+}
+
+.hiw__détail {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+  font-size: var(--texte-sm);
+  color: var(--gris-300);
+}
+
+.hiw__détail svg {
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .hiw__étapes {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .hiw__étape {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .hiw__numéro-wrapper {
+    flex-shrink: 0;
+    margin-top: var(--espace-2);
+  }
+
+  .hiw__ligne-connexion {
+    display: none;
+  }
+
+  .hiw__titre {
+    font-size: var(--texte-4xl);
+  }
+}

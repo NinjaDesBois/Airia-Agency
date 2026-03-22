@@ -1,0 +1,201 @@
+/* === Section Hero — Airia === */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--black);
+}
+
+
+/* === Canvas Three.js === */
+
+.hero__canvas-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero__canvas-wrapper canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+/* === Fond gradient — assombrit suffisamment pour garder le texte blanc lisible === */
+
+.hero__fond {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(5, 5, 8, 0.55) 0%, transparent 70%), radial-gradient(ellipse 100% 40% at 50% 100%, rgba(0, 0, 0, 0.9) 0%, transparent 60%), radial-gradient(ellipse 100% 35% at 50% 0%, rgba(5, 5, 8, 0.95) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+
+/* === Contenu principal === */
+
+.hero__contenu {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: var(--hauteur-navbar);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espace-8);
+}
+
+
+/* === Badge === */
+
+.hero__badge {
+    opacity: 0;
+    /* Animé par GSAP */
+}
+
+
+/* === Titre — text-shadow pour lisibilité sur la sphère 3D === */
+
+.hero__titre {
+    font-size: var(--texte-hero);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--white);
+    max-width: 14ch;
+    opacity: 0;
+    /* Animé par GSAP */
+    text-shadow: 0 2px 24px rgba(5, 5, 8, 0.9), 0 4px 48px rgba(5, 5, 8, 0.7);
+}
+
+
+/* === Sous-titre === */
+
+.hero__sous-titre {
+    font-size: var(--texte-xl);
+    font-weight: 400;
+    color: var(--gris-100);
+    line-height: 1.6;
+    max-width: 52ch;
+    opacity: 0;
+    /* Animé par GSAP */
+}
+
+.hero__saut-ligne {
+    display: none;
+}
+
+
+/* === Actions CTA === */
+
+.hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-4);
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    /* Animé par GSAP */
+}
+
+.hero__btn-principal {
+    padding: var(--espace-4) var(--espace-8);
+    font-size: var(--texte-base);
+    gap: var(--espace-2);
+    box-shadow: var(--ombre-cyan-sm);
+}
+
+.hero__btn-secondaire {
+    gap: var(--espace-2);
+}
+
+
+/* === Barre de confiance === */
+
+.hero__confiance {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-6);
+    opacity: 0;
+    /* Animé par GSAP */
+}
+
+.hero__confiance-séparateur {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--verre-bordure), transparent);
+    max-width: 80px;
+}
+
+.hero__confiance-texte {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-3);
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: var(--texte-sm);
+    color: var(--gris-400);
+}
+
+.hero__confiance-item {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-1);
+    white-space: nowrap;
+}
+
+.hero__confiance-item svg {
+    color: var(--cyan);
+}
+
+.hero__confiance-point {
+    color: var(--gris-600);
+}
+
+
+/* === Indicateur scroll === */
+
+.hero__scroll-indicator {
+    position: absolute;
+    bottom: var(--espace-8);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--gris-500);
+}
+
+
+/* === Responsive === */
+
+@media (min-width: 1024px) {
+    .hero__saut-ligne {
+        display: inline;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__titre {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+        max-width: 20ch;
+    }
+    .hero__sous-titre {
+        font-size: var(--texte-base);
+    }
+    .hero__actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+    }
+    .hero__btn-principal,
+    .hero__btn-secondaire {
+        width: 100%;
+    }
+    .hero__confiance-séparateur {
+        display: none;
+    }
+}

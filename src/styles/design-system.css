@@ -1,0 +1,104 @@
+/* ============================================================
+   SYSTÈME DE DESIGN — AIRIA
+   Agence IA Belge | Dark Mode + 3D Hyperrealism + Motion
+   ============================================================ */
+
+:root {
+  /* === Couleurs principales === */
+  --cyan: #00F5FF;
+  --black: #050508;
+  --white: #F0F4FF;
+  --accent2: #00C4CC;
+
+  /* === Palette de gris === */
+  --gris-950: #080810;
+  --gris-900: #0D0D18;
+  --gris-800: #141422;
+  --gris-700: #1C1C2E;
+  --gris-600: #26263A;
+  --gris-500: #3A3A52;
+  --gris-400: #5E5E7A;
+  --gris-300: #8A8AA8;
+  --gris-200: #B8B8CC;
+  --gris-100: #E0E0EC;
+
+  /* === Gradients === */
+  --gradient-hero: radial-gradient(ellipse 120% 80% at 60% 40%, rgba(0,245,255,0.06) 0%, transparent 60%), linear-gradient(180deg, #050508 0%, #0D0D18 100%);
+  --gradient-cyan: linear-gradient(135deg, #00F5FF 0%, #00C4CC 100%);
+  --gradient-cyan-glow: radial-gradient(ellipse at center, rgba(0,245,255,0.2) 0%, transparent 70%);
+  --gradient-carte: linear-gradient(135deg, rgba(20,20,34,0.85) 0%, rgba(13,13,24,0.65) 100%);
+  --gradient-section: linear-gradient(180deg, transparent 0%, rgba(0,245,255,0.02) 50%, transparent 100%);
+  --gradient-texte: linear-gradient(135deg, #00F5FF 0%, #ffffff 60%);
+
+  /* === Typographie === */
+  --police-titre: 'Space Grotesk', sans-serif;
+  --police-corps: 'Inter', sans-serif;
+
+  /* === Tailles de police === */
+  --texte-xs: 0.75rem;
+  --texte-sm: 0.875rem;
+  --texte-base: 1rem;
+  --texte-lg: 1.125rem;
+  --texte-xl: 1.25rem;
+  --texte-2xl: 1.5rem;
+  --texte-3xl: 1.875rem;
+  --texte-4xl: 2.25rem;
+  --texte-5xl: 3rem;
+  --texte-6xl: clamp(2.5rem, 5vw, 4rem);
+  --texte-hero: clamp(2.75rem, 6vw, 5rem);
+
+  /* === Espacement === */
+  --espace-1: 0.25rem;
+  --espace-2: 0.5rem;
+  --espace-3: 0.75rem;
+  --espace-4: 1rem;
+  --espace-5: 1.25rem;
+  --espace-6: 1.5rem;
+  --espace-8: 2rem;
+  --espace-10: 2.5rem;
+  --espace-12: 3rem;
+  --espace-16: 4rem;
+  --espace-20: 5rem;
+  --espace-24: 6rem;
+  --espace-32: 8rem;
+
+  /* === Rayons de bordure === */
+  --rayon-sm: 6px;
+  --rayon-md: 10px;
+  --rayon-lg: 16px;
+  --rayon-xl: 20px;
+  --rayon-2xl: 28px;
+  --rayon-full: 9999px;
+
+  /* === Ombres === */
+  --ombre-sm: 0 2px 8px rgba(0,0,0,0.5);
+  --ombre-md: 0 4px 24px rgba(0,0,0,0.4);
+  --ombre-lg: 0 8px 48px rgba(0,0,0,0.6);
+  --ombre-cyan: 0 0 40px rgba(0,245,255,0.25), 0 0 80px rgba(0,245,255,0.1);
+  --ombre-cyan-sm: 0 0 20px rgba(0,245,255,0.2);
+  --ombre-carte: 0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+
+  /* === Glassmorphism === */
+  --verre-fond: rgba(14,14,26,0.7);
+  --verre-bordure: rgba(255,255,255,0.07);
+  --verre-blur: blur(20px);
+
+  /* === Z-index === */
+  --z-base: 1;
+  --z-carte: 10;
+  --z-sticky: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-top: 100;
+
+  /* === Transitions === */
+  --transition-rapide: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-lente: 400ms ease;
+  --transition-ressort: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* === Layout === */
+  --conteneur-max: 1280px;
+  --conteneur-lg: 1024px;
+  --hauteur-navbar: 72px;
+}

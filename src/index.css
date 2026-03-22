@@ -1,0 +1,250 @@
+/* ============================================================
+   RESET & STYLES GLOBAUX — AIRIA
+   ============================================================ */
+
+@import './styles/design-system.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--police-corps);
+  font-size: var(--texte-base);
+  line-height: 1.6;
+  color: var(--gris-200);
+  background-color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* === Typographie globale === */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+p {
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* === Classe utilitaire conteneur === */
+.conteneur {
+  width: 100%;
+  max-width: var(--conteneur-max);
+  margin: 0 auto;
+  padding: 0 var(--espace-6);
+}
+
+@media (max-width: 768px) {
+  .conteneur {
+    padding: 0 var(--espace-4);
+  }
+}
+
+/* === Texte dégradé cyan === */
+.texte-dégradé {
+  background: var(--gradient-texte);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === Badge pill === */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espace-2);
+  padding: var(--espace-1) var(--espace-4);
+  background: rgba(0,245,255,0.08);
+  border: 1px solid rgba(0,245,255,0.2);
+  border-radius: var(--rayon-full);
+  font-size: var(--texte-sm);
+  font-family: var(--police-titre);
+  font-weight: 500;
+  color: var(--cyan);
+  letter-spacing: 0.02em;
+}
+
+.badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: pulse-point 2s ease-in-out infinite;
+}
+
+/* === Carte verre === */
+.carte-verre {
+  background: var(--verre-fond);
+  border: 1px solid var(--verre-bordure);
+  backdrop-filter: var(--verre-blur);
+  -webkit-backdrop-filter: var(--verre-blur);
+  border-radius: var(--rayon-xl);
+  box-shadow: var(--ombre-carte);
+}
+
+/* === Bouton primaire === */
+.btn-primaire {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espace-2);
+  padding: var(--espace-4) var(--espace-8);
+  background: var(--gradient-cyan);
+  color: #0a0a0a;
+  font-family: var(--police-titre);
+  font-weight: 600;
+  font-size: var(--texte-base);
+  border-radius: var(--rayon-full);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn-primaire::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.btn-primaire:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ombre-cyan);
+}
+
+.btn-primaire:hover::before {
+  opacity: 1;
+}
+
+.btn-primaire:active {
+  transform: translateY(0);
+}
+
+/* === Bouton secondaire === */
+.btn-secondaire {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espace-2);
+  padding: var(--espace-4) var(--espace-8);
+  background: transparent;
+  color: var(--white);
+  font-family: var(--police-titre);
+  font-weight: 500;
+  font-size: var(--texte-base);
+  border-radius: var(--rayon-full);
+  border: 1px solid var(--verre-bordure);
+  cursor: pointer;
+  transition: background var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn-secondaire:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+
+/* === Animations globales === */
+@keyframes pulse-point {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes float-lent {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes rotation-lente {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-gauche {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* === Réduction des animations === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* === Focus accessible === */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: var(--rayon-sm);
+}
+
+/* === Scrollbar personnalisée === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gris-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gris-500);
+  border-radius: var(--rayon-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
