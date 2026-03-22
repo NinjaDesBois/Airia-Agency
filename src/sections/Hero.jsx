@@ -1,5 +1,5 @@
 /* Section Hero — Scène 3D + headline + CTAs — Airia */
-import { useRef, useMemo, useEffect } from 'react'
+import { useRef, useMemo, useEffect, useState } from 'react'
 import { Canvas, useFrame, extend } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
 import * as THREE from 'three'
@@ -150,10 +150,51 @@ function LueurAmbiante() {
   )
 }
 
+/* ===== Paires slot machine — titre + sous-titre par secteur ===== */
+const pairesSlot = [
+  { mot: 'agence',     reste: ' tourne toute seule.', sousTitre: 'Vous fermez les deals.' },
+  { mot: 'cabinet',    reste: ' tourne tout seul.',   sousTitre: 'Vous soignez vos patients.' },
+  { mot: 'atelier',    reste: ' tourne tout seul.',   sousTitre: 'Vous intervenez sur le terrain.' },
+  { mot: 'étude',      reste: ' tourne toute seule.', sousTitre: 'Vous défendez vos clients.' },
+  { mot: 'entreprise', reste: ' tourne toute seule.', sousTitre: 'Vous développez votre activité.' },
+  { mot: 'cabinet',    reste: ' tourne tout seul.',   sousTitre: 'Vous conseillez vos clients.' },
+]
+
 /* ===== Composant principal Hero ===== */
 export default function Hero() {
   const refContenu = useRef(null)
   const { t } = useLanguage()
+
+  /* Slot machine — état de la phase et index de la paire courante */
+  const [phaseSlot, setPhaseSlot] = useState('visible')
+  const [indexSlot, setIndexSlot] = useState(0)
+
+  /* Cycle slot machine — toutes les 2,5 s */
+  useEffect(() => {
+    let timeoutId
+    const timer = setInterval(() => {
+      /* Phase 1 : sortie vers le haut */
+      setPhaseSlot('sortie')
+
+      timeoutId = setTimeout(() => {
+        /* Phase 2 : changer le contenu + se positionner en bas (sans transition) */
+        setIndexSlot(prev => (prev + 1) % pairesSlot.length)
+        setPhaseSlot('entree')
+
+        /* Phase 3 : glisser vers la position normale */
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setPhaseSlot('visible')
+          })
+        })
+      }, 420)
+    }, 2500)
+
+    return () => {
+      clearInterval(timer)
+      clearTimeout(timeoutId)
+    }
+  }, [])
 
   // Animation d'entrée GSAP pour le contenu
   useEffect(() => {
@@ -213,18 +254,20 @@ export default function Hero() {
           {t('hero.badge')}
         </div>
 
-        {/* Titre principal */}
+        {/* Titre principal — slot machine sectoriel */}
         <h1 className="hero__titre">
-          {t('hero.title1')}
-          <br />
-          <span className="texte-dégradé">{t('hero.title2')}</span>
-          <br />
-          {t('hero.title3')}
+          <span className="hero__slot-statique">Votre&nbsp;</span>
+          <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
+            <span className="hero__slot-mot">{pairesSlot[indexSlot].mot}</span>
+            {pairesSlot[indexSlot].reste}
+          </span>
         </h1>
 
-        {/* Sous-titre */}
+        {/* Sous-titre — slot machine synchronisé */}
         <p className="hero__sous-titre">
-          {t('hero.subtitle')}
+          <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
+            {pairesSlot[indexSlot].sousTitre}
+          </span>
         </p>
 
         {/* Boutons CTA */}
