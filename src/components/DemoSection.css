@@ -1,0 +1,379 @@
+/* === Section Démo — Airia === */
+
+.demo {
+    padding: var(--espace-24) 0;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Lueur de fond */
+.demo::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(0, 245, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+
+/* === En-tête === */
+
+.demo__contenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espace-10);
+}
+
+.demo__entete {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espace-4);
+}
+
+.demo__titre {
+    font-size: var(--texte-4xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    max-width: 20ch;
+}
+
+.demo__sous-titre {
+    font-size: var(--texte-lg);
+    color: var(--gris-300);
+    max-width: 52ch;
+    line-height: 1.6;
+}
+
+
+/* === Grille secteurs === */
+
+.demo__secteurs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espace-3);
+    justify-content: center;
+    max-width: 700px;
+}
+
+.demo__secteur-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-2);
+    padding: var(--espace-2) var(--espace-4);
+    border-radius: var(--rayon-full);
+    border: 1px solid var(--verre-bordure);
+    background: var(--verre-bg);
+    color: var(--gris-200);
+    font-size: var(--texte-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+
+.demo__secteur-btn:hover {
+    border-color: rgba(0, 245, 255, 0.4);
+    color: var(--white);
+}
+
+.demo__secteur-btn--actif {
+    border-color: var(--cyan);
+    background: rgba(0, 245, 255, 0.08);
+    color: var(--cyan);
+}
+
+
+/* === Bascule Chat / Voix === */
+
+.demo__modes {
+    display: flex;
+    gap: var(--espace-2);
+    padding: var(--espace-1);
+    background: var(--verre-bg);
+    border: 1px solid var(--verre-bordure);
+    border-radius: var(--rayon-full);
+    backdrop-filter: blur(8px);
+}
+
+.demo__mode-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-2);
+    padding: var(--espace-2) var(--espace-5);
+    border-radius: var(--rayon-full);
+    border: none;
+    background: transparent;
+    color: var(--gris-400);
+    font-size: var(--texte-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.demo__mode-btn--actif {
+    background: var(--cyan);
+    color: var(--black);
+}
+
+
+/* === Boîte interface === */
+
+.demo__interface {
+    width: 100%;
+    max-width: 600px;
+    background: var(--verre-bg);
+    border: 1px solid var(--verre-bordure);
+    border-radius: var(--rayon-xl);
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+}
+
+
+/* === Interface Chat === */
+
+.demo__chat {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.demo__chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--espace-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espace-4);
+    scrollbar-width: thin;
+    scrollbar-color: var(--verre-bordure) transparent;
+}
+
+.demo__message {
+    display: flex;
+    gap: var(--espace-3);
+    align-items: flex-start;
+}
+
+.demo__message--user {
+    flex-direction: row-reverse;
+}
+
+.demo__message-avatar {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.demo__message-texte {
+    padding: var(--espace-3) var(--espace-4);
+    border-radius: var(--rayon-lg);
+    font-size: var(--texte-sm);
+    line-height: 1.5;
+    max-width: 75%;
+}
+
+.demo__message--assistant .demo__message-texte {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--verre-bordure);
+    color: var(--gris-100);
+}
+
+.demo__message--user .demo__message-texte {
+    background: rgba(0, 245, 255, 0.1);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    color: var(--white);
+}
+
+/* Indicateur de frappe */
+.demo__typing {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: var(--espace-3) var(--espace-4);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--verre-bordure);
+    border-radius: var(--rayon-lg);
+}
+
+.demo__typing span {
+    width: 6px;
+    height: 6px;
+    background: var(--gris-500);
+    border-radius: 50%;
+    animation: typingPulse 1.2s infinite ease-in-out;
+}
+
+.demo__typing span:nth-child(2) { animation-delay: 0.2s; }
+.demo__typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingPulse {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Formulaire de saisie */
+.demo__chat-form {
+    display: flex;
+    gap: var(--espace-2);
+    padding: var(--espace-4);
+    border-top: 1px solid var(--verre-bordure);
+}
+
+.demo__chat-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--verre-bordure);
+    border-radius: var(--rayon-full);
+    padding: var(--espace-2) var(--espace-4);
+    color: var(--white);
+    font-size: var(--texte-sm);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.demo__chat-input:focus {
+    border-color: rgba(0, 245, 255, 0.4);
+}
+
+.demo__chat-input::placeholder {
+    color: var(--gris-600);
+}
+
+.demo__chat-envoyer {
+    padding: var(--espace-2) var(--espace-4);
+    border-radius: var(--rayon-full);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.demo__chat-envoyer:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+/* === Interface Voix === */
+
+.demo__voix {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--espace-6);
+    padding: var(--espace-12) var(--espace-8);
+    min-height: 400px;
+}
+
+.demo__voix-cercle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid var(--verre-bordure);
+    background: var(--verre-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gris-400);
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.demo__voix-cercle--actif {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.demo__voix-pulse {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.demo__voix-cercle--actif .demo__voix-pulse {
+    border-color: rgba(0, 245, 255, 0.3);
+    animation: voixPulse 1.5s infinite ease-out;
+}
+
+@keyframes voixPulse {
+    0%   { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+
+.demo__voix-statut {
+    font-size: var(--texte-base);
+    color: var(--gris-300);
+    text-align: center;
+}
+
+.demo__voix-btn {
+    padding: var(--espace-3) var(--espace-8);
+    border-radius: var(--rayon-full);
+    font-size: var(--texte-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.demo__voix-btn--actif {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+}
+
+.demo__voix-note {
+    font-size: var(--texte-xs);
+    color: var(--gris-600);
+    text-align: center;
+}
+
+.demo__voix-note code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: var(--rayon-sm);
+    font-size: 0.8em;
+}
+
+
+/* === Responsive === */
+
+@media (max-width: 768px) {
+    .demo__titre {
+        font-size: var(--texte-3xl);
+    }
+
+    .demo__secteurs {
+        gap: var(--espace-2);
+    }
+
+    .demo__secteur-btn {
+        font-size: var(--texte-xs);
+        padding: var(--espace-2) var(--espace-3);
+    }
+
+    .demo__interface {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .demo__titre {
+        font-size: var(--texte-2xl);
+    }
+
+    .demo__sous-titre {
+        font-size: var(--texte-base);
+    }
+}
