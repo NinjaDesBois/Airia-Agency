@@ -1,20 +1,8 @@
-/* Widget Chat IA flottant — propulsé par Claude — Airia */
+/* Widget Chat IA flottant — proxy via /api/chat — Airia */
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Anthropic from '@anthropic-ai/sdk'
 import { useLanguage } from '../context/LanguageContext'
 import './ChatWidget.css'
-
-const SYSTEM_PROMPT = `Tu es l'assistant IA d'Airia, une agence spécialisée dans les réceptionnistes IA vocales pour agences immobilières belges. Prix : 500-1000€/mois. Réponds en FR/NL/EN selon la langue du visiteur. Objectif : qualifier le lead et l'inviter à réserver un appel via Calendly.
-
-Services proposés :
-- Voice IA : réceptionniste vocale 24/7 qui répond, qualifie et planifie des RDV
-- Lead Generation : prospection email et SMS automatisée
-- Pub Meta IA : campagnes Facebook/Instagram gérées par IA
-- Dashboard temps réel avec KPIs
-- Déploiement en 48h, sans frais de setup
-
-Sois concis, professionnel et orienté conversion. Si le visiteur est intéressé, propose-lui de réserver un appel stratégique gratuit sur Calendly.`
 
 export default function ChatWidget() {
   const { t } = useLanguage()
@@ -25,19 +13,7 @@ export default function ChatWidget() {
   const [erreur, setErreur] = useState(null)
   const refMessages = useRef(null)
   const refInput = useRef(null)
-  const clientRef = useRef(null)
   const abortRef = useRef(null)
-
-  /* Initialisation du client Anthropic */
-  useEffect(() => {
-    const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY
-    if (apiKey) {
-      clientRef.current = new Anthropic({
-        apiKey,
-        dangerouslyAllowBrowser: true,
-      })
-    }
-  }, [])
 
   /* Message de bienvenue à l'ouverture */
   useEffect(() => {
@@ -70,10 +46,6 @@ export default function ChatWidget() {
   const envoyerMessage = useCallback(async () => {
     const texte = inputValue.trim()
     if (!texte || enChargement) return
-    if (!clientRef.current) {
-      setErreur(t('chat.error'))
-      return
-    }
 
     setErreur(null)
     const idUtilisateur = Date.now()
@@ -86,7 +58,7 @@ export default function ChatWidget() {
 
     setMessages([
       ...nouveauxMessages,
-      { rôle: 'assistant', contenu: '', id: idAssistant, enStreaming: true },
+      { rôle: 'assistant', contenu: '', id: idAssistant, enChargement: true },
     ])
     setInputValue('')
     setEnChargement(true)
@@ -100,37 +72,26 @@ export default function ChatWidget() {
     abortRef.current = controller
 
     try {
-      const stream = clientRef.current.messages.stream({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 500,
-        system: SYSTEM_PROMPT,
-        messages: historiqueAnthropic,
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: historiqueAnthropic }),
+        signal: controller.signal,
       })
 
-      let accumulé = ''
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
 
-      for await (const chunk of stream) {
-        if (controller.signal.aborted) break
-        if (chunk.type === 'content_block_delta' && chunk.delta?.type === 'text_delta') {
-          accumulé += chunk.delta.text
-          setMessages(prev =>
-            prev.map(m =>
-              m.id === idAssistant
-                ? { ...m, contenu: accumulé, enStreaming: true }
-                : m
-            )
-          )
-        }
-      }
+      const data = await res.json()
 
-      /* Marque le message comme terminé */
       setMessages(prev =>
         prev.map(m =>
-          m.id === idAssistant ? { ...m, enStreaming: false } : m
+          m.id === idAssistant
+            ? { ...m, contenu: data.content, enChargement: false }
+            : m
         )
       )
     } catch (err) {
-      if (!controller.signal.aborted) {
+      if (err.name !== 'AbortError') {
         setErreur(t('chat.error'))
         setMessages(prev => prev.filter(m => m.id !== idAssistant))
       }
@@ -203,29 +164,16 @@ export default function ChatWidget() {
                     <div className="chat__icône-message" aria-hidden="true">A</div>
                   )}
                   <div className="chat__bulle">
-                    {msg.contenu || (msg.enStreaming && (
+                    {msg.enChargement ? (
                       <span className="chat__typing" aria-label={t('chat.thinking')}>
                         <span /><span /><span />
                       </span>
-                    ))}
-                    {msg.enStreaming && msg.contenu && (
-                      <span className="chat__curseur" aria-hidden="true" />
+                    ) : (
+                      msg.contenu
                     )}
                   </div>
                 </div>
               ))}
-
-              {/* Indicateur de chargement initial */}
-              {enChargement && messages[messages.length - 1]?.rôle === 'user' && (
-                <div className="chat__message chat__message--assistant">
-                  <div className="chat__icône-message" aria-hidden="true">A</div>
-                  <div className="chat__bulle">
-                    <span className="chat__typing" aria-label={t('chat.thinking')}>
-                      <span /><span /><span />
-                    </span>
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Message d'erreur */}
