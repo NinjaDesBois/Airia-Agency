@@ -1,574 +1,466 @@
-/* === Modal Démo — Airia === */
+/* === Modal Démo — Airia (rebuild) === */
 
-/* ─── 1. OVERLAY ────────────────────────────────────────────────────────────
-   position fixed strict : ne laisse rien déborder ni scroller la page */
+/* ─── OVERLAY ─────────────────────────────────────────────────────────────── */
 .demo__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1000;
-    overflow: hidden;
-    background: rgba(5, 5, 8, 0.90);
-    backdrop-filter: blur(6px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--espace-4);
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
 }
 
-/* ─── 2. CARTE ───────────────────────────────────────────────────────────────
-   height: 85vh + min-height: 600px garantit un espace suffisant sur tous les
-   écrans desktop (y compris laptops 900px de hauteur). */
-.demo__modal-carte {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    height: 85vh;
-    max-height: 85vh;
-    min-height: 600px;
-    background: #0d0d12;
-    border: 1px solid var(--verre-bordure);
-    border-radius: var(--rayon-2xl, 20px);
-    box-shadow:
-        0 0 0 1px rgba(0, 245, 255, 0.06),
-        0 32px 80px rgba(0, 0, 0, 0.7),
-        0 0 80px rgba(0, 245, 255, 0.04);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+/* ─── CARD ────────────────────────────────────────────────────────────────── */
+.demo__card {
+  width: min(720px, 95vw);
+  height: min(700px, 90vh);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #0f0f0f;
+  border: 1px solid rgba(0, 245, 255, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(0, 245, 255, 0.05),
+    0 32px 80px rgba(0, 0, 0, 0.8),
+    0 0 60px rgba(0, 245, 255, 0.04);
 }
 
-/* Bouton fermer */
-.demo__modal-fermer {
-    position: absolute;
-    top: var(--espace-4);
-    right: var(--espace-4);
-    z-index: 10;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid var(--verre-bordure);
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--gris-400);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+/* ─── HEADER ──────────────────────────────────────────────────────────────── */
+.demo__header {
+  flex-shrink: 0;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.demo__modal-fermer:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    border-color: rgba(255, 255, 255, 0.2);
+.demo__header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
 }
 
-/* ─── 3. CONTENEUR PRINCIPAL ─────────────────────────────────────────────────
-   Flex column, remplit toute la carte.
-   PAS de overflow-y ici — seul .demo__chat-messages scrolle. */
-.demo__modal-contenu {
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    padding: var(--espace-8) var(--espace-8) 0;
-}
-
-/* ─── 4. HEADER (titre + secteurs + modes) — hauteur fixe, ne shrink pas ─── */
-.demo__modal-header {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--espace-3);
-    padding-bottom: var(--espace-3);
-}
-
-/* ─── 5. INTERFACE (chat/voix) — prend tout l'espace restant ────────────── */
-.demo__interface {
-    flex: 1;
-    min-height: 0;
-    width: 100%;
-    max-width: 600px;
-    align-self: center;
-    background: var(--verre-bg);
-    border: 1px solid var(--verre-bordure);
-    border-radius: var(--rayon-xl);
-    backdrop-filter: blur(16px);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-/* ─── 6. CTA — hauteur fixe en bas ──────────────────────────────────────── */
-.demo__apres-cta {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: var(--espace-5);
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: var(--espace-5) var(--espace-8);
-    border-top: 1px solid rgba(0, 245, 255, 0.1);
-    background: rgba(0, 245, 255, 0.03);
-    width: 100%;
-}
-
-
-/* === En-tête (dans le header) === */
-
-/* (conservé pour rétrocompatibilité — non utilisé en modal) */
-.demo__contenu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--espace-10);
-}
-
-.demo__entete {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--espace-4);
+.demo__header-titre {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .demo__titre {
-    font-size: var(--texte-4xl);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--white);
-    max-width: 20ch;
+  font-family: var(--police-titre);
+  font-size: var(--texte-xl);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  letter-spacing: -0.01em;
 }
 
-.demo__sous-titre {
-    font-size: var(--texte-lg);
-    color: var(--gris-300);
-    max-width: 52ch;
-    line-height: 1.6;
+.demo__fermer {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--gris-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  font-family: inherit;
 }
 
-
-/* === Grille secteurs === */
-
-.demo__secteurs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--espace-3);
-    justify-content: center;
-    max-width: 700px;
+.demo__fermer:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.demo__secteur-btn {
-    display: flex;
-    align-items: center;
-    gap: var(--espace-2);
-    padding: var(--espace-2) var(--espace-4);
-    border-radius: var(--rayon-full);
-    border: 1px solid var(--verre-bordure);
-    background: var(--verre-bg);
-    color: var(--gris-200);
-    font-size: var(--texte-sm);
-    font-weight: 500;
-    cursor: pointer;
-    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
-    backdrop-filter: blur(8px);
+/* Controls row : dropdown + toggle */
+.demo__header-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.demo__secteur-btn:hover {
-    border-color: rgba(0, 245, 255, 0.4);
-    color: var(--white);
+/* Dropdown secteur */
+.demo__select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.demo__secteur-btn--actif {
-    border-color: var(--cyan);
-    background: rgba(0, 245, 255, 0.08);
-    color: var(--cyan);
+.demo__select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 7px 32px 7px 12px;
+  color: var(--white);
+  font-family: var(--police-corps);
+  font-size: var(--texte-sm);
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
-
-/* === Bascule Chat / Voix === */
-
-.demo__modes {
-    display: flex;
-    gap: var(--espace-2);
-    padding: var(--espace-1);
-    background: var(--verre-bg);
-    border: 1px solid var(--verre-bordure);
-    border-radius: var(--rayon-full);
-    backdrop-filter: blur(8px);
+.demo__select:focus {
+  border-color: rgba(0, 245, 255, 0.4);
 }
 
-.demo__mode-btn {
-    display: flex;
-    align-items: center;
-    gap: var(--espace-2);
-    padding: var(--espace-2) var(--espace-5);
-    border-radius: var(--rayon-full);
-    border: none;
-    background: transparent;
-    color: var(--gris-400);
-    font-size: var(--texte-sm);
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
+.demo__select option {
+  background: #1a1a1a;
+  color: var(--white);
 }
 
-.demo__mode-btn--actif {
-    background: var(--cyan);
-    color: var(--black);
+.demo__select-chevron {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  color: var(--gris-400);
 }
 
-
-/* === Boîte interface === */
-
-.demo__interface {
-    width: 100%;
-    max-width: 600px;
-    background: var(--verre-bg);
-    border: 1px solid var(--verre-bordure);
-    border-radius: var(--rayon-xl);
-    backdrop-filter: blur(16px);
-    overflow: hidden;
+/* Toggle Chat / Voix */
+.demo__toggle {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
-
-/* === Interface Chat === */
-
-/* .demo__chat : flex: 1 dans .demo__interface pour prendre tout l'espace */
-.demo__chat {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 350px; /* desktop — garantit que le chat est toujours visible */
+.demo__toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: var(--gris-400);
+  font-family: var(--police-corps);
+  font-size: var(--texte-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
-.demo__chat-messages {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-    padding: var(--espace-5) var(--espace-5) var(--espace-6); /* padding-bottom généreux pour que le dernier message ne soit pas coupé */
-    display: flex;
-    flex-direction: column;
-    gap: var(--espace-4);
-    scrollbar-width: thin;
-    scrollbar-color: var(--verre-bordure) transparent;
+.demo__toggle-btn--actif {
+  background: rgba(0, 245, 255, 0.15);
+  color: var(--cyan);
 }
 
-/* === Animation message iMessage style === */
+/* ─── CHAT AREA (flex:1, overflow scroll) ─────────────────────────────────── */
+.demo__chat-area {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 245, 255, 0.15) transparent;
+}
 
+.demo__chat-area::-webkit-scrollbar {
+  width: 4px;
+}
+
+.demo__chat-area::-webkit-scrollbar-thumb {
+  background: rgba(0, 245, 255, 0.15);
+  border-radius: 2px;
+}
+
+/* Messages list — grows to push form to bottom */
+.demo__messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+/* ─── Animation message iMessage style ─── */
 @keyframes messageAppear {
-    0%   { opacity: 0; transform: translateY(10px) scale(0.95); }
-    70%  { transform: translateY(-2px) scale(1.01); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
+  0%   { opacity: 0; transform: translateY(8px) scale(0.96); }
+  70%  { transform: translateY(-1px) scale(1.005); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.demo__message {
-    display: flex;
-    gap: var(--espace-3);
-    align-items: flex-start;
-    animation: messageAppear 0.3s ease-out both;
-    animation-delay: var(--msg-delay, 0ms);
+.demo__msg {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  animation: messageAppear 0.28s ease-out both;
 }
 
-.demo__message--user {
-    flex-direction: row-reverse;
+.demo__msg--user {
+  flex-direction: row-reverse;
 }
 
-.demo__message-avatar {
-    font-size: 1.25rem;
-    flex-shrink: 0;
-    margin-top: 2px;
+.demo__msg-avatar {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-bottom: 2px;
 }
 
-.demo__message-texte {
-    padding: var(--espace-3) var(--espace-4);
-    border-radius: var(--rayon-lg);
-    font-size: var(--texte-sm);
-    line-height: 1.5;
-    max-width: 75%;
+.demo__msg-bulle {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: var(--texte-sm);
+  line-height: 1.55;
+  margin: 0;
+  word-break: break-word;
 }
 
-.demo__message--assistant .demo__message-texte {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--verre-bordure);
-    color: var(--gris-100);
+.demo__msg--assistant .demo__msg-bulle {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--gris-100);
+  border-radius: 4px 14px 14px 14px;
 }
 
-.demo__message--user .demo__message-texte {
-    background: rgba(0, 245, 255, 0.1);
-    border: 1px solid rgba(0, 245, 255, 0.2);
-    color: var(--white);
+.demo__msg--user .demo__msg-bulle {
+  background: rgba(0, 245, 255, 0.12);
+  border: 1px solid rgba(0, 245, 255, 0.22);
+  color: var(--white);
+  border-radius: 14px 4px 14px 14px;
 }
 
-/* Indicateur de frappe */
+/* Typing indicator */
 .demo__typing {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    padding: var(--espace-3) var(--espace-4);
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--verre-bordure);
-    border-radius: var(--rayon-lg);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px 14px 14px 14px;
 }
 
 .demo__typing span {
-    width: 6px;
-    height: 6px;
-    background: var(--gris-500);
-    border-radius: 50%;
-    animation: typingPulse 1.2s infinite ease-in-out;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gris-500);
+  animation: typingBounce 1.2s ease-in-out infinite;
 }
 
 .demo__typing span:nth-child(2) { animation-delay: 0.2s; }
 .demo__typing span:nth-child(3) { animation-delay: 0.4s; }
 
-@keyframes typingPulse {
-    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-    30% { transform: translateY(-4px); opacity: 1; }
+@keyframes typingBounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-4px); opacity: 1; }
 }
 
-/* Formulaire de saisie */
-.demo__chat-form {
-    display: flex;
-    gap: var(--espace-2);
-    padding: var(--espace-4);
-    border-top: 1px solid var(--verre-bordure);
-}
-
-.demo__chat-input {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--verre-bordure);
-    border-radius: var(--rayon-full);
-    padding: var(--espace-2) var(--espace-4);
-    color: var(--white);
-    font-size: var(--texte-sm);
-    outline: none;
-    transition: border-color 0.2s ease;
-}
-
-.demo__chat-input:focus {
-    border-color: rgba(0, 245, 255, 0.4);
-}
-
-.demo__chat-input::placeholder {
-    color: var(--gris-600);
-}
-
-.demo__chat-envoyer {
-    padding: var(--espace-2) var(--espace-4);
-    border-radius: var(--rayon-full);
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.demo__chat-envoyer:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
-
-
-/* === Erreur chat === */
-
+/* Erreur */
 .demo__erreur {
-    margin: var(--espace-3) var(--espace-6);
-    padding: var(--espace-3) var(--espace-4);
-    background: rgba(239, 68, 68, 0.08);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    border-radius: var(--rayon-lg);
-    color: #f87171;
-    font-size: var(--texte-sm);
-    text-align: center;
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  color: #f87171;
+  font-size: var(--texte-sm);
 }
 
+/* Input form — collé en bas de la zone scroll */
+.demo__input-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  margin-top: auto;
+  flex-shrink: 0;
+}
 
-/* === Interface Voix === */
+.demo__input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 9px 14px;
+  color: var(--white);
+  font-family: var(--police-corps);
+  font-size: var(--texte-sm);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
 
-.demo__voix {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--espace-6);
-    padding: var(--espace-12) var(--espace-8);
-    min-height: 400px;
+.demo__input::placeholder {
+  color: var(--gris-600);
+}
+
+.demo__input:focus {
+  border-color: rgba(0, 245, 255, 0.4);
+}
+
+.demo__input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.demo__input-envoyer {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--cyan), var(--accent2));
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  font-family: inherit;
+}
+
+.demo__input-envoyer:hover:not(:disabled) {
+  transform: scale(1.06);
+}
+
+.demo__input-envoyer:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── VOIX AREA ───────────────────────────────────────────────────────────── */
+.demo__voix-area {
+  flex: 1;
+  min-height: 0;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 32px;
+  overflow-y: auto;
 }
 
 .demo__voix-cercle {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 2px solid var(--verre-bordure);
-    background: var(--verre-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gris-400);
-    transition: border-color 0.3s ease, color 0.3s ease;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gris-400);
 }
 
-.demo__voix-cercle--actif {
-    border-color: var(--cyan);
-    color: var(--cyan);
+.demo__voix-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(0, 245, 255, 0.06);
+  border: 1px solid rgba(0, 245, 255, 0.25);
+  border-radius: 99px;
+  color: var(--cyan);
+  font-size: var(--texte-sm);
+  font-weight: 600;
 }
 
-.demo__voix-pulse {
-    position: absolute;
-    inset: -8px;
-    border-radius: 50%;
-    border: 1px solid transparent;
-    transition: border-color 0.3s ease;
-}
-
-.demo__voix-cercle--actif .demo__voix-pulse {
-    border-color: rgba(0, 245, 255, 0.3);
-    animation: voixPulse 1.5s infinite ease-out;
-}
-
-@keyframes voixPulse {
-    0%   { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.4); opacity: 0; }
-}
-
-.demo__voix-statut {
-    font-size: var(--texte-base);
-    color: var(--gris-300);
-    text-align: center;
+.demo__voix-label {
+  font-size: var(--texte-base);
+  color: var(--gris-300);
+  text-align: center;
+  max-width: 32ch;
+  margin: 0;
 }
 
 .demo__voix-btn {
-    padding: var(--espace-3) var(--espace-8);
-    border-radius: var(--rayon-full);
-    font-size: var(--texte-base);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
+  padding: 10px 28px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--gris-400);
+  font-family: var(--police-corps);
+  font-size: var(--texte-base);
+  font-weight: 600;
+  cursor: not-allowed;
+  opacity: 0.4;
 }
 
-.demo__voix-btn--actif {
-    background: rgba(239, 68, 68, 0.15);
-    border: 1px solid rgba(239, 68, 68, 0.4);
-    color: #f87171;
+/* ─── FOOTER ──────────────────────────────────────────────────────────────── */
+.demo__footer {
+  flex-shrink: 0;
+  padding: 14px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(0, 245, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.demo__voix-note {
-    font-size: var(--texte-xs);
-    color: var(--gris-600);
-    text-align: center;
+.demo__footer-texte {
+  font-size: var(--texte-sm);
+  color: var(--gris-300);
+  margin: 0;
 }
 
-.demo__voix-note code {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2px 6px;
-    border-radius: var(--rayon-sm);
-    font-size: 0.8em;
+.demo__footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: var(--texte-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-/* Badge "Bientôt disponible" */
-.demo__voix-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--espace-2);
-    padding: var(--espace-2) var(--espace-4);
-    background: rgba(0, 245, 255, 0.06);
-    border: 1px solid rgba(0, 245, 255, 0.25);
-    border-radius: var(--rayon-full);
-    color: var(--cyan);
-    font-size: var(--texte-sm);
-    font-weight: 600;
-    letter-spacing: 0.02em;
-}
-
-/* Bouton voix désactivé */
-.demo__voix-btn:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-    background: var(--verre-bg);
-    border: 1px solid var(--verre-bordure);
-    color: var(--gris-400);
-    padding: var(--espace-3) var(--espace-8);
-    border-radius: var(--rayon-full);
-    font-size: var(--texte-base);
-    font-weight: 600;
-}
-
-
-.demo__apres-texte {
-    font-size: var(--texte-base);
-    font-weight: 500;
-    color: var(--gris-100);
-    text-align: center;
-}
-
-.demo__apres-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--espace-2);
-    text-decoration: none;
-    flex-shrink: 0;
-}
-
-
-/* === Responsive === */
-
-/* Tablette (≤ 768px) : bottom-sheet plein écran */
+/* ─── MOBILE < 768px — plein écran ───────────────────────────────────────── */
 @media (max-width: 768px) {
-    .demo__overlay {
-        padding: 0;
-        align-items: flex-end;
-    }
+  .demo__overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
 
-    .demo__modal-carte {
-        max-width: 100%;
-        height: 95dvh;
-        max-height: 95dvh;
-        min-height: unset;
-        border-radius: var(--rayon-xl) var(--rayon-xl) 0 0;
-    }
+  .demo__card {
+    width: 100vw;
+    height: 95dvh;
+    border-radius: 16px 16px 0 0;
+  }
 
-    .demo__modal-contenu {
-        padding: var(--espace-5) var(--espace-4) 0;
-    }
+  .demo__header {
+    padding: 16px 16px 12px;
+  }
 
-    .demo__modal-header {
-        gap: var(--espace-3);
-        padding-bottom: var(--espace-3);
-    }
+  .demo__header-controls {
+    gap: 8px;
+  }
 
-    .demo__chat {
-        min-height: 300px;
-    }
+  .demo__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 
-    .demo__titre {
-        font-size: var(--texte-2xl);
-    }
-
-    .demo__sous-titre {
-        font-size: var(--texte-sm);
-    }
-
-    .demo__secteurs {
-        gap: var(--espace-2);
-    }
-
-    .demo__secteur-btn {
-        font-size: var(--texte-xs);
-        padding: var(--espace-2) var(--espace-3);
-    }
+  .demo__footer-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
-/* Mobile (≤ 480px) : plein écran total, coins carrés */
 @media (max-width: 480px) {
-    .demo__modal-carte {
-        height: 100dvh;
-        max-height: 100dvh;
-        border-radius: 0;
-    }
+  .demo__card {
+    height: 100dvh;
+    border-radius: 0;
+  }
 }
