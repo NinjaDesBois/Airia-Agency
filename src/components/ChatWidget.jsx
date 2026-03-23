@@ -1,7 +1,9 @@
-/* Widget Chat IA flottant — proxy via /api/chat — Airia */
+/* Widget Chat IA flottant — proxy via /api/chat — Airia
+   Inclut : bouton démo flottant + tooltip animé */
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
+import { ouvrirModalDemo } from './DemoSection'
 import './ChatWidget.css'
 
 export default function ChatWidget() {
@@ -10,10 +12,33 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState([])
   const [inputValue, setInputValue] = useState('')
   const [enChargement, setEnChargement] = useState(false)
-  const [erreur, setErreur] = useState(null)
+  const [erreur, setErreur] = useState(false)
+  const [tooltipVisible, setTooltipVisible] = useState(false)
   const refMessages = useRef(null)
   const refInput = useRef(null)
   const abortRef = useRef(null)
+  const timerTooltip = useRef(null)
+  const timerRepeat = useRef(null)
+
+  /* === Logique tooltip ===
+     Apparaît 3s après le chargement.
+     Disparaît au clic sur le chat.
+     Réapparaît 30s après fermeture si le chat n'a pas été ouvert. */
+  useEffect(() => {
+    timerTooltip.current = setTimeout(() => setTooltipVisible(true), 3000)
+    return () => {
+      clearTimeout(timerTooltip.current)
+      clearTimeout(timerRepeat.current)
+    }
+  }, [])
+
+  const cacherTooltip = useCallback(() => {
+    setTooltipVisible(false)
+    clearTimeout(timerRepeat.current)
+    timerRepeat.current = setTimeout(() => {
+      if (!ouvert) setTooltipVisible(true)
+    }, 30_000)
+  }, [ouvert])
 
   /* Message de bienvenue à l'ouverture */
   useEffect(() => {
@@ -43,6 +68,11 @@ export default function ChatWidget() {
     }
   }, [ouvert])
 
+  const ouvrirChat = useCallback(() => {
+    cacherTooltip()
+    setOuvert(prev => !prev)
+  }, [cacherTooltip])
+
   const envoyerMessage = useCallback(async () => {
     const texte = inputValue.trim()
     if (!texte || enChargement) return
@@ -63,7 +93,6 @@ export default function ChatWidget() {
     setInputValue('')
     setEnChargement(true)
 
-    /* Historique au format Anthropic */
     const historiqueAnthropic = nouveauxMessages
       .filter(m => m.rôle === 'user' || m.rôle === 'assistant')
       .map(m => ({ role: m.rôle, content: m.contenu }))
@@ -220,49 +249,84 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* Bouton flottant */}
+      {/* Bouton démo flottant — juste au-dessus du chat */}
       <motion.button
-        className={`chat__bouton-flottant ${ouvert ? 'chat__bouton-flottant--ouvert' : ''}`}
-        onClick={() => setOuvert(!ouvert)}
-        aria-label={ouvert ? t('chat.close') : t('chat.open')}
-        aria-expanded={ouvert}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
+        className="demo__btn-flottant"
+        onClick={ouvrirModalDemo}
+        aria-label="Voir la démo interactive"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        whileHover={{ scale: 1.04 }}
+        whileTap={{ scale: 0.97 }}
       >
-        <AnimatePresence mode="wait">
-          {ouvert ? (
-            <motion.span
-              key="fermer"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+        Voir la démo 🎬
+      </motion.button>
+
+      {/* Bouton flottant chat + tooltip */}
+      <div className="chat__zone-flottante">
+        {/* Tooltip */}
+        <AnimatePresence>
+          {tooltipVisible && !ouvert && (
+            <motion.div
+              className="chat__tooltip"
+              role="tooltip"
+              initial={{ opacity: 0, x: 10, scale: 0.92 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 10, scale: 0.92 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-            </motion.span>
-          ) : (
-            <motion.span
-              key="chat"
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-              </svg>
-            </motion.span>
+              Une question ? Parlez à notre IA 💬
+              {/* Flèche pointant vers le chat */}
+              <span className="chat__tooltip-flèche" aria-hidden="true" />
+            </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Indicateur en ligne */}
-        {!ouvert && (
-          <span className="chat__badge-en-ligne" aria-hidden="true" />
-        )}
-      </motion.button>
+        {/* Bouton flottant */}
+        <motion.button
+          className={`chat__bouton-flottant ${ouvert ? 'chat__bouton-flottant--ouvert' : ''}`}
+          onClick={ouvrirChat}
+          aria-label={ouvert ? t('chat.close') : t('chat.open')}
+          aria-expanded={ouvert}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <AnimatePresence mode="wait">
+            {ouvert ? (
+              <motion.span
+                key="fermer"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18"/>
+                  <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </motion.span>
+            ) : (
+              <motion.span
+                key="chat"
+                initial={{ rotate: 90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+              </motion.span>
+            )}
+          </AnimatePresence>
+
+          {/* Indicateur en ligne */}
+          {!ouvert && (
+            <span className="chat__badge-en-ligne" aria-hidden="true" />
+          )}
+        </motion.button>
+      </div>
     </>
   )
 }

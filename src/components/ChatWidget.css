@@ -1,10 +1,84 @@
 /* ===== ChatWidget — Bouton flottant + panneau ===== */
 
-/* --- Bouton flottant --- */
-.chat__bouton-flottant {
+/* --- Zone flottante (chat + tooltip groupés) --- */
+.chat__zone-flottante {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* --- Tooltip --- */
+.chat__tooltip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  background: rgba(5, 5, 8, 0.96);
+  border: 1px solid rgba(0, 245, 255, 0.35);
+  border-radius: 10px;
+  padding: 0.5rem 0.875rem;
+  font-size: var(--texte-sm);
+  font-weight: 500;
+  color: var(--cyan);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 245, 255, 0.08);
+  pointer-events: none;
+}
+
+/* Flèche pointant vers le chat (droite) */
+.chat__tooltip-flèche {
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: rgba(5, 5, 8, 0.96);
+  border-top: 1px solid rgba(0, 245, 255, 0.35);
+  border-right: 1px solid rgba(0, 245, 255, 0.35);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* --- Bouton démo flottant — au-dessus du chat --- */
+.demo__btn-flottant {
+  position: fixed;
+  bottom: calc(2rem + 56px + 12px); /* 56px = hauteur bouton chat, 12px gap */
+  right: 2rem;
+  z-index: 90;
+  padding: 0.55rem 1rem;
+  border-radius: var(--rayon-full);
+  background: rgba(5, 5, 8, 0.92);
+  border: 1px solid rgba(0, 229, 204, 0.55);
+  color: #00e5cc;
+  font-size: var(--texte-sm);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 0 0 1px rgba(0, 229, 204, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.35),
+    0 0 16px rgba(0, 229, 204, 0.12);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  font-family: inherit;
+}
+
+.demo__btn-flottant:hover {
+  border-color: rgba(0, 229, 204, 0.9);
+  color: #00f5ff;
+  box-shadow:
+    0 0 0 1px rgba(0, 229, 204, 0.2),
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(0, 229, 204, 0.22);
+}
+
+/* --- Bouton flottant --- */
+.chat__bouton-flottant {
+  position: relative; /* dans .chat__zone-flottante */
   z-index: 90;
   width: 56px;
   height: 56px;
@@ -351,8 +425,34 @@
     border-radius: var(--rayon-xl) var(--rayon-xl) 0 0;
   }
 
-  .chat__bouton-flottant {
+  .chat__zone-flottante {
     bottom: 1.25rem;
     right: 1.25rem;
+  }
+
+  .demo__btn-flottant {
+    bottom: calc(1.25rem + 56px + 10px);
+    right: 1.25rem;
+    font-size: var(--texte-xs);
+    padding: 0.45rem 0.875rem;
+  }
+
+  /* Tooltip : au-dessus du bouton sur mobile */
+  .chat__tooltip {
+    right: auto;
+    left: 0;
+    top: auto;
+    bottom: calc(100% + 10px);
+    transform: none;
+    white-space: normal;
+    max-width: 200px;
+  }
+
+  .chat__tooltip-flèche {
+    right: auto;
+    left: 16px;
+    top: auto;
+    bottom: -7px;
+    transform: rotate(135deg);
   }
 }
