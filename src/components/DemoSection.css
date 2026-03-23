@@ -19,15 +19,15 @@
 }
 
 /* ─── 2. CARTE ───────────────────────────────────────────────────────────────
-   height: 90vh donne une hauteur DÉFINIE à la carte.
-   Sans hauteur définie, les enfants flex: 1 n'ont aucune référence et
-   collapsent à zéro — c'est la cause racine du bug desktop. */
+   height: 85vh + min-height: 600px garantit un espace suffisant sur tous les
+   écrans desktop (y compris laptops 900px de hauteur). */
 .demo__modal-carte {
     position: relative;
     width: 100%;
     max-width: 800px;
-    height: 90vh;
-    max-height: 90vh;
+    height: 85vh;
+    max-height: 85vh;
+    min-height: 600px;
     background: #0d0d12;
     border: 1px solid var(--verre-bordure);
     border-radius: var(--rayon-2xl, 20px);
@@ -83,8 +83,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--espace-5);
-    padding-bottom: var(--espace-5);
+    gap: var(--espace-3);
+    padding-bottom: var(--espace-3);
 }
 
 /* ─── 5. INTERFACE (chat/voix) — prend tout l'espace restant ────────────── */
@@ -238,19 +238,19 @@
 
 /* === Interface Chat === */
 
-/* .demo__chat remplit .demo__interface (flex: 1) via height: 100% */
+/* .demo__chat : flex: 1 dans .demo__interface pour prendre tout l'espace */
 .demo__chat {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    min-height: 400px; /* desktop — ne jamais être compressé sous 400px */
+    flex: 1;
+    min-height: 350px; /* desktop — garantit que le chat est toujours visible */
 }
 
 .demo__chat-messages {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
-    padding: var(--espace-6);
+    padding: var(--espace-5) var(--espace-5) var(--espace-6); /* padding-bottom généreux pour que le dernier message ne soit pas coupé */
     display: flex;
     flex-direction: column;
     gap: var(--espace-4);
@@ -529,16 +529,17 @@
         max-width: 100%;
         height: 95dvh;
         max-height: 95dvh;
+        min-height: unset;
         border-radius: var(--rayon-xl) var(--rayon-xl) 0 0;
     }
 
     .demo__modal-contenu {
-        padding: var(--espace-6) var(--espace-5) 0;
+        padding: var(--espace-5) var(--espace-4) 0;
     }
 
     .demo__modal-header {
-        gap: var(--espace-4);
-        padding-bottom: var(--espace-4);
+        gap: var(--espace-3);
+        padding-bottom: var(--espace-3);
     }
 
     .demo__chat {
