@@ -263,6 +263,20 @@
 }
 
 
+/* === Erreur chat === */
+
+.demo__erreur {
+    margin: var(--espace-3) var(--espace-6);
+    padding: var(--espace-3) var(--espace-4);
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--rayon-lg);
+    color: #f87171;
+    font-size: var(--texte-sm);
+    text-align: center;
+}
+
+
 /* === Interface Voix === */
 
 .demo__voix {
@@ -344,6 +358,67 @@
     padding: 2px 6px;
     border-radius: var(--rayon-sm);
     font-size: 0.8em;
+}
+
+/* Badge "Bientôt disponible" */
+.demo__voix-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espace-2);
+    padding: var(--espace-2) var(--espace-4);
+    background: rgba(0, 245, 255, 0.06);
+    border: 1px solid rgba(0, 245, 255, 0.25);
+    border-radius: var(--rayon-full);
+    color: var(--cyan);
+    font-size: var(--texte-sm);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Bouton voix désactivé */
+.demo__voix-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background: var(--verre-bg);
+    border: 1px solid var(--verre-bordure);
+    color: var(--gris-400);
+    padding: var(--espace-3) var(--espace-8);
+    border-radius: var(--rayon-full);
+    font-size: var(--texte-base);
+    font-weight: 600;
+}
+
+
+/* === CTA après démo === */
+
+.demo__apres-cta {
+    display: flex;
+    align-items: center;
+    gap: var(--espace-5);
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: var(--espace-6) var(--espace-8);
+    background: rgba(0, 245, 255, 0.04);
+    border: 1px solid rgba(0, 245, 255, 0.15);
+    border-radius: var(--rayon-xl);
+    backdrop-filter: blur(8px);
+    width: 100%;
+    max-width: 600px;
+}
+
+.demo__apres-texte {
+    font-size: var(--texte-base);
+    font-weight: 500;
+    color: var(--gris-100);
+    text-align: center;
+}
+
+.demo__apres-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espace-2);
+    text-decoration: none;
+    flex-shrink: 0;
 }
 
 

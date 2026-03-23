@@ -282,7 +282,7 @@ export default function Hero() {
             </svg>
           </BoutonMagnétique>
 
-          <a href="#fonctionnalites" className="btn-secondaire hero__btn-secondaire">
+          <a href="#demo" className="btn-secondaire hero__btn-secondaire">
             {t('hero.cta2')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/>

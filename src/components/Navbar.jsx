@@ -16,6 +16,7 @@ export default function Navbar() {
   const liensNavigation = [
     { label: t('nav.services'), href: '#fonctionnalites' },
     { label: t('nav.howItWorks'), href: '#comment-ca-marche' },
+    { label: 'Démo', href: '#demo' },
     { label: t('nav.testimonials'), href: '#temoignages' },
     { label: t('nav.pricing'), href: '#roi' },
   ]
