@@ -26,8 +26,9 @@
     position: relative;
     width: 100%;
     max-width: 800px;
-    height: 90vh;
-    max-height: 90vh;
+    height: 85vh;
+    max-height: 85vh;
+    min-height: 500px;
     background: #0d0d12;
     border: 1px solid var(--verre-bordure);
     border-radius: var(--rayon-2xl, 20px);
