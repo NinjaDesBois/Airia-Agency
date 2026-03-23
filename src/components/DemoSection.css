@@ -75,7 +75,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: var(--espace-8) var(--espace-8) 0;
+    padding: var(--espace-8) var(--espace-8) var(--espace-5);
 }
 
 /* ─── 4. HEADER (titre + secteurs + modes) — hauteur fixe, ne shrink pas ─── */
