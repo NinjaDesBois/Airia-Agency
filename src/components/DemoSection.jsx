@@ -33,14 +33,20 @@ const MESSAGE_ACCUEIL = {
   'web-agency': "Bonjour ! Je suis la réceptionniste IA de la web agency. Vous avez un projet de site, d'application ou de SEO ? Parlez-moi de votre projet et je planifie un appel découverte.",
 }
 
+/* Compteur global d'ID messages — garantit des clés uniques entre secteurs */
+let _msgId = 0
+const nouvelId = () => ++_msgId
+
+const msgAccueil = (secteur) => ({
+  id: nouvelId(),
+  role: 'assistant',
+  contenu: MESSAGE_ACCUEIL[secteur?.id] ?? `Bonjour ! Comment puis-je vous aider ?`,
+  delai: 0,
+})
+
 /* ===== Interface Chat connectée à /api/demo ===== */
 function InterfaceChat({ secteur }) {
-  const [messages, setMessages] = useState([
-    {
-      role: 'assistant',
-      contenu: MESSAGE_ACCUEIL[secteur?.id] ?? `Bonjour ! Comment puis-je vous aider ?`,
-    },
-  ])
+  const [messages, setMessages] = useState(() => [msgAccueil(secteur)])
   const [saisie, setSaisie] = useState('')
   const [enChargement, setEnChargement] = useState(false)
   const [erreur, setErreur] = useState(null)
@@ -48,10 +54,7 @@ function InterfaceChat({ secteur }) {
 
   /* Réinitialiser le chat quand le secteur change */
   useEffect(() => {
-    setMessages([{
-      role: 'assistant',
-      contenu: MESSAGE_ACCUEIL[secteur?.id] ?? `Bonjour ! Comment puis-je vous aider ?`,
-    }])
+    setMessages([msgAccueil(secteur)])
     setErreur(null)
   }, [secteur?.id])
 
@@ -66,7 +69,7 @@ function InterfaceChat({ secteur }) {
     e.preventDefault()
     if (!saisie.trim() || enChargement) return
 
-    const messageUtilisateur = { role: 'user', contenu: saisie }
+    const messageUtilisateur = { id: nouvelId(), role: 'user', contenu: saisie, delai: 0 }
     const nouveauxMessages = [...messages, messageUtilisateur]
     setMessages(nouveauxMessages)
     setSaisie('')
@@ -91,7 +94,7 @@ function InterfaceChat({ secteur }) {
 
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', contenu: données.content },
+        { id: nouvelId(), role: 'assistant', contenu: données.content, delai: 0 },
       ])
     } catch (err) {
       setErreur(err.message)
@@ -103,8 +106,12 @@ function InterfaceChat({ secteur }) {
   return (
     <div className="demo__chat">
       <div className="demo__chat-messages" ref={refMessages} aria-live="polite">
-        {messages.map((msg, i) => (
-          <div key={i} className={`demo__message demo__message--${msg.role}`}>
+        {messages.map((msg) => (
+          <div
+            key={msg.id}
+            className={`demo__message demo__message--${msg.role}`}
+            style={{ '--msg-delay': `${msg.delai}ms` }}
+          >
             {msg.role === 'assistant' && (
               <span className="demo__message-avatar" aria-hidden="true">🤖</span>
             )}

@@ -3,8 +3,12 @@
 /* Overlay plein écran */
 .demo__overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: 1000;
+    overflow: hidden;
     background: rgba(5, 5, 8, 0.90);
     backdrop-filter: blur(6px);
     display: flex;
@@ -26,6 +30,7 @@
         0 0 0 1px rgba(0, 245, 255, 0.06),
         0 32px 80px rgba(0, 0, 0, 0.7),
         0 0 80px rgba(0, 245, 255, 0.04);
+    /* overflow: hidden clipe les coins arrondis sans bloquer le scroll interne */
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -56,8 +61,12 @@
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Contenu scrollable */
+/* Contenu scrollable —
+   min-height: 0 est CRITIQUE : sans ça, un enfant flex ne peut pas rétrécir
+   en-dessous de sa taille naturelle, ce qui fait déborder la carte. */
 .demo__modal-contenu {
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
     padding: var(--espace-10) var(--espace-8) var(--espace-8);
     display: flex;
@@ -192,11 +201,12 @@
 .demo__chat {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    min-height: 400px;
 }
 
 .demo__chat-messages {
     flex: 1;
+    min-height: 0;
     overflow-y: auto;
     padding: var(--espace-6);
     display: flex;
@@ -206,10 +216,20 @@
     scrollbar-color: var(--verre-bordure) transparent;
 }
 
+/* === Animation message iMessage style === */
+
+@keyframes messageAppear {
+    0%   { opacity: 0; transform: translateY(10px) scale(0.95); }
+    70%  { transform: translateY(-2px) scale(1.01); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 .demo__message {
     display: flex;
     gap: var(--espace-3);
     align-items: flex-start;
+    animation: messageAppear 0.3s ease-out both;
+    animation-delay: var(--msg-delay, 0ms);
 }
 
 .demo__message--user {
