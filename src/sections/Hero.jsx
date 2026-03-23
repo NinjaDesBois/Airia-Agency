@@ -282,13 +282,18 @@ export default function Hero() {
             </svg>
           </BoutonMagnétique>
 
-          <a href="#demo" className="btn-secondaire hero__btn-secondaire">
+          <BoutonMagnétique
+            className="btn-secondaire hero__btn-secondaire"
+            onClick={() => {
+              document.querySelector('#demo')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+          >
             {t('hero.cta2')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/>
               <polygon points="10,8 16,12 10,16 10,8"/>
             </svg>
-          </a>
+          </BoutonMagnétique>
         </div>
 
         {/* Barre de confiance */}
