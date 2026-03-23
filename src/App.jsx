@@ -20,7 +20,7 @@ const Probleme = lazy(() => import('./sections/Probleme'))
 const HowItWorks = lazy(() => import('./sections/HowItWorks'))
 const Features = lazy(() => import('./sections/Features'))
 const ROI = lazy(() => import('./sections/ROI'))
-const DemoSection = lazy(() => import('./components/DemoSection'))
+import ModalDemo from './components/DemoSection'
 const Temoignages = lazy(() => import('./sections/Temoignages'))
 
 /* Pages */
@@ -98,9 +98,6 @@ function PageAccueil() {
           {/* 7. Calculateur ROI interactif */}
           <ROI />
 
-          {/* 8. Démo interactive — Chat IA + Voix IA par secteur */}
-          <DemoSection />
-
           {/* 9. Témoignages */}
           <Temoignages />
         </Suspense>
@@ -111,6 +108,9 @@ function PageAccueil() {
 
       {/* Modal de contact — ouvert via événement 'airia:ouvrir-modal-contact' */}
       <ModalContact />
+
+      {/* Modal démo — ouvert via événement 'airia:ouvrir-modal-demo' */}
+      <ModalDemo />
 
       {/* Widget chat IA flottant */}
       <ChatWidget />

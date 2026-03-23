@@ -83,6 +83,11 @@
   transition: color var(--transition-rapide), background var(--transition-rapide);
   cursor: pointer;
   white-space: nowrap;
+  /* reset bouton */
+  background: none;
+  border: none;
+  font-family: inherit;
+  text-decoration: none;
 }
 
 .navbar__lien:hover {
@@ -165,12 +170,20 @@
 
 .navbar__lien-mobile {
   display: block;
+  width: 100%;
+  text-align: left;
   padding: var(--espace-3) var(--espace-4);
   font-size: var(--texte-base);
   font-weight: 500;
   color: var(--gris-300);
   border-radius: var(--rayon-md);
   transition: color var(--transition-rapide), background var(--transition-rapide);
+  /* reset bouton */
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .navbar__lien-mobile:hover {

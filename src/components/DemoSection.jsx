@@ -1,6 +1,13 @@
-/* Section Démo — Choisissez votre secteur et testez Chat IA ou Voix IA */
+/* Modal Démo — Choisissez votre secteur et testez Chat IA ou Voix IA
+   Ouvrir via : ouvrirModalDemo() depuis n'importe quel CTA */
 import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import './DemoSection.css'
+
+/* Dispatch cet événement depuis n'importe quel CTA pour ouvrir le modal */
+export function ouvrirModalDemo() {
+  window.dispatchEvent(new CustomEvent('airia:ouvrir-modal-demo'))
+}
 
 /* Secteurs disponibles */
 const SECTEURS = [
@@ -31,7 +38,7 @@ function InterfaceChat({ secteur }) {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      contenu: MESSAGE_ACCUEIL[secteur?.id] ?? `Bonjour ! Je suis l'assistant IA pour le secteur ${secteur?.label ?? 'de votre choix'}. Comment puis-je vous aider ?`,
+      contenu: MESSAGE_ACCUEIL[secteur?.id] ?? `Bonjour ! Comment puis-je vous aider ?`,
     },
   ])
   const [saisie, setSaisie] = useState('')
@@ -43,7 +50,7 @@ function InterfaceChat({ secteur }) {
   useEffect(() => {
     setMessages([{
       role: 'assistant',
-      contenu: MESSAGE_ACCUEIL[secteur?.id] ?? `Bonjour ! Je suis l'assistant IA pour le secteur ${secteur?.label ?? 'de votre choix'}. Comment puis-je vous aider ?`,
+      contenu: MESSAGE_ACCUEIL[secteur?.id] ?? `Bonjour ! Comment puis-je vous aider ?`,
     }])
     setErreur(null)
   }, [secteur?.id])
@@ -80,10 +87,7 @@ function InterfaceChat({ secteur }) {
       })
 
       const données = await réponse.json()
-
-      if (!réponse.ok) {
-        throw new Error(données.error ?? 'Erreur serveur')
-      }
+      if (!réponse.ok) throw new Error(données.error ?? 'Erreur serveur')
 
       setMessages(prev => [
         ...prev,
@@ -98,13 +102,9 @@ function InterfaceChat({ secteur }) {
 
   return (
     <div className="demo__chat">
-      {/* Historique messages */}
       <div className="demo__chat-messages" ref={refMessages} aria-live="polite">
         {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={`demo__message demo__message--${msg.role}`}
-          >
+          <div key={i} className={`demo__message demo__message--${msg.role}`}>
             {msg.role === 'assistant' && (
               <span className="demo__message-avatar" aria-hidden="true">🤖</span>
             )}
@@ -120,13 +120,10 @@ function InterfaceChat({ secteur }) {
           </div>
         )}
         {erreur && (
-          <div className="demo__erreur" role="alert">
-            ⚠️ {erreur}
-          </div>
+          <div className="demo__erreur" role="alert">⚠️ {erreur}</div>
         )}
       </div>
 
-      {/* Formulaire de saisie */}
       <form className="demo__chat-form" onSubmit={envoyerMessage}>
         <input
           type="text"
@@ -163,24 +160,15 @@ function InterfaceVoix({ secteur }) {
           <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
         </svg>
       </div>
-
       <div className="demo__voix-badge" role="status">
         🎙️ Appel vocal — Bientôt disponible
       </div>
-
       <p className="demo__voix-statut">
         Appelez l&apos;IA {secteur?.label ?? ''} directement depuis votre navigateur
       </p>
-
-      <button
-        className="demo__voix-btn"
-        disabled
-        aria-disabled="true"
-        title="Disponible prochainement"
-      >
+      <button className="demo__voix-btn" disabled aria-disabled="true" title="Disponible prochainement">
         Démarrer l&apos;appel vocal
       </button>
-
       <p className="demo__voix-note">
         Intégration Vapi.ai — disponible dans la prochaine version
       </p>
@@ -210,80 +198,142 @@ function CTAApresDemo() {
   )
 }
 
-/* ===== Composant principal DemoSection ===== */
-export default function DemoSection() {
+/* ===== Contenu interne du modal ===== */
+function ContenuDemo() {
   const [secteurActif, setSecteurActif] = useState(SECTEURS[0])
-  const [modeActif, setModeActif] = useState('chat') // 'chat' | 'voix'
+  const [modeActif, setModeActif] = useState('chat')
 
   return (
-    <section id="demo" className="demo" aria-label="Section démo interactive">
-      <div className="demo__contenu conteneur">
-
-        {/* En-tête */}
-        <div className="demo__entete">
-          <span className="badge">Démo en direct</span>
-          <h2 className="demo__titre">
-            Essayez la démo —{' '}
-            <span className="texte-dégradé">choisissez votre secteur</span>
-          </h2>
-          <p className="demo__sous-titre">
-            Testez comment Airia répond à vos clients, qualifie les leads et prend
-            les rendez-vous — sans configuration.
-          </p>
-        </div>
-
-        {/* Boutons secteurs */}
-        <div className="demo__secteurs" role="group" aria-label="Secteur d'activité">
-          {SECTEURS.map(secteur => (
-            <button
-              key={secteur.id}
-              className={`demo__secteur-btn ${secteurActif.id === secteur.id ? 'demo__secteur-btn--actif' : ''}`}
-              onClick={() => setSecteurActif(secteur)}
-              aria-pressed={secteurActif.id === secteur.id}
-            >
-              <span aria-hidden="true">{secteur.icone}</span>
-              {secteur.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Bascule mode Chat / Voix */}
-        <div className="demo__modes" role="group" aria-label="Mode de démo">
-          <button
-            className={`demo__mode-btn ${modeActif === 'chat' ? 'demo__mode-btn--actif' : ''}`}
-            onClick={() => setModeActif('chat')}
-            aria-pressed={modeActif === 'chat'}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-            </svg>
-            Chat IA
-          </button>
-          <button
-            className={`demo__mode-btn ${modeActif === 'voix' ? 'demo__mode-btn--actif' : ''}`}
-            onClick={() => setModeActif('voix')}
-            aria-pressed={modeActif === 'voix'}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-            </svg>
-            Voix IA
-          </button>
-        </div>
-
-        {/* Interface active */}
-        <div className="demo__interface">
-          {modeActif === 'chat'
-            ? <InterfaceChat secteur={secteurActif} />
-            : <InterfaceVoix secteur={secteurActif} />
-          }
-        </div>
-
-        {/* CTA après démo */}
-        <CTAApresDemo />
-
+    <>
+      {/* En-tête */}
+      <div className="demo__entete">
+        <span className="badge">Démo en direct</span>
+        <h2 className="demo__titre">
+          Essayez la démo —{' '}
+          <span className="texte-dégradé">choisissez votre secteur</span>
+        </h2>
+        <p className="demo__sous-titre">
+          Testez comment Airia répond à vos clients, qualifie les leads et prend
+          les rendez-vous — sans configuration.
+        </p>
       </div>
-    </section>
+
+      {/* Boutons secteurs */}
+      <div className="demo__secteurs" role="group" aria-label="Secteur d'activité">
+        {SECTEURS.map(secteur => (
+          <button
+            key={secteur.id}
+            className={`demo__secteur-btn ${secteurActif.id === secteur.id ? 'demo__secteur-btn--actif' : ''}`}
+            onClick={() => setSecteurActif(secteur)}
+            aria-pressed={secteurActif.id === secteur.id}
+          >
+            <span aria-hidden="true">{secteur.icone}</span>
+            {secteur.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Bascule Chat / Voix */}
+      <div className="demo__modes" role="group" aria-label="Mode de démo">
+        <button
+          className={`demo__mode-btn ${modeActif === 'chat' ? 'demo__mode-btn--actif' : ''}`}
+          onClick={() => setModeActif('chat')}
+          aria-pressed={modeActif === 'chat'}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          Chat IA
+        </button>
+        <button
+          className={`demo__mode-btn ${modeActif === 'voix' ? 'demo__mode-btn--actif' : ''}`}
+          onClick={() => setModeActif('voix')}
+          aria-pressed={modeActif === 'voix'}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+          </svg>
+          Voix IA
+        </button>
+      </div>
+
+      {/* Interface active */}
+      <div className="demo__interface">
+        {modeActif === 'chat'
+          ? <InterfaceChat secteur={secteurActif} />
+          : <InterfaceVoix secteur={secteurActif} />
+        }
+      </div>
+
+      {/* CTA après démo */}
+      <CTAApresDemo />
+    </>
+  )
+}
+
+/* ===== Modal principal ===== */
+export default function ModalDemo() {
+  const [ouvert, setOuvert] = useState(false)
+
+  /* Écoute l'événement global */
+  useEffect(() => {
+    const ouvrir = () => setOuvert(true)
+    window.addEventListener('airia:ouvrir-modal-demo', ouvrir)
+    return () => window.removeEventListener('airia:ouvrir-modal-demo', ouvrir)
+  }, [])
+
+  /* ESC + blocage du scroll */
+  useEffect(() => {
+    if (!ouvert) return
+    const handleKey = (e) => { if (e.key === 'Escape') setOuvert(false) }
+    document.addEventListener('keydown', handleKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      document.body.style.overflow = ''
+    }
+  }, [ouvert])
+
+  const fermer = () => setOuvert(false)
+
+  return (
+    <AnimatePresence>
+      {ouvert && (
+        <motion.div
+          className="demo__overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+          onClick={fermer}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Démo interactive Airia"
+        >
+          <motion.div
+            className="demo__modal-carte"
+            initial={{ opacity: 0, scale: 0.95, y: 24 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 24 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Bouton fermer */}
+            <button className="demo__modal-fermer" onClick={fermer} aria-label="Fermer la démo">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+
+            {/* Contenu */}
+            <div className="demo__modal-contenu">
+              <ContenuDemo />
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }

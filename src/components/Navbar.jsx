@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ouvrirModalContact } from './ModalContact'
+import { ouvrirModalDemo } from './DemoSection'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useLanguage } from '../context/LanguageContext'
 import './Navbar.css'
@@ -16,7 +17,7 @@ export default function Navbar() {
   const liensNavigation = [
     { label: t('nav.services'), href: '#fonctionnalites' },
     { label: t('nav.howItWorks'), href: '#comment-ca-marche' },
-    { label: 'Démo', href: '#demo' },
+    { label: 'Démo', href: null, onClick: ouvrirModalDemo },
     { label: t('nav.testimonials'), href: '#temoignages' },
     { label: t('nav.pricing'), href: '#roi' },
   ]
@@ -66,14 +67,23 @@ export default function Navbar() {
         {/* Liens desktop */}
         <ul className="navbar__liens" role="list">
           {liensNavigation.map((lien) => (
-            <li key={lien.href}>
-              <a
-                href={lien.href}
-                className="navbar__lien"
-                onClick={(e) => handleLienClick(e, lien.href)}
-              >
-                {lien.label}
-              </a>
+            <li key={lien.label}>
+              {lien.onClick ? (
+                <button
+                  className="navbar__lien"
+                  onClick={() => { lien.onClick(); setMenuOuvert(false) }}
+                >
+                  {lien.label}
+                </button>
+              ) : (
+                <a
+                  href={lien.href}
+                  className="navbar__lien"
+                  onClick={(e) => handleLienClick(e, lien.href)}
+                >
+                  {lien.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -112,15 +122,25 @@ export default function Navbar() {
       >
         <ul role="list">
           {liensNavigation.map((lien) => (
-            <li key={lien.href}>
-              <a
-                href={lien.href}
-                className="navbar__lien-mobile"
-                onClick={(e) => handleLienClick(e, lien.href)}
-                tabIndex={menuOuvert ? 0 : -1}
-              >
-                {lien.label}
-              </a>
+            <li key={lien.label}>
+              {lien.onClick ? (
+                <button
+                  className="navbar__lien-mobile"
+                  onClick={() => { lien.onClick(); setMenuOuvert(false) }}
+                  tabIndex={menuOuvert ? 0 : -1}
+                >
+                  {lien.label}
+                </button>
+              ) : (
+                <a
+                  href={lien.href}
+                  className="navbar__lien-mobile"
+                  onClick={(e) => handleLienClick(e, lien.href)}
+                  tabIndex={menuOuvert ? 0 : -1}
+                >
+                  {lien.label}
+                </a>
+              )}
             </li>
           ))}
           <li className="navbar__mobile-lang">

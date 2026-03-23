@@ -6,6 +6,7 @@ import * as THREE from 'three'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ouvrirModalContact } from '../components/ModalContact'
+import { ouvrirModalDemo } from '../components/DemoSection'
 import { useLanguage } from '../context/LanguageContext'
 import './Hero.css'
 
@@ -284,9 +285,7 @@ export default function Hero() {
 
           <BoutonMagnétique
             className="btn-secondaire hero__btn-secondaire"
-            onClick={() => {
-              document.querySelector('#demo')?.scrollIntoView({ behavior: 'smooth' })
-            }}
+            onClick={ouvrirModalDemo}
           >
             {t('hero.cta2')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
