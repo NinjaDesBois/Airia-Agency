@@ -212,60 +212,60 @@ function ContenuDemo() {
 
   return (
     <>
-      {/* En-tête */}
-      <div className="demo__entete">
-        <span className="badge">Démo en direct</span>
-        <h2 className="demo__titre">
-          Essayez la démo —{' '}
-          <span className="texte-dégradé">choisissez votre secteur</span>
-        </h2>
-        <p className="demo__sous-titre">
-          Testez comment Airia répond à vos clients, qualifie les leads et prend
-          les rendez-vous — sans configuration.
-        </p>
-      </div>
+      {/* Zone haute fixe : titre + secteurs + modes (flex-shrink: 0) */}
+      <div className="demo__modal-header">
+        <div className="demo__entete">
+          <span className="badge">Démo en direct</span>
+          <h2 className="demo__titre">
+            Essayez la démo —{' '}
+            <span className="texte-dégradé">choisissez votre secteur</span>
+          </h2>
+          <p className="demo__sous-titre">
+            Testez comment Airia répond à vos clients, qualifie les leads et prend
+            les rendez-vous — sans configuration.
+          </p>
+        </div>
 
-      {/* Boutons secteurs */}
-      <div className="demo__secteurs" role="group" aria-label="Secteur d'activité">
-        {SECTEURS.map(secteur => (
+        <div className="demo__secteurs" role="group" aria-label="Secteur d'activité">
+          {SECTEURS.map(secteur => (
+            <button
+              key={secteur.id}
+              className={`demo__secteur-btn ${secteurActif.id === secteur.id ? 'demo__secteur-btn--actif' : ''}`}
+              onClick={() => setSecteurActif(secteur)}
+              aria-pressed={secteurActif.id === secteur.id}
+            >
+              <span aria-hidden="true">{secteur.icone}</span>
+              {secteur.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="demo__modes" role="group" aria-label="Mode de démo">
           <button
-            key={secteur.id}
-            className={`demo__secteur-btn ${secteurActif.id === secteur.id ? 'demo__secteur-btn--actif' : ''}`}
-            onClick={() => setSecteurActif(secteur)}
-            aria-pressed={secteurActif.id === secteur.id}
+            className={`demo__mode-btn ${modeActif === 'chat' ? 'demo__mode-btn--actif' : ''}`}
+            onClick={() => setModeActif('chat')}
+            aria-pressed={modeActif === 'chat'}
           >
-            <span aria-hidden="true">{secteur.icone}</span>
-            {secteur.label}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            Chat IA
           </button>
-        ))}
+          <button
+            className={`demo__mode-btn ${modeActif === 'voix' ? 'demo__mode-btn--actif' : ''}`}
+            onClick={() => setModeActif('voix')}
+            aria-pressed={modeActif === 'voix'}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+            </svg>
+            Voix IA
+          </button>
+        </div>
       </div>
 
-      {/* Bascule Chat / Voix */}
-      <div className="demo__modes" role="group" aria-label="Mode de démo">
-        <button
-          className={`demo__mode-btn ${modeActif === 'chat' ? 'demo__mode-btn--actif' : ''}`}
-          onClick={() => setModeActif('chat')}
-          aria-pressed={modeActif === 'chat'}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>
-          Chat IA
-        </button>
-        <button
-          className={`demo__mode-btn ${modeActif === 'voix' ? 'demo__mode-btn--actif' : ''}`}
-          onClick={() => setModeActif('voix')}
-          aria-pressed={modeActif === 'voix'}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-          </svg>
-          Voix IA
-        </button>
-      </div>
-
-      {/* Interface active */}
+      {/* Interface active — flex: 1, prend tout l'espace restant */}
       <div className="demo__interface">
         {modeActif === 'chat'
           ? <InterfaceChat secteur={secteurActif} />
@@ -273,7 +273,7 @@ function ContenuDemo() {
         }
       </div>
 
-      {/* CTA après démo */}
+      {/* CTA — fixe en bas */}
       <CTAApresDemo />
     </>
   )

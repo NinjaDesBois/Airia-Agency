@@ -1,6 +1,7 @@
 /* === Modal Démo — Airia === */
 
-/* Overlay plein écran */
+/* ─── 1. OVERLAY ────────────────────────────────────────────────────────────
+   position fixed strict : ne laisse rien déborder ni scroller la page */
 .demo__overlay {
     position: fixed;
     top: 0;
@@ -17,11 +18,15 @@
     padding: var(--espace-4);
 }
 
-/* Carte du modal */
+/* ─── 2. CARTE ───────────────────────────────────────────────────────────────
+   height: 90vh donne une hauteur DÉFINIE à la carte.
+   Sans hauteur définie, les enfants flex: 1 n'ont aucune référence et
+   collapsent à zéro — c'est la cause racine du bug desktop. */
 .demo__modal-carte {
     position: relative;
     width: 100%;
     max-width: 800px;
+    height: 90vh;
     max-height: 90vh;
     background: #0d0d12;
     border: 1px solid var(--verre-bordure);
@@ -30,7 +35,6 @@
         0 0 0 1px rgba(0, 245, 255, 0.06),
         0 32px 80px rgba(0, 0, 0, 0.7),
         0 0 80px rgba(0, 245, 255, 0.04);
-    /* overflow: hidden clipe les coins arrondis sans bloquer le scroll interne */
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -61,24 +65,60 @@
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Contenu scrollable —
-   min-height: 0 est CRITIQUE : sans ça, un enfant flex ne peut pas rétrécir
-   en-dessous de sa taille naturelle, ce qui fait déborder la carte. */
+/* ─── 3. CONTENEUR PRINCIPAL ─────────────────────────────────────────────────
+   Flex column, remplit toute la carte.
+   PAS de overflow-y ici — seul .demo__chat-messages scrolle. */
 .demo__modal-contenu {
     flex: 1;
     min-height: 0;
-    overflow-y: auto;
-    padding: var(--espace-10) var(--espace-8) var(--espace-8);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: var(--espace-8) var(--espace-8) 0;
+}
+
+/* ─── 4. HEADER (titre + secteurs + modes) — hauteur fixe, ne shrink pas ─── */
+.demo__modal-header {
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--espace-8);
-    scrollbar-width: thin;
-    scrollbar-color: var(--verre-bordure) transparent;
+    gap: var(--espace-5);
+    padding-bottom: var(--espace-5);
+}
+
+/* ─── 5. INTERFACE (chat/voix) — prend tout l'espace restant ────────────── */
+.demo__interface {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    max-width: 600px;
+    align-self: center;
+    background: var(--verre-bg);
+    border: 1px solid var(--verre-bordure);
+    border-radius: var(--rayon-xl);
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── 6. CTA — hauteur fixe en bas ──────────────────────────────────────── */
+.demo__apres-cta {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--espace-5);
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: var(--espace-5) var(--espace-8);
+    border-top: 1px solid rgba(0, 245, 255, 0.1);
+    background: rgba(0, 245, 255, 0.03);
+    width: 100%;
 }
 
 
-/* === En-tête === */
+/* === En-tête (dans le header) === */
 
 /* (conservé pour rétrocompatibilité — non utilisé en modal) */
 .demo__contenu {
@@ -198,10 +238,12 @@
 
 /* === Interface Chat === */
 
+/* .demo__chat remplit .demo__interface (flex: 1) via height: 100% */
 .demo__chat {
     display: flex;
     flex-direction: column;
-    min-height: 400px;
+    height: 100%;
+    min-height: 400px; /* desktop — ne jamais être compressé sous 400px */
 }
 
 .demo__chat-messages {
@@ -458,23 +500,6 @@
 }
 
 
-/* === CTA après démo === */
-
-.demo__apres-cta {
-    display: flex;
-    align-items: center;
-    gap: var(--espace-5);
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: var(--espace-6) var(--espace-8);
-    background: rgba(0, 245, 255, 0.04);
-    border: 1px solid rgba(0, 245, 255, 0.15);
-    border-radius: var(--rayon-xl);
-    backdrop-filter: blur(8px);
-    width: 100%;
-    max-width: 600px;
-}
-
 .demo__apres-texte {
     font-size: var(--texte-base);
     font-weight: 500;
@@ -493,8 +518,8 @@
 
 /* === Responsive === */
 
+/* Tablette (≤ 768px) : bottom-sheet plein écran */
 @media (max-width: 768px) {
-    /* Modal plein écran sur mobile */
     .demo__overlay {
         padding: 0;
         align-items: flex-end;
@@ -502,17 +527,30 @@
 
     .demo__modal-carte {
         max-width: 100%;
-        max-height: 100dvh;
+        height: 95dvh;
+        max-height: 95dvh;
         border-radius: var(--rayon-xl) var(--rayon-xl) 0 0;
     }
 
     .demo__modal-contenu {
-        padding: var(--espace-8) var(--espace-5) var(--espace-6);
-        gap: var(--espace-6);
+        padding: var(--espace-6) var(--espace-5) 0;
+    }
+
+    .demo__modal-header {
+        gap: var(--espace-4);
+        padding-bottom: var(--espace-4);
+    }
+
+    .demo__chat {
+        min-height: 300px;
     }
 
     .demo__titre {
-        font-size: var(--texte-3xl);
+        font-size: var(--texte-2xl);
+    }
+
+    .demo__sous-titre {
+        font-size: var(--texte-sm);
     }
 
     .demo__secteurs {
@@ -523,23 +561,13 @@
         font-size: var(--texte-xs);
         padding: var(--espace-2) var(--espace-3);
     }
-
-    .demo__interface {
-        max-width: 100%;
-    }
 }
 
+/* Mobile (≤ 480px) : plein écran total, coins carrés */
 @media (max-width: 480px) {
     .demo__modal-carte {
+        height: 100dvh;
         max-height: 100dvh;
         border-radius: 0;
-    }
-
-    .demo__titre {
-        font-size: var(--texte-2xl);
-    }
-
-    .demo__sous-titre {
-        font-size: var(--texte-base);
     }
 }
