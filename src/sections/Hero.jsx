@@ -151,14 +151,14 @@ function LueurAmbiante() {
   )
 }
 
-/* ===== Paires slot machine — mot sectoriel + sous-titre ===== */
+/* ===== Paires slot machine — mot sectoriel + genre + sous-titre ===== */
 const pairesSlot = [
-  { mot: 'agence',     sousTitre: 'Vous fermez les deals.' },
-  { mot: 'cabinet',    sousTitre: 'Vous soignez vos patients.' },
-  { mot: 'atelier',    sousTitre: 'Vous intervenez sur le terrain.' },
-  { mot: 'étude',      sousTitre: 'Vous défendez vos clients.' },
-  { mot: 'entreprise', sousTitre: 'Vous développez votre activité.' },
-  { mot: 'cabinet',    sousTitre: 'Vous conseillez vos clients.' },
+  { mot: 'agence',     feminin: true,  sousTitre: 'Vous fermez les deals.' },
+  { mot: 'cabinet',    feminin: false, sousTitre: 'Vous soignez vos patients.' },
+  { mot: 'atelier',    feminin: false, sousTitre: 'Vous intervenez sur le terrain.' },
+  { mot: 'étude',      feminin: true,  sousTitre: 'Vous défendez vos clients.' },
+  { mot: 'entreprise', feminin: true,  sousTitre: 'Vous développez votre activité.' },
+  { mot: 'cabinet',    feminin: false, sousTitre: 'Vous conseillez vos clients.' },
 ]
 
 /* ===== Composant principal Hero ===== */
@@ -255,13 +255,21 @@ export default function Hero() {
           {t('hero.badge')}
         </div>
 
-        {/* Titre principal — seul le mot sectoriel anime, le reste est statique */}
+        {/* Titre principal — le mot sectoriel et les "e" de genre animent, le reste est statique */}
         <h1 className="hero__titre">
-          <span className="hero__slot-statique">Votre&nbsp;</span>
+          <span>Votre </span>
           <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
             <span className="hero__slot-mot">{pairesSlot[indexSlot].mot}</span>
           </span>
-          <span className="hero__slot-statique">&nbsp;tourne toute seule.</span>
+          <span> tourne tout</span>
+          <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>
+            {pairesSlot[indexSlot].feminin ? 'e' : ''}
+          </span>
+          <span> seul</span>
+          <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>
+            {pairesSlot[indexSlot].feminin ? 'e' : ''}
+          </span>
+          <span>.</span>
         </h1>
 
         {/* Sous-titre — anime en sync avec le mot, même taille que le titre */}

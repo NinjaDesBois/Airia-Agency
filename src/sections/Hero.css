@@ -169,6 +169,25 @@
     font-style: normal;
 }
 
+/* "e" de genre (toute/seule) — seul ce caractère anime en opacité */
+.hero__slot-e {
+    display: inline;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+.hero__slot-e--sortie {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.hero__slot-e--entree {
+    opacity: 0;
+    transition: none;
+}
+.hero__slot-e--visible {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
 /* === Barre de confiance === */
 
 .hero__confiance {
