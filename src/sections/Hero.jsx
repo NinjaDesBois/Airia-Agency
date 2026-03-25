@@ -151,20 +151,49 @@ function LueurAmbiante() {
   )
 }
 
-/* ===== Paires slot machine — mot sectoriel + genre + sous-titre ===== */
-const pairesSlot = [
-  { mot: 'agence',     feminin: true,  sousTitre: 'Vous fermez les deals.' },
-  { mot: 'cabinet',    feminin: false, sousTitre: 'Vous soignez vos patients.' },
-  { mot: 'atelier',    feminin: false, sousTitre: 'Vous intervenez sur le terrain.' },
-  { mot: 'étude',      feminin: true,  sousTitre: 'Vous défendez vos clients.' },
-  { mot: 'entreprise', feminin: true,  sousTitre: 'Vous développez votre activité.' },
-  { mot: 'cabinet',    feminin: false, sousTitre: 'Vous conseillez vos clients.' },
-]
+/* ===== Paires slot machine — par langue — mot + reste de phrase + sous-titre ===== */
+const PAIRES_SLOT = {
+  fr: [
+    { mot: 'agence',     reste: 'tourne toute seule.', sousTitre: 'Vous fermez les deals.' },
+    { mot: 'cabinet',    reste: 'tourne tout seul.',   sousTitre: 'Vous soignez vos patients.' },
+    { mot: 'atelier',    reste: 'tourne tout seul.',   sousTitre: 'Vous intervenez sur le terrain.' },
+    { mot: 'étude',      reste: 'tourne toute seule.', sousTitre: 'Vous défendez vos clients.' },
+    { mot: 'entreprise', reste: 'tourne toute seule.', sousTitre: 'Vous développez votre activité.' },
+    { mot: 'cabinet',    reste: 'tourne tout seul.',   sousTitre: 'Vous conseillez vos clients.' },
+  ],
+  nl: [
+    { mot: 'kantoor',  reste: 'draait alleen.', sousTitre: 'Jij sluit de deals.' },
+    { mot: 'praktijk', reste: 'draait alleen.', sousTitre: 'Jij behandelt je patiënten.' },
+    { mot: 'atelier',  reste: 'draait alleen.', sousTitre: 'Jij werkt op het terrein.' },
+    { mot: 'studie',   reste: 'draait alleen.', sousTitre: 'Jij verdedigt je klanten.' },
+    { mot: 'bedrijf',  reste: 'draait alleen.', sousTitre: 'Jij ontwikkelt je activiteit.' },
+    { mot: 'kantoor',  reste: 'draait alleen.', sousTitre: 'Jij adviseert je klanten.' },
+  ],
+  en: [
+    { mot: 'agency',   reste: 'runs itself.', sousTitre: 'You close the deals.' },
+    { mot: 'practice', reste: 'runs itself.', sousTitre: 'You treat your patients.' },
+    { mot: 'workshop', reste: 'runs itself.', sousTitre: 'You work in the field.' },
+    { mot: 'firm',     reste: 'runs itself.', sousTitre: 'You defend your clients.' },
+    { mot: 'business', reste: 'runs itself.', sousTitre: 'You grow your activity.' },
+    { mot: 'office',   reste: 'runs itself.', sousTitre: 'You advise your clients.' },
+  ],
+  de: [
+    { mot: 'Agentur',     reste: 'läuft von selbst.', sousTitre: 'Sie schließen die Deals.' },
+    { mot: 'Praxis',      reste: 'läuft von selbst.', sousTitre: 'Sie behandeln Ihre Patienten.' },
+    { mot: 'Werkstatt',   reste: 'läuft von selbst.', sousTitre: 'Sie arbeiten vor Ort.' },
+    { mot: 'Kanzlei',     reste: 'läuft von selbst.', sousTitre: 'Sie vertreten Ihre Mandanten.' },
+    { mot: 'Unternehmen', reste: 'läuft von selbst.', sousTitre: 'Sie entwickeln Ihr Geschäft.' },
+    { mot: 'Büro',        reste: 'läuft von selbst.', sousTitre: 'Sie beraten Ihre Kunden.' },
+  ],
+}
 
 /* ===== Composant principal Hero ===== */
 export default function Hero() {
   const refContenu = useRef(null)
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
+
+  /* Paires slot machine selon la langue active */
+  const pairesSlot = useMemo(() => PAIRES_SLOT[language] || PAIRES_SLOT.fr, [language])
 
   /* Slot machine — état de la phase et index de la paire courante */
   const [phaseSlot, setPhaseSlot] = useState('visible')
@@ -255,21 +284,13 @@ export default function Hero() {
           {t('hero.badge')}
         </div>
 
-        {/* Titre principal — le mot sectoriel et les "e" de genre animent, le reste est statique */}
+        {/* Titre principal — le mot sectoriel et le reste de phrase animent ensemble */}
         <h1 className="hero__titre">
-          <span>Votre </span>
+          <span>{t('hero.slotPrefixe')} </span>
           <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
             <span className="hero__slot-mot">{pairesSlot[indexSlot].mot}</span>
+            {' '}{pairesSlot[indexSlot].reste}
           </span>
-          <span> tourne tout</span>
-          <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>
-            {pairesSlot[indexSlot].feminin ? 'e' : ''}
-          </span>
-          <span> seul</span>
-          <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>
-            {pairesSlot[indexSlot].feminin ? 'e' : ''}
-          </span>
-          <span>.</span>
         </h1>
 
         {/* Sous-titre — anime en sync avec le mot, même taille que le titre */}

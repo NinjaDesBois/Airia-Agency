@@ -276,7 +276,7 @@ export default function ChatWidget() {
               exit={{ opacity: 0, x: 10, scale: 0.92 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             >
-              Une question ? Parlez à notre IA 💬
+              {t('chat.tooltip')}
               {/* Flèche pointant vers le chat */}
               <span className="chat__tooltip-flèche" aria-hidden="true" />
             </motion.div>

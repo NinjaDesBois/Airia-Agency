@@ -1,4 +1,4 @@
-/* Sélecteur de langue — FR / NL / EN — Airia */
+/* Sélecteur de langue — FR / NL / EN / DE — Airia */
 import { useLanguage } from '../context/LanguageContext'
 import './LanguageSwitcher.css'
 
@@ -6,6 +6,7 @@ const langues = [
   { code: 'fr', label: 'FR', ariaLabel: 'Français' },
   { code: 'nl', label: 'NL', ariaLabel: 'Nederlands' },
   { code: 'en', label: 'EN', ariaLabel: 'English' },
+  { code: 'de', label: 'DE', ariaLabel: 'Deutsch' },
 ]
 
 export default function LanguageSwitcher() {

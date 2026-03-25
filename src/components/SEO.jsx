@@ -84,7 +84,7 @@ export default function SEO() {
   return (
     <Helmet>
       {/* Langue */}
-      <html lang={language === 'fr' ? 'fr-BE' : language === 'nl' ? 'nl-BE' : 'en'} />
+      <html lang={language === 'fr' ? 'fr-BE' : language === 'nl' ? 'nl-BE' : language === 'de' ? 'de' : 'en'} />
 
       {/* Titre & description */}
       <title>{title}</title>
@@ -101,7 +101,7 @@ export default function SEO() {
       <meta property="og:image" content={OG_IMAGE} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:locale" content={language === 'fr' ? 'fr_BE' : language === 'nl' ? 'nl_BE' : 'en_US'} />
+      <meta property="og:locale" content={language === 'fr' ? 'fr_BE' : language === 'nl' ? 'nl_BE' : language === 'de' ? 'de_DE' : 'en_US'} />
       <meta property="og:locale:alternate" content="fr_BE" />
       <meta property="og:locale:alternate" content="nl_BE" />
       <meta property="og:locale:alternate" content="en_US" />
