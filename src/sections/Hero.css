@@ -130,12 +130,16 @@
 
 /* === Slot machine — titre + sous-titre animés ensemble === */
 
+
 /* "Votre" reste inline, ne participe pas à l'animation */
+
 .hero__slot-statique {
     display: inline;
 }
 
+
 /* Conteneur animé — inline-block pour supporter transform */
+
 .hero__slot-dynamique {
     display: inline-block;
     opacity: 1;
@@ -144,49 +148,63 @@
     will-change: opacity, transform;
 }
 
+
 /* Phase sortie : monte et disparaît */
+
 .hero__slot-dynamique--sortie {
     opacity: 0;
     transform: translateY(-22px);
 }
 
+
 /* Phase entrée : positionné sous la ligne, sans transition (repositionnement instantané) */
+
 .hero__slot-dynamique--entree {
     opacity: 0;
     transform: translateY(22px);
     transition: none;
 }
 
+
 /* Phase visible : glisse vers la position normale */
+
 .hero__slot-dynamique--visible {
     opacity: 1;
     transform: translateY(0);
 }
 
+
 /* Mot sectoriel en cyan */
+
 .hero__slot-mot {
     color: #00e5cc;
     font-style: normal;
 }
 
+
 /* "e" de genre (toute/seule) — seul ce caractère anime en opacité */
+
 .hero__slot-e {
     display: inline;
     opacity: 1;
     transition: opacity 0.2s ease;
 }
+
 .hero__slot-e--sortie {
     opacity: 0;
     transition: opacity 0.2s ease;
 }
+
 .hero__slot-e--entree {
     opacity: 0;
     transition: none;
 }
+
 .hero__slot-e--visible {
     opacity: 1;
     transition: opacity 0.2s ease;
 }
+
 
 /* === Barre de confiance === */
 
@@ -212,7 +230,7 @@
     flex-wrap: wrap;
     justify-content: center;
     font-size: var(--texte-sm);
-    color: var(--gris-400);
+    color: var(--gris-100);
 }
 
 .hero__confiance-item {
