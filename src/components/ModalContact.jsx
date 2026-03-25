@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import './ModalContact.css'
 
 const WHATSAPP_URL = 'https://wa.me/32495924243'
-const CALENDLY_URL = 'CALENDLY_LINK_HERE'
+const CALENDLY_URL = 'https://calendly.com/hello-airia/appel-strategique-airia'
 
 /* Dispatch cet événement depuis n'importe quel CTA pour ouvrir le modal */
 export function ouvrirModalContact() {

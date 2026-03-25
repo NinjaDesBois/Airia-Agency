@@ -292,7 +292,7 @@ export default function ModalDemo() {
             <div className="demo__footer">
               <p className="demo__footer-texte">Installer cette IA dans votre business ?</p>
               <a
-                href="https://calendly.com/airia-be"
+                href="https://calendly.com/hello-airia/appel-strategique-airia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primaire demo__footer-btn"
