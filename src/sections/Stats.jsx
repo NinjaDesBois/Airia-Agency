@@ -3,8 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
-import { useLanguage } from '../context/LanguageContext'
-import { translations } from '../i18n/translations'
+import { useTranslation } from 'react-i18next'
 import './Stats.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -65,8 +64,8 @@ function CompteurAnimé({ valeurCible, suffixe, préfixe = '', actif }) {
 export default function Stats() {
   const refSection = useRef(null)
   const [compteurActif, setCompteurActif] = useState(false)
-  const { language } = useLanguage()
-  const items = translations[language].stats.items
+  const { t } = useTranslation()
+  const items = t('stats.items', { returnObjects: true })
 
   useEffect(() => {
     const ctx = gsap.context(() => {

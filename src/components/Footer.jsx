@@ -1,10 +1,10 @@
 /* Footer — Airia */
-import { useLanguage } from '../context/LanguageContext'
+import { useTranslation } from 'react-i18next'
 import './Footer.css'
 
 export default function Footer() {
   const annéeActuelle = new Date().getFullYear()
-  const { t } = useLanguage()
+  const { t } = useTranslation()
 
   return (
     <footer className="footer">

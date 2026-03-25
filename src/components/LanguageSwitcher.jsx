@@ -1,5 +1,5 @@
 /* Sélecteur de langue — FR / NL / EN / DE — Airia */
-import { useLanguage } from '../context/LanguageContext'
+import { useTranslation } from 'react-i18next'
 import './LanguageSwitcher.css'
 
 const langues = [
@@ -10,17 +10,17 @@ const langues = [
 ]
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage()
+  const { i18n } = useTranslation()
 
   return (
     <div className="lang-switcher" role="group" aria-label="Sélecteur de langue">
-      {langues.map((langue, index) => (
+      {langues.map((langue) => (
         <button
           key={langue.code}
-          className={`lang-switcher__btn ${language === langue.code ? 'lang-switcher__btn--actif' : ''}`}
-          onClick={() => setLanguage(langue.code)}
+          className={`lang-switcher__btn ${i18n.language === langue.code ? 'lang-switcher__btn--actif' : ''}`}
+          onClick={() => i18n.changeLanguage(langue.code)}
           aria-label={langue.ariaLabel}
-          aria-pressed={language === langue.code}
+          aria-pressed={i18n.language === langue.code}
         >
           {langue.label}
         </button>

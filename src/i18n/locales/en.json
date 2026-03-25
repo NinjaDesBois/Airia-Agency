@@ -1,0 +1,285 @@
+{
+  "nav": {
+    "services": "Services",
+    "howItWorks": "How it works",
+    "demo": "Demo",
+    "testimonials": "Testimonials",
+    "pricing": "Pricing",
+    "cta": "Book a call",
+    "burgerOpen": "Open menu",
+    "burgerClose": "Close menu"
+  },
+  "hero": {
+    "badge": "New · Deployed in 48h",
+    "cta1": "Book a strategy call",
+    "cta2": "See the demo",
+    "trust1": "12 agencies already tested",
+    "trust2": "Deployed in 48h",
+    "trust3": "No commitment"
+  },
+  "slot": {
+    "votre": "Your",
+    "tourne": "runs",
+    "seul": "itself",
+    "paires": {
+      "en": {
+        "0": "You close the deals.",
+        "1": "You treat your patients.",
+        "2": "You work in the field.",
+        "3": "You defend your clients.",
+        "4": "You grow your activity.",
+        "5": "You advise your clients."
+      }
+    }
+  },
+  "stats": {
+    "items": [
+      { "label": "AI qualification rate", "description": "Leads automatically qualified before your team" },
+      { "label": "Deployment", "description": "From signature to full launch of your AI system" },
+      { "label": "Availability", "description": "Your AI receptionist never takes a day off" },
+      { "label": "Setup", "description": "No installation fees. You only pay the subscription." }
+    ]
+  },
+  "probleme": {
+    "badge": "The problem",
+    "title1": "Your agency is losing time",
+    "title2": "and money.",
+    "subtitle": "Every hour spent on repetitive tasks is a sales hour lost. AI doesn't sleep, doesn't complain, and doesn't make mistakes.",
+    "items": [
+      {
+        "titre": "You answer the same questions",
+        "description": "Hours, availability, pricing, process — your team spends 40% of the time on recurring questions. That's billed time you're not collecting.",
+        "labelStat": "of time wasted"
+      },
+      {
+        "titre": "Prospecting takes hours",
+        "description": "Find, enrich, contact, follow up. A manual cycle that exhausts and does not scale.",
+        "labelStat": "per prospecting session"
+      },
+      {
+        "titre": "Leads arrive unqualified",
+        "description": "You receive contacts. But who is really ready to buy? Without AI qualification, it's wasted time.",
+        "labelStat": "of leads lost"
+      },
+      {
+        "titre": "You manage. You don't sell anymore.",
+        "description": "Billing, client follow-up, reminders, reporting — you've become a project manager, not a salesperson. Meanwhile, your competitors are closing deals.",
+        "labelStat": "non-billable time"
+      }
+    ]
+  },
+  "howItWorks": {
+    "badge": "Process",
+    "title": "Operational in",
+    "titleHighlight": "48h",
+    "subtitle": "From signature to first qualified lead — in two days.",
+    "steps": [
+      {
+        "durée": "Day 1",
+        "titre": "Audit & Setup",
+        "description": "We analyse your current workflows, tools and friction points. In 24h, we define exactly what AI will automate for you.",
+        "détails": ["Process audit", "Automation mapping", "Personalised deployment plan"]
+      },
+      {
+        "durée": "Day 1 → 2",
+        "titre": "AI Deployment",
+        "description": "We install and configure your AI agents: vocal receptionist, prospecting sequences, Meta campaigns. Everything connected to your existing tools.",
+        "détails": ["AI agent installation", "Integration with your tools", "Testing & validation"]
+      },
+      {
+        "durée": "From Day 3",
+        "titre": "You harvest",
+        "description": "Your clients receive qualified leads, answered calls, active campaigns. You collect the monthly recurring subscription — effortlessly.",
+        "détails": ["Real-time monitoring", "Weekly reports", "Ongoing support included"]
+      }
+    ]
+  },
+  "features": {
+    "badge": "Features",
+    "title1": "Everything your agency",
+    "title2": "needs to automate",
+    "subtitle": "6 AI modules deployed and configured in 48h. Each module adapts to your sector and existing workflows.",
+    "popular": "Popular",
+    "items": [
+      {
+        "titre": "Voice AI",
+        "sousTitre": "24/7 vocal receptionist",
+        "description": "Your vocal agent answers calls, qualifies prospects, schedules appointments and transfers only hot leads to your team.",
+        "tags": ["Inbound calls", "Qualification", "Appointment scheduling"]
+      },
+      {
+        "titre": "Lead Generation",
+        "sousTitre": "Automated prospecting",
+        "description": "Multi-step email and SMS sequences, personalised by AI. Automatic contact enrichment and smart follow-ups.",
+        "tags": ["AI Email", "SMS", "Enrichment"]
+      },
+      {
+        "titre": "Meta Ads AI",
+        "sousTitre": "Facebook & Instagram campaigns",
+        "description": "Automatic creation, optimisation and scaling of your Meta campaigns. AI adjusts budgets, audiences and creatives in real time.",
+        "tags": ["Facebook Ads", "Instagram", "Auto-optimisation"]
+      },
+      {
+        "titre": "Multilingual",
+        "sousTitre": "EN · FR · NL · DE",
+        "description": "Your AI agents communicate in the prospect's language. Perfect for Belgian agencies operating in Flanders, Wallonia and Brussels.",
+        "tags": ["English", "French", "Dutch"]
+      },
+      {
+        "titre": "Dashboard",
+        "sousTitre": "Real-time overview",
+        "description": "Centralised dashboard with real-time KPIs: calls handled, qualified leads, conversion rate, revenue generated per client.",
+        "tags": ["Live KPIs", "Auto-reporting", "Multi-client"]
+      },
+      {
+        "titre": "Integrations",
+        "sousTitre": "Connected to 50+ tools",
+        "description": "n8n, Airtable, Make, Zapier, HubSpot, Twilio, Calendly and more. Your existing workflows integrate seamlessly in a few clicks.",
+        "tags": ["n8n", "Airtable", "HubSpot", "+47 others"]
+      }
+    ]
+  },
+  "roi": {
+    "badge": "ROI Calculator",
+    "title1": "How much is Airia worth",
+    "title2": "for your sector?",
+    "subtitle": "Choose your sector and estimate your monthly gains with Airia.",
+    "sectorLabel": "Your sector",
+    "sectorAriaLabel": "Business sector",
+    "valueLabel": "Estimated value:",
+    "sliderLabel": "Inbound calls per week",
+    "hypothesis": "Hypothesis: 15% conversion rate — industry standard",
+    "savedLabel": "saved / month",
+    "clientsLabel": "converted / month",
+    "revenueLabel": "revenue / month",
+    "roiLabel": "Return on investment",
+    "roiSubLabel": "For €750/month Airia service",
+    "benefitsTitle": "What you gain",
+    "benefits": [
+      "Zero hours spent on manual prospecting",
+      "Leads automatically qualified before your team",
+      "Meta campaigns active 24/7 without intervention",
+      "Calls handled even outside office hours",
+      "Automatic reporting for your clients",
+      "Scaling without additional hiring"
+    ],
+    "cta": "Calculate my personalised ROI",
+    "ctaNote": "Free strategy call · No commitment",
+    "sectors": [
+      { "label": "Real estate", "unitéLabel": "average commission" },
+      { "label": "Dental", "unitéLabel": "per consultation" },
+      { "label": "Plumber", "unitéLabel": "per intervention" },
+      { "label": "Lawyer", "unitéLabel": "per opened file" },
+      { "label": "Web agency", "unitéLabel": "per signed project" },
+      { "label": "Accountant", "unitéLabel": "per client/month" }
+    ]
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title1": "What agencies say",
+    "title2": "about using Airia",
+    "subtitle": "12 Belgian agencies. Measurable results from the first weeks.",
+    "cta": "Book a strategy call",
+    "ctaText": "Join the 12 agencies already automating with Airia",
+    "items": [
+      {
+        "texte": "The AI receptionist answers 80% of inbound calls. My team only handles genuinely hot leads. We gained 3h per day and signed 4 new mandates in one month.",
+        "rôle": "Director, Real Estate Agency"
+      },
+      {
+        "texte": "In 2 weeks, our AI email prospecting sequence generated 23 qualified appointments. Before, we had 3-4 per month with a dedicated team. The ROI was immediate.",
+        "rôle": "CEO"
+      },
+      {
+        "texte": "Meta campaigns run on their own. AI adjusts budgets in real time based on performance. +340% leads in 3 months for 3 clients. They all renewed.",
+        "rôle": "Founder"
+      }
+    ]
+  },
+  "footer": {
+    "slogan": "The agency that automates itself.",
+    "location": "Belgium — Brussels, Liège, Ghent",
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "howItWorks": "How it works",
+    "testimonials": "Testimonials",
+    "pricing": "Pricing",
+    "privacy": "Privacy policy",
+    "legal": "Legal notice",
+    "rights": "All rights reserved"
+  },
+  "chat": {
+    "title": "Airia Assistant",
+    "subtitle": "Replies in EN · FR · NL",
+    "placeholder": "Ask your question…",
+    "send": "Send",
+    "welcome": "Hello! I'm Airia's AI assistant. How can I help you today?",
+    "thinking": "Typing…",
+    "close": "Close chat",
+    "open": "Open chat",
+    "tooltip": "A question? Talk to our AI 💬",
+    "error": "An error occurred. Please try again.",
+    "demoBtn": "See the demo 🎬",
+    "demoBtnAriaLabel": "See the interactive demo"
+  },
+  "seo": {
+    "title": "AI Receptionist for Belgian Real Estate Agencies | Airia",
+    "description": "Airia automates vocal reception, prospecting and Meta campaigns for Belgian real estate agencies. Deployed in 48h. €500–1000/month.",
+    "ogTitle": "AI Receptionist for Belgian Real Estate Agencies | Airia",
+    "ogDescription": "Automate your real estate agency with a 24/7 AI receptionist. Lead generation, Meta campaigns. Deployed in 48h in Belgium."
+  },
+  "demo": {
+    "badge": "Live demo",
+    "titre": "Try the demo",
+    "fermerAriaLabel": "Close demo",
+    "ariaLabel": "Airia interactive demo",
+    "selectAriaLabel": "Choose your sector",
+    "modeAriaLabel": "Mode",
+    "chatBtn": "AI Chat",
+    "voixBtn": "AI Voice",
+    "typingAriaLabel": "Assistant is typing...",
+    "inputPlaceholder": "Ask the AI a question...",
+    "sendAriaLabel": "Send",
+    "footerTexte": "Install this AI in your business?",
+    "footerBtn": "Book a call",
+    "voix": {
+      "badge": "🎙️ Voice call — Coming soon",
+      "label": "Call the {{secteur}} AI directly from your browser",
+      "btn": "Start voice call"
+    },
+    "sectors": [
+      { "label": "Real estate" },
+      { "label": "Dental" },
+      { "label": "Lawyer" },
+      { "label": "Notary" },
+      { "label": "Plumber" },
+      { "label": "Electrician" },
+      { "label": "Accountant" },
+      { "label": "Web Agency" }
+    ],
+    "accueil": {
+      "immobilier": "Hello! I'm the AI receptionist of your real estate agency. Are you looking to buy, sell or rent a property? I can qualify your project and schedule an appointment.",
+      "dentaire": "Hello! I'm the AI assistant of the dental practice. What type of care are you looking for? I can check your availability and book an appointment.",
+      "avocat": "Hello! I'm the AI secretary of the law firm. What is the nature of your request — civil, criminal or commercial? I'll assess the urgency and suggest a time slot.",
+      "notaire": "Hello! I'm the AI assistant of the notary office. Real estate deed, inheritance or marriage contract? I'll guide you and schedule your appointment.",
+      "plombier": "Hello! I'm the AI receptionist of the plumber. Leak, breakdown or installation? I qualify the urgency and schedule the intervention.",
+      "electricien": "Hello! I'm the AI receptionist of the electrician. Breakdown, installation or compliance? Describe the situation and I'll schedule the intervention.",
+      "comptable": "Hello! I'm the AI assistant of the accounting firm. VAT, annual accounts or company creation? I qualify your need and schedule a consultation.",
+      "web-agency": "Hello! I'm the AI receptionist of the web agency. Website, app or SEO project? Tell me about your project and I'll schedule a discovery call."
+    }
+  },
+  "modal": {
+    "titre": "How would you like to contact us?",
+    "sousTitre": "Choose the option that suits you best.",
+    "fermerAriaLabel": "Close",
+    "whatsapp": {
+      "titre": "Continue on WhatsApp",
+      "desc": "Quick response · Available now"
+    },
+    "calendly": {
+      "titre": "Book a time slot",
+      "desc": "30 min call · Choose your schedule"
+    }
+  }
+}

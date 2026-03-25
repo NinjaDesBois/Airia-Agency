@@ -3,8 +3,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
-import { useLanguage } from '../context/LanguageContext'
-import { translations } from '../i18n/translations'
+import { useTranslation } from 'react-i18next'
 import './Probleme.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -38,8 +37,8 @@ const idsProblèmes = ['appels-repetitifs', 'prospection-manuelle', 'leads-non-q
 
 export default function Probleme() {
   const refSection = useRef(null)
-  const { language, t } = useLanguage()
-  const items = translations[language].probleme.items
+  const { t } = useTranslation()
+  const items = t('probleme.items', { returnObjects: true })
 
   useEffect(() => {
     const ctx = gsap.context(() => {

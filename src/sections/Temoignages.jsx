@@ -3,9 +3,8 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ouvrirModalContact } from '../components/ModalContact'
-import { useLanguage } from '../context/LanguageContext'
-import { translations } from '../i18n/translations'
 import './Temoignages.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -42,8 +41,8 @@ function Étoiles({ note }) {
 
 export default function Temoignages() {
   const refSection = useRef(null)
-  const { language, t } = useLanguage()
-  const items = translations[language].testimonials.items
+  const { t } = useTranslation()
+  const items = t('testimonials.items', { returnObjects: true })
 
   useEffect(() => {
     const ctx = gsap.context(() => {

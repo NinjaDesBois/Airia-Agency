@@ -2,12 +2,12 @@
    Inclut : bouton démo flottant + tooltip animé */
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useLanguage } from '../context/LanguageContext'
+import { useTranslation } from 'react-i18next'
 import { ouvrirModalDemo } from './DemoSection'
 import './ChatWidget.css'
 
 export default function ChatWidget() {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
   const [ouvert, setOuvert] = useState(false)
   const [messages, setMessages] = useState([])
   const [inputValue, setInputValue] = useState('')
@@ -253,14 +253,14 @@ export default function ChatWidget() {
       <motion.button
         className="demo__btn-flottant"
         onClick={ouvrirModalDemo}
-        aria-label="Voir la démo interactive"
+        aria-label={t('chat.demoBtnAriaLabel')}
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.97 }}
       >
-        Voir la démo 🎬
+        {t('chat.demoBtn')}
       </motion.button>
 
       {/* Bouton flottant chat + tooltip */}

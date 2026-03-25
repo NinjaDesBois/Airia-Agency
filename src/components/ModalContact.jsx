@@ -1,6 +1,7 @@
 /* Modal de contact — WhatsApp + Calendly — Airia */
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import './ModalContact.css'
 
 const WHATSAPP_URL = 'https://wa.me/32495924243'
@@ -12,6 +13,7 @@ export function ouvrirModalContact() {
 }
 
 export default function ModalContact() {
+  const { t } = useTranslation()
   const [ouvert, setOuvert] = useState(false)
 
   /* Écoute l'événement global */
@@ -58,7 +60,7 @@ export default function ModalContact() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Bouton fermer */}
-            <button className="modal__fermer" onClick={fermer} aria-label="Fermer">
+            <button className="modal__fermer" onClick={fermer} aria-label={t('modal.fermerAriaLabel')}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                 <line x1="18" y1="6" x2="6" y2="18"/>
                 <line x1="6" y1="6" x2="18" y2="18"/>
@@ -68,10 +70,10 @@ export default function ModalContact() {
             {/* En-tête */}
             <div className="modal__en-tête">
               <h2 id="modal-titre" className="modal__titre">
-                Comment voulez-vous nous contacter ?
+                {t('modal.titre')}
               </h2>
               <p className="modal__sous-titre">
-                Choisissez l'option qui vous convient le mieux.
+                {t('modal.sousTitre')}
               </p>
             </div>
 
@@ -92,8 +94,8 @@ export default function ModalContact() {
                   </svg>
                 </div>
                 <div className="modal__option-texte">
-                  <span className="modal__option-titre">Continuer sur WhatsApp</span>
-                  <span className="modal__option-desc">Réponse rapide · Disponible maintenant</span>
+                  <span className="modal__option-titre">{t('modal.whatsapp.titre')}</span>
+                  <span className="modal__option-desc">{t('modal.whatsapp.desc')}</span>
                 </div>
                 <svg className="modal__option-flèche" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -122,8 +124,8 @@ export default function ModalContact() {
                   </svg>
                 </div>
                 <div className="modal__option-texte">
-                  <span className="modal__option-titre">Réserver un créneau</span>
-                  <span className="modal__option-desc">Appel 30 min · Choisissez votre horaire</span>
+                  <span className="modal__option-titre">{t('modal.calendly.titre')}</span>
+                  <span className="modal__option-desc">{t('modal.calendly.desc')}</span>
                 </div>
                 <svg className="modal__option-flèche" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7"/>

@@ -1,0 +1,285 @@
+{
+  "nav": {
+    "services": "Dienstleistungen",
+    "howItWorks": "So funktioniert es",
+    "demo": "Demo",
+    "testimonials": "Referenzen",
+    "pricing": "Preise",
+    "cta": "Gespräch buchen",
+    "burgerOpen": "Menü öffnen",
+    "burgerClose": "Menü schließen"
+  },
+  "hero": {
+    "badge": "Neu · In 48h eingesetzt",
+    "cta1": "Strategiegespräch buchen",
+    "cta2": "Demo ansehen",
+    "trust1": "12 Agenturen bereits getestet",
+    "trust2": "In 48h eingesetzt",
+    "trust3": "Ohne Bindung"
+  },
+  "slot": {
+    "votre": "Ihre",
+    "tourne": "läuft",
+    "seul": "von selbst",
+    "paires": {
+      "de": {
+        "0": "Sie schließen die Deals.",
+        "1": "Sie behandeln Ihre Patienten.",
+        "2": "Sie arbeiten vor Ort.",
+        "3": "Sie vertreten Ihre Mandanten.",
+        "4": "Sie entwickeln Ihr Geschäft.",
+        "5": "Sie beraten Ihre Kunden."
+      }
+    }
+  },
+  "stats": {
+    "items": [
+      { "label": "KI-Qualifikationsrate", "description": "Leads automatisch qualifiziert vor Ihrem Team" },
+      { "label": "Einsatz", "description": "Von der Unterzeichnung bis zum vollständigen Start Ihres KI-Systems" },
+      { "label": "Verfügbarkeit", "description": "Ihr KI-Rezeptionist nimmt niemals Urlaub" },
+      { "label": "Setup", "description": "Keine Installationsgebühren. Sie zahlen nur das Abonnement." }
+    ]
+  },
+  "probleme": {
+    "badge": "Das Problem",
+    "title1": "Ihre Agentur verliert Zeit",
+    "title2": "und Geld.",
+    "subtitle": "Jede Stunde für repetitive Aufgaben ist eine verlorene Verkaufsstunde. KI schläft nicht, klagt nicht und macht keine Fehler.",
+    "items": [
+      {
+        "titre": "Sie beantworten dieselben Fragen",
+        "description": "Zeiten, Verfügbarkeit, Preise, Prozess — Ihr Team verbringt 40% der Zeit mit wiederkehrenden Fragen. Das ist abgerechnete Zeit, die Sie nicht kassieren.",
+        "labelStat": "der Zeit verschwendet"
+      },
+      {
+        "titre": "Akquise kostet Stunden",
+        "description": "Suchen, anreichern, kontaktieren, nachfassen. Ein manueller Zyklus, der erschöpft und nicht skaliert.",
+        "labelStat": "pro Akquise"
+      },
+      {
+        "titre": "Leads kommen unqualifiziert an",
+        "description": "Sie erhalten Kontakte. Aber wer ist wirklich kaufbereit? Ohne KI-Qualifizierung ist es verschwendete Zeit.",
+        "labelStat": "verlorene Leads"
+      },
+      {
+        "titre": "Sie verwalten. Sie verkaufen nicht mehr.",
+        "description": "Abrechnung, Kundenbetreuung, Erinnerungen, Reporting — Sie sind zum Projektmanager geworden, nicht zum Verkäufer. Unterdessen schließen Ihre Mitbewerber Deals.",
+        "labelStat": "nicht abrechenbare Zeit"
+      }
+    ]
+  },
+  "howItWorks": {
+    "badge": "Prozess",
+    "title": "Betriebsbereit in",
+    "titleHighlight": "48h",
+    "subtitle": "Von der Unterzeichnung bis zum ersten qualifizierten Lead — in zwei Tagen.",
+    "steps": [
+      {
+        "durée": "Tag 1",
+        "titre": "Audit & Konfiguration",
+        "description": "Wir analysieren Ihre aktuellen Workflows, Tools und Engpässe. In 24h definieren wir genau, was die KI für Sie automatisiert.",
+        "détails": ["Audit Ihrer Prozesse", "Automatisierungsübersicht", "Personalisierter Einsatzplan"]
+      },
+      {
+        "durée": "Tag 1 → 2",
+        "titre": "KI-Einsatz",
+        "description": "Wir installieren und konfigurieren Ihre KI-Agenten: Sprachrezeptionist, Akquise-Sequenzen, Meta-Kampagnen. Alles verbunden mit Ihren bestehenden Tools.",
+        "détails": ["Installation der KI-Agenten", "Integration in Ihre Tools", "Tests & Validierung"]
+      },
+      {
+        "durée": "Ab Tag 3",
+        "titre": "Sie ernten",
+        "description": "Ihre Kunden erhalten qualifizierte Leads, beantwortete Anrufe, aktive Kampagnen. Sie kassieren das monatliche Abonnement — mühelos.",
+        "détails": ["Echtzeit-Monitoring", "Wöchentliche Berichte", "Laufender Support inklusive"]
+      }
+    ]
+  },
+  "features": {
+    "badge": "Funktionen",
+    "title1": "Alles, was Ihre Agentur",
+    "title2": "zur Automatisierung braucht",
+    "subtitle": "6 KI-Module in 48h eingesetzt und konfiguriert. Jedes Modul passt sich Ihrem Sektor und Ihren Workflows an.",
+    "popular": "Beliebt",
+    "items": [
+      {
+        "titre": "Voice KI",
+        "sousTitre": "24/7 Sprachrezeptionist",
+        "description": "Ihr Sprachagent beantwortet Anrufe, qualifiziert Interessenten, plant Termine und leitet nur heiße Leads an Ihr Team weiter.",
+        "tags": ["Eingehende Anrufe", "Qualifizierung", "Terminplanung"]
+      },
+      {
+        "titre": "Lead Generation",
+        "sousTitre": "Automatisierte Akquise",
+        "description": "Mehrstufige E-Mail- und SMS-Sequenzen, von KI personalisiert. Automatische Kontaktanreicherung und intelligente Nachfassaktionen.",
+        "tags": ["KI-E-Mail", "SMS", "Anreicherung"]
+      },
+      {
+        "titre": "Meta Ads KI",
+        "sousTitre": "Facebook & Instagram Kampagnen",
+        "description": "Automatische Erstellung, Optimierung und Skalierung Ihrer Meta-Kampagnen. KI passt Budgets, Zielgruppen und Creatives in Echtzeit an.",
+        "tags": ["Facebook Ads", "Instagram", "Auto-Optimierung"]
+      },
+      {
+        "titre": "Mehrsprachig",
+        "sousTitre": "DE · FR · NL · EN",
+        "description": "Ihre KI-Agenten kommunizieren in der Sprache des Interessenten. Ideal für Agenturen in Belgien, Deutschland, Österreich und der Schweiz.",
+        "tags": ["Deutsch", "Französisch", "Niederländisch"]
+      },
+      {
+        "titre": "Dashboard",
+        "sousTitre": "Echtzeit-Übersicht",
+        "description": "Zentralisiertes Dashboard mit Echtzeit-KPIs: bearbeitete Anrufe, qualifizierte Leads, Konversionsrate, generierte Einnahmen pro Kunde.",
+        "tags": ["Live-KPIs", "Auto-Reporting", "Multi-Kunde"]
+      },
+      {
+        "titre": "Integrationen",
+        "sousTitre": "Verbunden mit 50+ Tools",
+        "description": "n8n, Airtable, Make, Zapier, HubSpot, Twilio, Calendly und mehr. Ihre bestehenden Workflows integrieren sich reibungslos in wenigen Klicks.",
+        "tags": ["n8n", "Airtable", "HubSpot", "+47 andere"]
+      }
+    ]
+  },
+  "roi": {
+    "badge": "ROI-Rechner",
+    "title1": "Wie viel ist Airia wert",
+    "title2": "für Ihren Sektor?",
+    "subtitle": "Wählen Sie Ihren Sektor und schätzen Sie Ihre monatlichen Gewinne mit Airia.",
+    "sectorLabel": "Ihr Tätigkeitsbereich",
+    "sectorAriaLabel": "Tätigkeitsbereich",
+    "valueLabel": "Geschätzter Wert:",
+    "sliderLabel": "Eingehende Anrufe pro Woche",
+    "hypothesis": "Hypothese: 15% Konversionsrate — Branchenstandard",
+    "savedLabel": "gespart / Monat",
+    "clientsLabel": "konvertiert / Monat",
+    "revenueLabel": "Einnahmen / Monat",
+    "roiLabel": "Return on Investment",
+    "roiSubLabel": "Für 750€/Monat Airia-Service",
+    "benefitsTitle": "Was Sie gewinnen",
+    "benefits": [
+      "Null Stunden für manuelle Akquise",
+      "Leads automatisch qualifiziert vor Ihrem Team",
+      "Meta-Kampagnen 24/7 aktiv ohne Eingriff",
+      "Anrufe auch außerhalb der Bürozeiten bearbeitet",
+      "Automatisches Reporting für Ihre Kunden",
+      "Skalierung ohne zusätzliche Einstellungen"
+    ],
+    "cta": "Meinen personalisierten ROI berechnen",
+    "ctaNote": "Kostenloses Strategiegespräch · Ohne Bindung",
+    "sectors": [
+      { "label": "Immobilien", "unitéLabel": "durchschnittliche Provision" },
+      { "label": "Zahnarzt", "unitéLabel": "pro Konsultation" },
+      { "label": "Klempner", "unitéLabel": "pro Einsatz" },
+      { "label": "Anwalt", "unitéLabel": "pro eröffneter Akte" },
+      { "label": "Webagentur", "unitéLabel": "pro unterzeichnetem Projekt" },
+      { "label": "Buchhalter", "unitéLabel": "pro Kunde/Monat" }
+    ]
+  },
+  "testimonials": {
+    "badge": "Referenzen",
+    "title1": "Was Agenturen sagen,",
+    "title2": "die Airia nutzen",
+    "subtitle": "12 belgische Agenturen. Messbare Ergebnisse bereits in den ersten Wochen.",
+    "cta": "Strategiegespräch buchen",
+    "ctaText": "Schließen Sie sich den 12 Agenturen an, die bereits mit Airia automatisieren",
+    "items": [
+      {
+        "texte": "Der KI-Rezeptionist beantwortet 80% der eingehenden Anrufe. Mein Team bearbeitet nur noch wirklich heiße Leads. Wir gewannen 3h pro Tag und unterzeichneten 4 neue Mandate in einem Monat.",
+        "rôle": "Direktor, Immobilienagentur"
+      },
+      {
+        "texte": "In 2 Wochen generierte unsere KI-E-Mail-Sequenz 23 qualifizierte Termine. Vorher hatten wir 3-4 pro Monat mit einem dedizierten Team. Der ROI war sofort.",
+        "rôle": "CEO"
+      },
+      {
+        "texte": "Die Meta-Kampagnen laufen von selbst. KI passt Budgets in Echtzeit an. +340% Leads in 3 Monaten für 3 Kunden. Alle haben verlängert.",
+        "rôle": "Gründer"
+      }
+    ]
+  },
+  "footer": {
+    "slogan": "Die Agentur, die sich selbst automatisiert.",
+    "location": "Belgien — Brüssel, Lüttich, Gent",
+    "services": "Dienstleistungen",
+    "company": "Unternehmen",
+    "contact": "Kontakt",
+    "howItWorks": "So funktioniert es",
+    "testimonials": "Referenzen",
+    "pricing": "Preise",
+    "privacy": "Datenschutzrichtlinie",
+    "legal": "Rechtliche Hinweise",
+    "rights": "Alle Rechte vorbehalten"
+  },
+  "chat": {
+    "title": "Airia Assistent",
+    "subtitle": "Antwortet auf DE · FR · NL",
+    "placeholder": "Stellen Sie Ihre Frage…",
+    "send": "Senden",
+    "welcome": "Hallo! Ich bin Airías KI-Assistent. Wie kann ich Ihnen heute helfen?",
+    "thinking": "Tippt…",
+    "close": "Chat schließen",
+    "open": "Chat öffnen",
+    "tooltip": "Eine Frage? Sprechen Sie mit unserer KI 💬",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "demoBtn": "Demo ansehen 🎬",
+    "demoBtnAriaLabel": "Interaktive Demo ansehen"
+  },
+  "seo": {
+    "title": "KI-Rezeptionist für belgische Immobilienagenturen | Airia",
+    "description": "Airia automatisiert Sprachempfang, Akquise und Meta-Kampagnen für belgische Immobilienagenturen. In 48h eingesetzt. 500–1000€/Monat.",
+    "ogTitle": "KI-Rezeptionist für belgische Immobilienagenturen | Airia",
+    "ogDescription": "Automatisieren Sie Ihre Immobilienagentur mit einem 24/7 KI-Rezeptionisten. Lead-Generierung, Meta-Kampagnen. In 48h in Belgien eingesetzt."
+  },
+  "demo": {
+    "badge": "Live-Demo",
+    "titre": "Demo ausprobieren",
+    "fermerAriaLabel": "Demo schließen",
+    "ariaLabel": "Interaktive Airia-Demo",
+    "selectAriaLabel": "Wählen Sie Ihren Sektor",
+    "modeAriaLabel": "Modus",
+    "chatBtn": "KI-Chat",
+    "voixBtn": "KI-Stimme",
+    "typingAriaLabel": "Assistent tippt...",
+    "inputPlaceholder": "Stellen Sie der KI eine Frage...",
+    "sendAriaLabel": "Senden",
+    "footerTexte": "Diese KI in Ihrem Unternehmen installieren?",
+    "footerBtn": "Gespräch buchen",
+    "voix": {
+      "badge": "🎙️ Sprachanruf — Demnächst verfügbar",
+      "label": "Rufen Sie die KI {{secteur}} direkt aus Ihrem Browser an",
+      "btn": "Sprachanruf starten"
+    },
+    "sectors": [
+      { "label": "Immobilien" },
+      { "label": "Zahnarzt" },
+      { "label": "Rechtsanwalt" },
+      { "label": "Notar" },
+      { "label": "Klempner" },
+      { "label": "Elektriker" },
+      { "label": "Buchhalter" },
+      { "label": "Webagentur" }
+    ],
+    "accueil": {
+      "immobilier": "Hallo! Ich bin der KI-Rezeptionist Ihrer Immobilienagentur. Möchten Sie kaufen, verkaufen oder mieten? Ich kann Ihr Projekt qualifizieren und einen Termin vereinbaren.",
+      "dentaire": "Hallo! Ich bin der KI-Assistent der Zahnarztpraxis. Welche Art von Behandlung suchen Sie? Ich kann Ihre Verfügbarkeit prüfen und einen Termin buchen.",
+      "avocat": "Hallo! Ich bin der KI-Sekretär der Anwaltskanzlei. Was ist die Art Ihres Anliegens — zivilrechtlich, strafrechtlich oder kommerziell? Ich bewerte die Dringlichkeit und schlage einen Zeitslot vor.",
+      "notaire": "Hallo! Ich bin der KI-Assistent des Notarbüros. Immobilienurkunde, Erbschaft oder Ehevertrag? Ich begleite Sie und plane Ihren Termin.",
+      "plombier": "Hallo! Ich bin der KI-Rezeptionist des Klempners. Leck, Störung oder Installation? Ich qualifiziere die Dringlichkeit und plane den Einsatz.",
+      "electricien": "Hallo! Ich bin der KI-Rezeptionist des Elektrikers. Störung, Installation oder Normierung? Beschreiben Sie die Situation und ich plane den Einsatz.",
+      "comptable": "Hallo! Ich bin der KI-Assistent des Buchhaltungsbüros. Mehrwertsteuer, Jahresabschluss oder Unternehmensaufbau? Ich qualifiziere Ihren Bedarf und plane eine Beratung.",
+      "web-agency": "Hallo! Ich bin der KI-Rezeptionist der Webagentur. Website-, App- oder SEO-Projekt? Erzählen Sie mir von Ihrem Projekt und ich plane ein Entdeckungsgespräch."
+    }
+  },
+  "modal": {
+    "titre": "Wie möchten Sie uns kontaktieren?",
+    "sousTitre": "Wählen Sie die Option, die Ihnen am besten passt.",
+    "fermerAriaLabel": "Schließen",
+    "whatsapp": {
+      "titre": "Auf WhatsApp fortfahren",
+      "desc": "Schnelle Antwort · Jetzt verfügbar"
+    },
+    "calendly": {
+      "titre": "Einen Zeitslot buchen",
+      "desc": "30 Min. Gespräch · Wählen Sie Ihren Termin"
+    }
+  }
+}

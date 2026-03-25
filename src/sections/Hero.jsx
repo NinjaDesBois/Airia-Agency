@@ -5,9 +5,9 @@ import { shaderMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
+import { useTranslation } from 'react-i18next'
 import { ouvrirModalContact } from '../components/ModalContact'
 import { ouvrirModalDemo } from '../components/DemoSection'
-import { useLanguage } from '../context/LanguageContext'
 import './Hero.css'
 
 /* ===== Shader personnalisé pour la sphère cyan ===== */
@@ -151,57 +151,51 @@ function LueurAmbiante() {
   )
 }
 
-/* ===== Paires slot machine — par langue ===== */
-const PAIRES_SLOT = {
+/* ===== Paires slot machine — par langue =====
+   Les mots et la logique féminin/masculin (FR) restent ici.
+   Les sousTitres viennent du JSON via t(sousTitreKey). */
+const PAIRES = {
   fr: [
-    { mot: 'agence',     feminin: true,  sousTitre: 'Vous fermez les deals.' },
-    { mot: 'cabinet',    feminin: false, sousTitre: 'Vous soignez vos patients.' },
-    { mot: 'atelier',    feminin: false, sousTitre: 'Vous intervenez sur le terrain.' },
-    { mot: 'étude',      feminin: true,  sousTitre: 'Vous défendez vos clients.' },
-    { mot: 'entreprise', feminin: true,  sousTitre: 'Vous développez votre activité.' },
-    { mot: 'cabinet',    feminin: false, sousTitre: 'Vous conseillez vos clients.' },
+    { mot: 'agence',     feminin: true,  sousTitreKey: 'slot.paires.fr.0' },
+    { mot: 'cabinet',    feminin: false, sousTitreKey: 'slot.paires.fr.1' },
+    { mot: 'atelier',    feminin: false, sousTitreKey: 'slot.paires.fr.2' },
+    { mot: 'étude',      feminin: true,  sousTitreKey: 'slot.paires.fr.3' },
+    { mot: 'entreprise', feminin: true,  sousTitreKey: 'slot.paires.fr.4' },
+    { mot: 'cabinet',    feminin: false, sousTitreKey: 'slot.paires.fr.5' },
   ],
   nl: [
-    { mot: 'kantoor',  sousTitre: 'Jij sluit de deals.' },
-    { mot: 'praktijk', sousTitre: 'Jij behandelt je patiënten.' },
-    { mot: 'atelier',  sousTitre: 'Jij werkt op het terrein.' },
-    { mot: 'studie',   sousTitre: 'Jij verdedigt je klanten.' },
-    { mot: 'bedrijf',  sousTitre: 'Jij ontwikkelt je activiteit.' },
-    { mot: 'kantoor',  sousTitre: 'Jij adviseert je klanten.' },
+    { mot: 'kantoor',  sousTitreKey: 'slot.paires.nl.0' },
+    { mot: 'praktijk', sousTitreKey: 'slot.paires.nl.1' },
+    { mot: 'atelier',  sousTitreKey: 'slot.paires.nl.2' },
+    { mot: 'studie',   sousTitreKey: 'slot.paires.nl.3' },
+    { mot: 'bedrijf',  sousTitreKey: 'slot.paires.nl.4' },
+    { mot: 'kantoor',  sousTitreKey: 'slot.paires.nl.5' },
   ],
   en: [
-    { mot: 'agency',   sousTitre: 'You close the deals.' },
-    { mot: 'practice', sousTitre: 'You treat your patients.' },
-    { mot: 'workshop', sousTitre: 'You work in the field.' },
-    { mot: 'firm',     sousTitre: 'You defend your clients.' },
-    { mot: 'business', sousTitre: 'You grow your activity.' },
-    { mot: 'office',   sousTitre: 'You advise your clients.' },
+    { mot: 'agency',   sousTitreKey: 'slot.paires.en.0' },
+    { mot: 'practice', sousTitreKey: 'slot.paires.en.1' },
+    { mot: 'workshop', sousTitreKey: 'slot.paires.en.2' },
+    { mot: 'firm',     sousTitreKey: 'slot.paires.en.3' },
+    { mot: 'business', sousTitreKey: 'slot.paires.en.4' },
+    { mot: 'office',   sousTitreKey: 'slot.paires.en.5' },
   ],
   de: [
-    { mot: 'Agentur',     sousTitre: 'Sie schließen die Deals.' },
-    { mot: 'Praxis',      sousTitre: 'Sie behandeln Ihre Patienten.' },
-    { mot: 'Werkstatt',   sousTitre: 'Sie arbeiten vor Ort.' },
-    { mot: 'Kanzlei',     sousTitre: 'Sie vertreten Ihre Mandanten.' },
-    { mot: 'Unternehmen', sousTitre: 'Sie entwickeln Ihr Geschäft.' },
-    { mot: 'Büro',        sousTitre: 'Sie beraten Ihre Kunden.' },
+    { mot: 'Agentur',     sousTitreKey: 'slot.paires.de.0' },
+    { mot: 'Praxis',      sousTitreKey: 'slot.paires.de.1' },
+    { mot: 'Werkstatt',   sousTitreKey: 'slot.paires.de.2' },
+    { mot: 'Kanzlei',     sousTitreKey: 'slot.paires.de.3' },
+    { mot: 'Unternehmen', sousTitreKey: 'slot.paires.de.4' },
+    { mot: 'Büro',        sousTitreKey: 'slot.paires.de.5' },
   ],
-}
-
-/* Parties statiques du titre selon la langue */
-const TITRE_STATIQUE = {
-  fr: { prefix: 'Votre', middle: ' tourne tout', suffix: ' seul' },
-  nl: { prefix: 'Jouw',  middle: ' draait alleen.',  suffix: '' },
-  en: { prefix: 'Your',  middle: ' runs itself.',     suffix: '' },
-  de: { prefix: 'Ihre',  middle: ' läuft von selbst.', suffix: '' },
 }
 
 /* ===== Composant principal Hero ===== */
 export default function Hero() {
   const refContenu = useRef(null)
-  const { t, language } = useLanguage()
+  const { t, i18n } = useTranslation()
 
   /* Paires slot machine selon la langue active */
-  const pairesSlot = useMemo(() => PAIRES_SLOT[language] || PAIRES_SLOT.fr, [language])
+  const pairesSlot = useMemo(() => PAIRES[i18n.language] || PAIRES.fr, [i18n.language])
 
   /* Slot machine — état de la phase et index de la paire courante */
   const [phaseSlot, setPhaseSlot] = useState('visible')
@@ -267,6 +261,11 @@ export default function Hero() {
     return () => ctx.revert()
   }, [])
 
+  const paire = pairesSlot[indexSlot]
+  /* L'animation "e" s'applique uniquement en FR */
+  const e = paire.feminin ? 'e' : ''
+  const isFr = i18n.language === 'fr'
+
   return (
     <section id="hero" className="hero" aria-label="Section principale">
       {/* Scène Three.js en arrière-plan */}
@@ -294,37 +293,33 @@ export default function Hero() {
 
         {/* Titre principal — seul le mot et les "e" de genre (FR) animent, tout le reste est statique */}
         <h1 className="hero__titre">
-          {(() => {
-            const { prefix, middle, suffix } = TITRE_STATIQUE[language] || TITRE_STATIQUE.fr
-            const paire = pairesSlot[indexSlot]
-            if (language === 'fr') {
-              const e = paire.feminin ? 'e' : ''
-              return <>
-                <span>{prefix} </span>
-                <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
-                  <span className="hero__slot-mot">{paire.mot}</span>
-                </span>
-                <span>{middle}</span>
-                <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>{e}</span>
-                <span>{suffix}</span>
-                <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>{e}</span>
-                <span>.</span>
-              </>
-            }
-            return <>
-              <span>{prefix} </span>
+          {isFr ? (
+            <>
+              <span>{t('slot.votre')} </span>
               <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
                 <span className="hero__slot-mot">{paire.mot}</span>
               </span>
-              <span>{middle}</span>
+              <span> {t('slot.tourne')}</span>
+              <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>{e}</span>
+              <span> {t('slot.seul')}</span>
+              <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>{e}</span>
+              <span>.</span>
             </>
-          })()}
+          ) : (
+            <>
+              <span>{t('slot.votre')} </span>
+              <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
+                <span className="hero__slot-mot">{paire.mot}</span>
+              </span>
+              <span> {t('slot.tourne')} {t('slot.seul')}.</span>
+            </>
+          )}
         </h1>
 
         {/* Sous-titre — anime en sync avec le mot, même taille que le titre */}
         <p className="hero__sous-titre hero__slot-sous-titre">
           <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
-            {pairesSlot[indexSlot].sousTitre}
+            {t(paire.sousTitreKey)}
           </span>
         </p>
 

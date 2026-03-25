@@ -1,0 +1,285 @@
+{
+  "nav": {
+    "services": "Services",
+    "howItWorks": "Comment ça marche",
+    "demo": "Démo",
+    "testimonials": "Témoignages",
+    "pricing": "Tarifs",
+    "cta": "Réserver un appel",
+    "burgerOpen": "Ouvrir le menu",
+    "burgerClose": "Fermer le menu"
+  },
+  "hero": {
+    "badge": "Nouveau · Déployé en 48h",
+    "cta1": "Réserver un appel stratégique",
+    "cta2": "Voir la démo",
+    "trust1": "12 agences déjà testées",
+    "trust2": "Déployé en 48h",
+    "trust3": "Sans engagement"
+  },
+  "slot": {
+    "votre": "Votre",
+    "tourne": "tourne tout",
+    "seul": "seul",
+    "paires": {
+      "fr": {
+        "0": "Vous fermez les deals.",
+        "1": "Vous soignez vos patients.",
+        "2": "Vous intervenez sur le terrain.",
+        "3": "Vous défendez vos clients.",
+        "4": "Vous développez votre activité.",
+        "5": "Vous conseillez vos clients."
+      }
+    }
+  },
+  "stats": {
+    "items": [
+      { "label": "Taux de qualification IA", "description": "Des leads qualifiés automatiquement avant votre équipe" },
+      { "label": "Déploiement", "description": "De la signature au lancement complet de votre système IA" },
+      { "label": "Disponibilité", "description": "Votre réceptionniste IA ne prend jamais de congé" },
+      { "label": "Setup", "description": "Aucun frais d'installation. Vous payez uniquement le récurrent." }
+    ]
+  },
+  "probleme": {
+    "badge": "Le problème",
+    "title1": "Votre agence perd du temps",
+    "title2": "et de l'argent.",
+    "subtitle": "Chaque heure passée sur des tâches répétitives est une heure de vente perdue. L'IA ne dort pas, ne se plaint pas, et ne fait pas d'erreurs.",
+    "items": [
+      {
+        "titre": "Vous répondez aux mêmes questions",
+        "description": "Horaires, disponibilités, tarifs, process — votre équipe passe 40% du temps sur des questions récurrentes. C'est du temps facturé que vous n'encaissez pas.",
+        "labelStat": "du temps perdu"
+      },
+      {
+        "titre": "La prospection prend des heures",
+        "description": "Trouver, enrichir, contacter, relancer. Un cycle manuel qui épuise et ne scale pas.",
+        "labelStat": "par prospection"
+      },
+      {
+        "titre": "Les leads arrivent non qualifiés",
+        "description": "Vous recevez des contacts. Mais qui est vraiment prêt à acheter ? Sans qualification IA, c'est du temps investit pour rien.",
+        "labelStat": "de leads perdus"
+      },
+      {
+        "titre": "Vous gérez. Vous ne vendez plus.",
+        "description": "Facturation, suivi client, relances, reporting — vous êtes devenu·e chef de projet, pas commercial·e. Pendant ce temps, vos concurrents closent des deals. L'IA doit gérer l'opérationnel, pas vous.",
+        "labelStat": "du temps non facturable"
+      }
+    ]
+  },
+  "howItWorks": {
+    "badge": "Process",
+    "title": "Opérationnel en",
+    "titleHighlight": "48h",
+    "subtitle": "De la signature au premier lead qualifié — en deux jours.",
+    "steps": [
+      {
+        "durée": "Jour 1",
+        "titre": "Audit & Configuration",
+        "description": "On analyse vos workflows actuels, vos outils, et les points de friction. En 24h, on définit exactement ce que l'IA va automatiser pour vous.",
+        "détails": ["Audit de vos processus", "Cartographie des automatisations", "Plan de déploiement personnalisé"]
+      },
+      {
+        "durée": "Jour 1 → 2",
+        "titre": "Déploiement IA",
+        "description": "On installe et configure vos agents IA : réceptionniste vocale, séquences de prospection, campagnes Meta. Tout est connecté à vos outils existants.",
+        "détails": ["Installation des agents IA", "Intégration à vos outils", "Tests & validation"]
+      },
+      {
+        "durée": "Dès le Jour 3",
+        "titre": "Vous récoltez",
+        "description": "Vos clients reçoivent des leads qualifiés, des appels répondus, des campagnes actives. Vous encaissez l'abonnement mensuel récurrent — sans effort.",
+        "détails": ["Monitoring en temps réel", "Rapports hebdomadaires", "Support continu inclus"]
+      }
+    ]
+  },
+  "features": {
+    "badge": "Fonctionnalités",
+    "title1": "Tout ce dont votre agence",
+    "title2": "a besoin pour s'automatiser",
+    "subtitle": "6 modules IA déployés et configurés en 48h. Chaque module s'adapte à votre secteur et vos workflows existants.",
+    "popular": "Populaire",
+    "items": [
+      {
+        "titre": "Voice IA",
+        "sousTitre": "Réceptionniste vocale 24/7",
+        "description": "Votre agent vocal répond aux appels, qualifie les prospects, planifie les rendez-vous et transfère vers votre équipe uniquement les leads chauds.",
+        "tags": ["Appels entrants", "Qualification", "Planning RDV"]
+      },
+      {
+        "titre": "Lead Generation",
+        "sousTitre": "Prospection automatisée",
+        "description": "Séquences email et SMS multi-étapes, personnalisées par IA. Enrichissement automatique des contacts et relances intelligentes.",
+        "tags": ["Email IA", "SMS", "Enrichissement"]
+      },
+      {
+        "titre": "Pub Meta IA",
+        "sousTitre": "Campagnes Facebook & Instagram",
+        "description": "Création, optimisation et scaling automatique de vos campagnes Meta. L'IA ajuste les budgets, les audiences et les créas en temps réel.",
+        "tags": ["Facebook Ads", "Instagram", "Auto-optimisation"]
+      },
+      {
+        "titre": "Multilingue",
+        "sousTitre": "FR · NL · EN · DE",
+        "description": "Vos agents IA communiquent dans la langue du prospect. Parfait pour les agences belges qui opèrent en Flandre, Wallonie et à Bruxelles.",
+        "tags": ["Français", "Néerlandais", "Anglais"]
+      },
+      {
+        "titre": "Dashboard",
+        "sousTitre": "Vue en temps réel",
+        "description": "Tableau de bord centralisé avec KPIs en temps réel : appels traités, leads qualifiés, taux de conversion, revenus générés pour chaque client.",
+        "tags": ["KPIs live", "Reporting auto", "Multi-clients"]
+      },
+      {
+        "titre": "Intégrations",
+        "sousTitre": "Connecté à 50+ outils",
+        "description": "n8n, Airtable, Make, Zapier, HubSpot, Twilio, Calendly et plus. Vos workflows existants s'intègrent sans friction en quelques clics.",
+        "tags": ["n8n", "Airtable", "HubSpot", "+47 autres"]
+      }
+    ]
+  },
+  "roi": {
+    "badge": "Calcul ROI",
+    "title1": "Combien vaut Airia",
+    "title2": "pour votre secteur ?",
+    "subtitle": "Choisissez votre secteur et estimez vos gains mensuels avec Airia.",
+    "sectorLabel": "Votre secteur d'activité",
+    "sectorAriaLabel": "Secteur d'activité",
+    "valueLabel": "Valeur estimée :",
+    "sliderLabel": "Appels entrants par semaine",
+    "hypothesis": "Hypothèse : taux de conversion de 15% — standard industrie",
+    "savedLabel": "économisées / mois",
+    "clientsLabel": "convertis / mois",
+    "revenueLabel": "revenus / mois",
+    "roiLabel": "Retour sur investissement",
+    "roiSubLabel": "Pour 750€/mois de service Airia",
+    "benefitsTitle": "Ce que vous gagnez",
+    "benefits": [
+      "Zéro heure passée sur la prospection manuelle",
+      "Leads qualifiés automatiquement avant votre équipe",
+      "Campagnes Meta actives 24/7 sans intervention",
+      "Appels traités même hors heures de bureau",
+      "Reporting automatique pour vos clients",
+      "Scaling sans embauche supplémentaire"
+    ],
+    "cta": "Calculer mon ROI personnalisé",
+    "ctaNote": "Appel stratégique gratuit · Sans engagement",
+    "sectors": [
+      { "label": "Immobilier", "unitéLabel": "commission moyenne" },
+      { "label": "Dentaire", "unitéLabel": "par consultation" },
+      { "label": "Plombier", "unitéLabel": "par intervention" },
+      { "label": "Avocat", "unitéLabel": "par dossier ouvert" },
+      { "label": "Agence web", "unitéLabel": "par projet signé" },
+      { "label": "Comptable", "unitéLabel": "par client/mois" }
+    ]
+  },
+  "testimonials": {
+    "badge": "Témoignages",
+    "title1": "Ce que disent les agences",
+    "title2": "qui utilisent Airia",
+    "subtitle": "12 agences belges. Des résultats mesurables dès les premières semaines.",
+    "cta": "Réserver un appel stratégique",
+    "ctaText": "Rejoignez les 12 agences qui automatisent déjà avec Airia",
+    "items": [
+      {
+        "texte": "La réceptionniste IA répond à 80% des appels entrants. Mon équipe ne traite plus que les leads vraiment chauds. On a gagné 3h par jour et signé 4 nouveaux mandats en un mois.",
+        "rôle": "Directeur, Agence Immobilière"
+      },
+      {
+        "texte": "En 2 semaines, notre séquence de prospection email IA a généré 23 rendez-vous qualifiés. Avant, on en avait 3-4 par mois avec une équipe dédiée. Le ROI était immédiat.",
+        "rôle": "CEO"
+      },
+      {
+        "texte": "Les campagnes Meta tournent toutes seules. L'IA ajuste les budgets en temps réel selon les performances. +340% de leads en 3 mois pour 3 de nos clients. Ils ont tous renouvelé.",
+        "rôle": "Fondateur"
+      }
+    ]
+  },
+  "footer": {
+    "slogan": "L'agence qui s'automatise toute seule.",
+    "location": "Belgique — Bruxelles, Liège, Gand",
+    "services": "Services",
+    "company": "Entreprise",
+    "contact": "Contact",
+    "howItWorks": "Comment ça marche",
+    "testimonials": "Témoignages",
+    "pricing": "Tarifs",
+    "privacy": "Politique de confidentialité",
+    "legal": "Mentions légales",
+    "rights": "Tous droits réservés"
+  },
+  "chat": {
+    "title": "Assistant Airia",
+    "subtitle": "Répond en FR · NL · EN",
+    "placeholder": "Posez votre question…",
+    "send": "Envoyer",
+    "welcome": "Bonjour ! Je suis l'assistant IA d'Airia. Comment puis-je vous aider aujourd'hui ?",
+    "thinking": "En train de rédiger…",
+    "close": "Fermer le chat",
+    "open": "Ouvrir le chat",
+    "tooltip": "Une question ? Parlez à notre IA 💬",
+    "error": "Une erreur s'est produite. Veuillez réessayer.",
+    "demoBtn": "Voir la démo 🎬",
+    "demoBtnAriaLabel": "Voir la démo interactive"
+  },
+  "seo": {
+    "title": "Réceptionniste IA pour agences immobilières belges | Airia",
+    "description": "Airia automatise la réception vocale, la prospection et les campagnes Meta pour agences immobilières belges. Déployé en 48h. 500–1000€/mois.",
+    "ogTitle": "Réceptionniste IA pour agences immobilières belges | Airia",
+    "ogDescription": "Automatisez votre agence immobilière avec une réceptionniste IA 24/7. Lead generation, campagnes Meta. Déployé en 48h en Belgique."
+  },
+  "demo": {
+    "badge": "Démo en direct",
+    "titre": "Essayez la démo",
+    "fermerAriaLabel": "Fermer la démo",
+    "ariaLabel": "Démo interactive Airia",
+    "selectAriaLabel": "Choisissez votre secteur",
+    "modeAriaLabel": "Mode",
+    "chatBtn": "Chat IA",
+    "voixBtn": "Voix IA",
+    "typingAriaLabel": "L'assistant écrit...",
+    "inputPlaceholder": "Posez une question à l'IA...",
+    "sendAriaLabel": "Envoyer",
+    "footerTexte": "Installer cette IA dans votre business ?",
+    "footerBtn": "Réserver un appel",
+    "voix": {
+      "badge": "🎙️ Appel vocal — Bientôt disponible",
+      "label": "Appelez l'IA {{secteur}} directement depuis votre navigateur",
+      "btn": "Démarrer l'appel vocal"
+    },
+    "sectors": [
+      { "label": "Immobilier" },
+      { "label": "Dentaire" },
+      { "label": "Avocat" },
+      { "label": "Notaire" },
+      { "label": "Plombier" },
+      { "label": "Electricien" },
+      { "label": "Comptable" },
+      { "label": "Web Agency" }
+    ],
+    "accueil": {
+      "immobilier": "Bonjour ! Je suis la réceptionniste IA de votre agence immobilière. Vous cherchez à acheter, vendre ou louer un bien ? Je peux qualifier votre projet et fixer un rendez-vous.",
+      "dentaire": "Bonjour ! Je suis l'assistante IA du cabinet dentaire. Quel type de soin recherchez-vous ? Je peux vérifier vos disponibilités et réserver un rendez-vous.",
+      "avocat": "Bonjour ! Je suis la secrétaire IA du cabinet d'avocats. Quelle est la nature de votre demande — civil, pénal ou commercial ? Je vais évaluer l'urgence et vous proposer un créneau.",
+      "notaire": "Bonjour ! Je suis l'assistante IA de l'étude notariale. Acte immobilier, succession ou contrat de mariage ? Je vous guide et planifie votre rendez-vous.",
+      "plombier": "Bonjour ! Je suis la réceptionniste IA du plombier. Fuite, panne ou installation ? Je qualifie l'urgence et planifie l'intervention.",
+      "electricien": "Bonjour ! Je suis la réceptionniste IA de l'électricien. Panne, installation ou mise aux normes ? Décrivez la situation et je planifie l'intervention.",
+      "comptable": "Bonjour ! Je suis l'assistante IA du cabinet comptable. TVA, bilan annuel ou création de société ? Je qualifie votre besoin et fixe une consultation.",
+      "web-agency": "Bonjour ! Je suis la réceptionniste IA de la web agency. Projet de site, application ou SEO ? Parlez-moi de votre projet et je planifie un appel découverte."
+    }
+  },
+  "modal": {
+    "titre": "Comment voulez-vous nous contacter ?",
+    "sousTitre": "Choisissez l'option qui vous convient le mieux.",
+    "fermerAriaLabel": "Fermer",
+    "whatsapp": {
+      "titre": "Continuer sur WhatsApp",
+      "desc": "Réponse rapide · Disponible maintenant"
+    },
+    "calendly": {
+      "titre": "Réserver un créneau",
+      "desc": "Appel 30 min · Choisissez votre horaire"
+    }
+  }
+}

@@ -2,14 +2,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
+import { useTranslation } from 'react-i18next'
 import { ouvrirModalContact } from './ModalContact'
 import { ouvrirModalDemo } from './DemoSection'
 import LanguageSwitcher from './LanguageSwitcher'
-import { useLanguage } from '../context/LanguageContext'
 import './Navbar.css'
 
 export default function Navbar() {
-  const { t } = useLanguage()
+  const { t } = useTranslation()
   const [défilé, setDéfilé] = useState(false)
   const [menuOuvert, setMenuOuvert] = useState(false)
   const refNavbar = useRef(null)
@@ -17,7 +17,7 @@ export default function Navbar() {
   const liensNavigation = [
     { label: t('nav.services'), href: '#fonctionnalites' },
     { label: t('nav.howItWorks'), href: '#comment-ca-marche' },
-    { label: 'Démo', href: null, onClick: ouvrirModalDemo },
+    { label: t('nav.demo'), href: null, onClick: ouvrirModalDemo },
     { label: t('nav.testimonials'), href: '#temoignages' },
     { label: t('nav.pricing'), href: '#roi' },
   ]

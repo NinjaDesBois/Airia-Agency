@@ -2,47 +2,31 @@
    Ouvrir via : ouvrirModalDemo() depuis n'importe quel CTA */
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import './DemoSection.css'
 
 export function ouvrirModalDemo() {
   window.dispatchEvent(new CustomEvent('airia:ouvrir-modal-demo'))
 }
 
-const SECTEURS = [
-  { id: 'immobilier',  label: 'Immobilier' },
-  { id: 'dentaire',    label: 'Dentaire' },
-  { id: 'avocat',      label: 'Avocat' },
-  { id: 'notaire',     label: 'Notaire' },
-  { id: 'plombier',    label: 'Plombier' },
-  { id: 'electricien', label: 'Electricien' },
-  { id: 'comptable',   label: 'Comptable' },
-  { id: 'web-agency',  label: 'Web Agency' },
-]
-
-const MESSAGE_ACCUEIL = {
-  immobilier:   "Bonjour ! Je suis la réceptionniste IA de votre agence immobilière. Vous cherchez à acheter, vendre ou louer un bien ? Je peux qualifier votre projet et fixer un rendez-vous.",
-  dentaire:     "Bonjour ! Je suis l'assistante IA du cabinet dentaire. Quel type de soin recherchez-vous ? Je peux vérifier vos disponibilités et réserver un rendez-vous.",
-  avocat:       "Bonjour ! Je suis la secrétaire IA du cabinet d'avocats. Quelle est la nature de votre demande — civil, pénal ou commercial ? Je vais évaluer l'urgence et vous proposer un créneau.",
-  notaire:      "Bonjour ! Je suis l'assistante IA de l'étude notariale. Acte immobilier, succession ou contrat de mariage ? Je vous guide et planifie votre rendez-vous.",
-  plombier:     "Bonjour ! Je suis la réceptionniste IA du plombier. Fuite, panne ou installation ? Je qualifie l'urgence et planifie l'intervention.",
-  electricien:  "Bonjour ! Je suis la réceptionniste IA de l'électricien. Panne, installation ou mise aux normes ? Décrivez la situation et je planifie l'intervention.",
-  comptable:    "Bonjour ! Je suis l'assistante IA du cabinet comptable. TVA, bilan annuel ou création de société ? Je qualifie votre besoin et fixe une consultation.",
-  'web-agency': "Bonjour ! Je suis la réceptionniste IA de la web agency. Projet de site, application ou SEO ? Parlez-moi de votre projet et je planifie un appel découverte.",
-}
+/* IDs stables des secteurs — les labels viennent des JSON */
+const SECTOR_IDS = ['immobilier', 'dentaire', 'avocat', 'notaire', 'plombier', 'electricien', 'comptable', 'web-agency']
 
 /* Compteur global — clés uniques entre secteurs et réinitialisations */
 let _msgId = 0
 const nouvelId = () => ++_msgId
 
-const msgAccueil = (secteurId) => ({
-  id: nouvelId(),
-  role: 'assistant',
-  contenu: MESSAGE_ACCUEIL[secteurId] ?? 'Bonjour ! Comment puis-je vous aider ?',
-})
-
 /* ===== Zone chat scrollable ===== */
 function ZoneChat({ secteurId }) {
-  const [messages, setMessages] = useState(() => [msgAccueil(secteurId)])
+  const { t } = useTranslation()
+
+  const getAccueilMsg = (id) => ({
+    id: nouvelId(),
+    role: 'assistant',
+    contenu: t(`demo.accueil.${id}`) || 'Bonjour ! Comment puis-je vous aider ?',
+  })
+
+  const [messages, setMessages] = useState(() => [getAccueilMsg(secteurId)])
   const [saisie, setSaisie] = useState('')
   const [enChargement, setEnChargement] = useState(false)
   const [erreur, setErreur] = useState(null)
@@ -51,7 +35,7 @@ function ZoneChat({ secteurId }) {
 
   /* Reset + scroll quand le secteur change */
   useEffect(() => {
-    setMessages([msgAccueil(secteurId)])
+    setMessages([getAccueilMsg(secteurId)])
     setErreur(null)
     setSaisie('')
   }, [secteurId])
@@ -109,7 +93,7 @@ function ZoneChat({ secteurId }) {
         {enChargement && (
           <div className="demo__msg demo__msg--assistant">
             <span className="demo__msg-avatar" aria-hidden="true">🤖</span>
-            <div className="demo__typing" aria-label="L'assistant écrit...">
+            <div className="demo__typing" aria-label={t('demo.typingAriaLabel')}>
               <span /><span /><span />
             </div>
           </div>
@@ -126,7 +110,7 @@ function ZoneChat({ secteurId }) {
           ref={refInput}
           type="text"
           className="demo__input"
-          placeholder="Posez une question à l'IA..."
+          placeholder={t('demo.inputPlaceholder')}
           value={saisie}
           onChange={e => setSaisie(e.target.value)}
           disabled={enChargement}
@@ -136,7 +120,7 @@ function ZoneChat({ secteurId }) {
           type="submit"
           className="demo__input-envoyer"
           disabled={!saisie.trim() || enChargement}
-          aria-label="Envoyer"
+          aria-label={t('demo.sendAriaLabel')}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
             <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" />
@@ -149,6 +133,8 @@ function ZoneChat({ secteurId }) {
 
 /* ===== Zone voix ===== */
 function ZoneVoix({ secteurLabel }) {
+  const { t } = useTranslation()
+
   return (
     <div className="demo__chat-area demo__voix-area">
       <div className="demo__voix-cercle" aria-hidden="true">
@@ -157,12 +143,12 @@ function ZoneVoix({ secteurLabel }) {
           <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
         </svg>
       </div>
-      <span className="demo__voix-badge">🎙️ Appel vocal — Bientôt disponible</span>
+      <span className="demo__voix-badge">{t('demo.voix.badge')}</span>
       <p className="demo__voix-label">
-        Appelez l&apos;IA {secteurLabel} directement depuis votre navigateur
+        {t('demo.voix.label', { secteur: secteurLabel })}
       </p>
       <button className="demo__voix-btn" disabled aria-disabled="true">
-        Démarrer l&apos;appel vocal
+        {t('demo.voix.btn')}
       </button>
     </div>
   )
@@ -170,11 +156,17 @@ function ZoneVoix({ secteurLabel }) {
 
 /* ===== Modal principal ===== */
 export default function ModalDemo() {
+  const { t } = useTranslation()
   const [ouvert, setOuvert] = useState(false)
-  const [secteurId, setSecteurId] = useState('immobilier')
+  const [secteurIndex, setSecteurIndex] = useState(0)
   const [mode, setMode] = useState('chat') /* 'chat' | 'voix' */
 
-  const secteurLabel = SECTEURS.find(s => s.id === secteurId)?.label ?? ''
+  const secteurId = SECTOR_IDS[secteurIndex]
+  const secteurs = SECTOR_IDS.map((id, i) => ({
+    id,
+    label: t(`demo.sectors.${i}.label`),
+  }))
+  const secteurLabel = secteurs[secteurIndex]?.label ?? ''
 
   /* Écoute l'événement global */
   useEffect(() => {
@@ -207,7 +199,7 @@ export default function ModalDemo() {
           onClick={() => setOuvert(false)}
           role="dialog"
           aria-modal="true"
-          aria-label="Démo interactive Airia"
+          aria-label={t('demo.ariaLabel')}
         >
           <motion.div
             className="demo__card"
@@ -222,13 +214,13 @@ export default function ModalDemo() {
             <div className="demo__header">
               <div className="demo__header-top">
                 <div className="demo__header-titre">
-                  <span className="badge">Démo en direct</span>
-                  <h2 className="demo__titre">Essayez la démo</h2>
+                  <span className="badge">{t('demo.badge')}</span>
+                  <h2 className="demo__titre">{t('demo.titre')}</h2>
                 </div>
                 <button
                   className="demo__fermer"
                   onClick={() => setOuvert(false)}
-                  aria-label="Fermer la démo"
+                  aria-label={t('demo.fermerAriaLabel')}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                     <line x1="18" y1="6" x2="6" y2="18"/>
@@ -242,12 +234,12 @@ export default function ModalDemo() {
                 <div className="demo__select-wrap">
                   <select
                     className="demo__select"
-                    value={secteurId}
-                    onChange={e => setSecteurId(e.target.value)}
-                    aria-label="Choisissez votre secteur"
+                    value={secteurIndex}
+                    onChange={e => setSecteurIndex(Number(e.target.value))}
+                    aria-label={t('demo.selectAriaLabel')}
                   >
-                    {SECTEURS.map(s => (
-                      <option key={s.id} value={s.id}>{s.label}</option>
+                    {secteurs.map((s, i) => (
+                      <option key={s.id} value={i}>{s.label}</option>
                     ))}
                   </select>
                   <svg className="demo__select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
@@ -256,7 +248,7 @@ export default function ModalDemo() {
                 </div>
 
                 {/* Toggle Chat / Voix */}
-                <div className="demo__toggle" role="group" aria-label="Mode">
+                <div className="demo__toggle" role="group" aria-label={t('demo.modeAriaLabel')}>
                   <button
                     className={`demo__toggle-btn ${mode === 'chat' ? 'demo__toggle-btn--actif' : ''}`}
                     onClick={() => setMode('chat')}
@@ -265,7 +257,7 @@ export default function ModalDemo() {
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                     </svg>
-                    Chat IA
+                    {t('demo.chatBtn')}
                   </button>
                   <button
                     className={`demo__toggle-btn ${mode === 'voix' ? 'demo__toggle-btn--actif' : ''}`}
@@ -276,7 +268,7 @@ export default function ModalDemo() {
                       <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
                       <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
                     </svg>
-                    Voix IA
+                    {t('demo.voixBtn')}
                   </button>
                 </div>
               </div>
@@ -290,14 +282,14 @@ export default function ModalDemo() {
 
             {/* ── FOOTER CTA ── */}
             <div className="demo__footer">
-              <p className="demo__footer-texte">Installer cette IA dans votre business ?</p>
+              <p className="demo__footer-texte">{t('demo.footerTexte')}</p>
               <a
                 href="https://calendly.com/hello-airia/appel-strategique-airia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primaire demo__footer-btn"
               >
-                Réserver un appel
+                {t('demo.footerBtn')}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>

@@ -1,12 +1,13 @@
 /* Composant SEO — react-helmet-async + JSON-LD — Airia */
 import { Helmet } from 'react-helmet-async'
-import { useLanguage } from '../context/LanguageContext'
+import { useTranslation } from 'react-i18next'
 
 const SITE_URL = 'https://airia.be'
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`
 
 export default function SEO() {
-  const { language, t } = useLanguage()
+  const { t, i18n } = useTranslation()
+  const language = i18n.language
 
   const title = t('seo.title')
   const description = t('seo.description')

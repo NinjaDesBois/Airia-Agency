@@ -1,0 +1,285 @@
+{
+  "nav": {
+    "services": "Diensten",
+    "howItWorks": "Hoe het werkt",
+    "demo": "Demo",
+    "testimonials": "Getuigenissen",
+    "pricing": "Tarieven",
+    "cta": "Gesprek reserveren",
+    "burgerOpen": "Menu openen",
+    "burgerClose": "Menu sluiten"
+  },
+  "hero": {
+    "badge": "Nieuw · Ingezet in 48u",
+    "cta1": "Strategisch gesprek reserveren",
+    "cta2": "Bekijk de demo",
+    "trust1": "12 agentschappen al getest",
+    "trust2": "Ingezet in 48u",
+    "trust3": "Zonder verbintenis"
+  },
+  "slot": {
+    "votre": "Jouw",
+    "tourne": "draait",
+    "seul": "alleen",
+    "paires": {
+      "nl": {
+        "0": "Jij sluit de deals.",
+        "1": "Jij behandelt je patiënten.",
+        "2": "Jij werkt op het terrein.",
+        "3": "Jij verdedigt je klanten.",
+        "4": "Jij ontwikkelt je activiteit.",
+        "5": "Jij adviseert je klanten."
+      }
+    }
+  },
+  "stats": {
+    "items": [
+      { "label": "AI-kwalificatiegraad", "description": "Leads automatisch gekwalificeerd vóór uw team" },
+      { "label": "Implementatie", "description": "Van ondertekening tot volledige lancering van uw AI-systeem" },
+      { "label": "Beschikbaarheid", "description": "Uw AI-receptionist neemt nooit verlof" },
+      { "label": "Opstartkosten", "description": "Geen installatiekosten. U betaalt alleen het abonnement." }
+    ]
+  },
+  "probleme": {
+    "badge": "Het probleem",
+    "title1": "Uw agentschap verliest tijd",
+    "title2": "en geld.",
+    "subtitle": "Elk uur besteed aan repetitieve taken is een uur verkoop verloren. AI slaapt niet, klaagt niet en maakt geen fouten.",
+    "items": [
+      {
+        "titre": "U beantwoordt dezelfde vragen",
+        "description": "Uren, beschikbaarheid, tarieven, proces — uw team besteedt 40% van de tijd aan terugkerende vragen. Dat is gefactureerde tijd die u niet incasseert.",
+        "labelStat": "van de tijd verspild"
+      },
+      {
+        "titre": "Prospectie kost uren",
+        "description": "Zoeken, verrijken, contacteren, opvolgen. Een handmatige cyclus die uitput en niet schaalt.",
+        "labelStat": "per prospectie"
+      },
+      {
+        "titre": "Leads komen ongekwalificeerd aan",
+        "description": "U ontvangt contacten. Maar wie is echt klaar om te kopen? Zonder AI-kwalificatie is het verspilde tijd.",
+        "labelStat": "verloren leads"
+      },
+      {
+        "titre": "U beheert. U verkoopt niet meer.",
+        "description": "Facturatie, klantopvolging, herinneringen, rapportage — u bent projectmanager geworden, geen verkoper. Ondertussen sluiten uw concurrenten deals.",
+        "labelStat": "niet-factureerbare tijd"
+      }
+    ]
+  },
+  "howItWorks": {
+    "badge": "Proces",
+    "title": "Operationeel in",
+    "titleHighlight": "48u",
+    "subtitle": "Van ondertekening tot eerste gekwalificeerde lead — in twee dagen.",
+    "steps": [
+      {
+        "durée": "Dag 1",
+        "titre": "Audit & Configuratie",
+        "description": "We analyseren uw huidige workflows, tools en knelpunten. In 24u bepalen we precies wat de AI voor u automatiseert.",
+        "détails": ["Audit van uw processen", "Automatiseringskaart", "Gepersonaliseerd implementatieplan"]
+      },
+      {
+        "durée": "Dag 1 → 2",
+        "titre": "AI-implementatie",
+        "description": "We installeren en configureren uw AI-agenten: vocale receptionist, prospectiesequenties, Meta-campagnes. Alles verbonden met uw bestaande tools.",
+        "détails": ["Installatie van AI-agenten", "Integratie met uw tools", "Testen & validatie"]
+      },
+      {
+        "durée": "Vanaf dag 3",
+        "titre": "U oogst",
+        "description": "Uw klanten ontvangen gekwalificeerde leads, beantwoorde oproepen, actieve campagnes. U incasseert het maandelijkse abonnement — zonder moeite.",
+        "détails": ["Real-time monitoring", "Wekelijkse rapporten", "Doorlopende ondersteuning inbegrepen"]
+      }
+    ]
+  },
+  "features": {
+    "badge": "Functies",
+    "title1": "Alles wat uw agentschap",
+    "title2": "nodig heeft om te automatiseren",
+    "subtitle": "6 AI-modules ingezet en geconfigureerd in 48u. Elke module past zich aan uw sector en workflows aan.",
+    "popular": "Populair",
+    "items": [
+      {
+        "titre": "Voice AI",
+        "sousTitre": "Vocale receptionist 24/7",
+        "description": "Uw vocale agent beantwoordt oproepen, kwalificeert prospects, plant afspraken en stuurt alleen warme leads door naar uw team.",
+        "tags": ["Inkomende oproepen", "Kwalificatie", "Afsprakenbeheer"]
+      },
+      {
+        "titre": "Lead Generation",
+        "sousTitre": "Geautomatiseerde prospectie",
+        "description": "Meerstaps e-mail- en sms-sequenties, gepersonaliseerd door AI. Automatische contactverrijking en intelligente follow-ups.",
+        "tags": ["AI-e-mail", "SMS", "Verrijking"]
+      },
+      {
+        "titre": "Meta Ads AI",
+        "sousTitre": "Facebook & Instagram campagnes",
+        "description": "Automatisch aanmaken, optimaliseren en opschalen van uw Meta-campagnes. AI past budgetten, doelgroepen en creatives in realtime aan.",
+        "tags": ["Facebook Ads", "Instagram", "Auto-optimalisatie"]
+      },
+      {
+        "titre": "Meertalig",
+        "sousTitre": "NL · FR · EN · DE",
+        "description": "Uw AI-agenten communiceren in de taal van de prospect. Perfect voor Belgische agentschappen actief in Vlaanderen, Wallonië en Brussel.",
+        "tags": ["Nederlands", "Frans", "Engels"]
+      },
+      {
+        "titre": "Dashboard",
+        "sousTitre": "Realtime overzicht",
+        "description": "Gecentraliseerd dashboard met realtime KPI's: verwerkte oproepen, gekwalificeerde leads, conversieratio, gegenereerde inkomsten per klant.",
+        "tags": ["Live KPI's", "Auto-rapportage", "Multi-klant"]
+      },
+      {
+        "titre": "Integraties",
+        "sousTitre": "Verbonden met 50+ tools",
+        "description": "n8n, Airtable, Make, Zapier, HubSpot, Twilio, Calendly en meer. Uw bestaande workflows integreren naadloos in een paar klikken.",
+        "tags": ["n8n", "Airtable", "HubSpot", "+47 andere"]
+      }
+    ]
+  },
+  "roi": {
+    "badge": "ROI-berekening",
+    "title1": "Hoeveel is Airia waard",
+    "title2": "voor uw sector?",
+    "subtitle": "Kies uw sector en schat uw maandelijkse winst met Airia.",
+    "sectorLabel": "Uw activiteitssector",
+    "sectorAriaLabel": "Activiteitssector",
+    "valueLabel": "Geschatte waarde:",
+    "sliderLabel": "Inkomende oproepen per week",
+    "hypothesis": "Hypothese: conversieratio van 15% — standaard in de sector",
+    "savedLabel": "bespaard / maand",
+    "clientsLabel": "geconverteerd / maand",
+    "revenueLabel": "inkomsten / maand",
+    "roiLabel": "Rendement op investering",
+    "roiSubLabel": "Voor 750€/maand Airia-service",
+    "benefitsTitle": "Wat u wint",
+    "benefits": [
+      "Nul uur besteed aan handmatige prospectie",
+      "Leads automatisch gekwalificeerd vóór uw team",
+      "Meta-campagnes actief 24/7 zonder interventie",
+      "Oproepen verwerkt ook buiten kantooruren",
+      "Automatische rapportage voor uw klanten",
+      "Schalen zonder extra aanwervingen"
+    ],
+    "cta": "Bereken mijn gepersonaliseerde ROI",
+    "ctaNote": "Gratis strategiegesprek · Zonder verbintenis",
+    "sectors": [
+      { "label": "Vastgoed", "unitéLabel": "gemiddelde commissie" },
+      { "label": "Tandarts", "unitéLabel": "per consultatie" },
+      { "label": "Loodgieter", "unitéLabel": "per interventie" },
+      { "label": "Advocaat", "unitéLabel": "per geopend dossier" },
+      { "label": "Webbureau", "unitéLabel": "per ondertekend project" },
+      { "label": "Boekhouder", "unitéLabel": "per klant/maand" }
+    ]
+  },
+  "testimonials": {
+    "badge": "Getuigenissen",
+    "title1": "Wat agentschappen zeggen",
+    "title2": "die Airia gebruiken",
+    "subtitle": "12 Belgische agentschappen. Meetbare resultaten vanaf de eerste weken.",
+    "cta": "Strategisch gesprek reserveren",
+    "ctaText": "Sluit u aan bij de 12 agentschappen die al automatiseren met Airia",
+    "items": [
+      {
+        "texte": "De AI-receptionist beantwoordt 80% van de inkomende oproepen. Mijn team behandelt alleen nog de echt warme leads. We wonnen 3u per dag en ondertekenden 4 nieuwe mandaten in een maand.",
+        "rôle": "Directeur, Vastgoedkantoor"
+      },
+      {
+        "texte": "In 2 weken genereerde onze AI-e-mailprospectiesequentie 23 gekwalificeerde afspraken. Daarvoor hadden we er 3-4 per maand met een toegewijd team. De ROI was onmiddellijk.",
+        "rôle": "CEO"
+      },
+      {
+        "texte": "De Meta-campagnes draaien op zichzelf. AI past budgetten in realtime aan op basis van prestaties. +340% leads in 3 maanden voor 3 klanten. Ze hebben allemaal verlengd.",
+        "rôle": "Oprichter"
+      }
+    ]
+  },
+  "footer": {
+    "slogan": "Het agentschap dat zichzelf automatiseert.",
+    "location": "België — Brussel, Luik, Gent",
+    "services": "Diensten",
+    "company": "Bedrijf",
+    "contact": "Contact",
+    "howItWorks": "Hoe het werkt",
+    "testimonials": "Getuigenissen",
+    "pricing": "Tarieven",
+    "privacy": "Privacybeleid",
+    "legal": "Juridische vermeldingen",
+    "rights": "Alle rechten voorbehouden"
+  },
+  "chat": {
+    "title": "Airia Assistent",
+    "subtitle": "Antwoordt in NL · FR · EN",
+    "placeholder": "Stel uw vraag…",
+    "send": "Versturen",
+    "welcome": "Hallo! Ik ben de AI-assistent van Airia. Hoe kan ik u vandaag helpen?",
+    "thinking": "Aan het typen…",
+    "close": "Chat sluiten",
+    "open": "Chat openen",
+    "tooltip": "Een vraag? Praat met onze AI 💬",
+    "error": "Er is een fout opgetreden. Probeer het opnieuw.",
+    "demoBtn": "Bekijk de demo 🎬",
+    "demoBtnAriaLabel": "Bekijk de interactieve demo"
+  },
+  "seo": {
+    "title": "AI-receptionist voor Belgische vastgoedkantoren | Airia",
+    "description": "Airia automatiseert vocale receptie, prospectie en Meta-campagnes voor Belgische vastgoedkantoren. Ingezet in 48u. 500–1000€/maand.",
+    "ogTitle": "AI-receptionist voor Belgische vastgoedkantoren | Airia",
+    "ogDescription": "Automatiseer uw vastgoedkantoor met een AI-receptionist 24/7. Lead generation, Meta-campagnes. Ingezet in 48u in België."
+  },
+  "demo": {
+    "badge": "Live demo",
+    "titre": "Probeer de demo",
+    "fermerAriaLabel": "Demo sluiten",
+    "ariaLabel": "Interactieve Airia-demo",
+    "selectAriaLabel": "Kies uw sector",
+    "modeAriaLabel": "Modus",
+    "chatBtn": "Chat AI",
+    "voixBtn": "Stem AI",
+    "typingAriaLabel": "De assistent typt...",
+    "inputPlaceholder": "Stel een vraag aan de AI...",
+    "sendAriaLabel": "Versturen",
+    "footerTexte": "Deze AI installeren in uw bedrijf?",
+    "footerBtn": "Gesprek reserveren",
+    "voix": {
+      "badge": "🎙️ Spraakoproep — Binnenkort beschikbaar",
+      "label": "Bel de AI {{secteur}} rechtstreeks vanuit uw browser",
+      "btn": "Spraakoproep starten"
+    },
+    "sectors": [
+      { "label": "Vastgoed" },
+      { "label": "Tandarts" },
+      { "label": "Advocaat" },
+      { "label": "Notaris" },
+      { "label": "Loodgieter" },
+      { "label": "Elektricien" },
+      { "label": "Boekhouder" },
+      { "label": "Webbureau" }
+    ],
+    "accueil": {
+      "immobilier": "Goedendag! Ik ben de AI-receptionist van uw vastgoedkantoor. Wilt u kopen, verkopen of huren? Ik kan uw project kwalificeren en een afspraak inplannen.",
+      "dentaire": "Goedendag! Ik ben de AI-assistent van het tandartspraktijk. Welk type zorg zoekt u? Ik kan uw beschikbaarheid controleren en een afspraak reserveren.",
+      "avocat": "Goedendag! Ik ben de AI-secretaris van het advocatenkantoor. Wat is de aard van uw vraag — civiel, strafrechtelijk of commercieel? Ik beoordeel de urgentie en stel een tijdslot voor.",
+      "notaire": "Goedendag! Ik ben de AI-assistent van het notariskantoor. Vastgoedakte, nalatenschap of huwelijkscontract? Ik begeleid u en plan uw afspraak.",
+      "plombier": "Goedendag! Ik ben de AI-receptionist van de loodgieter. Lek, panne of installatie? Ik kwalificeer de urgentie en plan de interventie.",
+      "electricien": "Goedendag! Ik ben de AI-receptionist van de elektricien. Panne, installatie of normering? Beschrijf de situatie en ik plan de interventie.",
+      "comptable": "Goedendag! Ik ben de AI-assistent van het boekhoudkantoor. BTW, jaarrekening of bedrijfsoprichting? Ik kwalificeer uw behoefte en plan een consultatie.",
+      "web-agency": "Goedendag! Ik ben de AI-receptionist van het webbureau. Website-, applicatie- of SEO-project? Vertel me over uw project en ik plan een ontdekkingsgesprek."
+    }
+  },
+  "modal": {
+    "titre": "Hoe wilt u contact met ons opnemen?",
+    "sousTitre": "Kies de optie die u het beste uitkomt.",
+    "fermerAriaLabel": "Sluiten",
+    "whatsapp": {
+      "titre": "Doorgaan op WhatsApp",
+      "desc": "Snelle reactie · Nu beschikbaar"
+    },
+    "calendly": {
+      "titre": "Een tijdslot reserveren",
+      "desc": "30 min gesprek · Kies uw tijdstip"
+    }
+  }
+}

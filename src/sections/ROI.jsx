@@ -3,9 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ouvrirModalContact } from '../components/ModalContact'
-import { useLanguage } from '../context/LanguageContext'
-import { translations } from '../i18n/translations'
 import './ROI.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -107,8 +106,9 @@ export default function ROI() {
   const refSection = useRef(null)
   const [appelsParSemaine, setAppelsParSemaine] = useState(30)
   const [secteurIndex, setSecteurIndex] = useState(0)
-  const { language, t } = useLanguage()
-  const sectorsLabels = translations[language].roi.sectors
+  const { t } = useTranslation()
+  const sectorsLabels = t('roi.sectors', { returnObjects: true })
+  const benefits = t('roi.benefits', { returnObjects: true })
   const résultats = calculerROI(appelsParSemaine, valeursParSecteur[secteurIndex].valeurTransaction)
 
   useEffect(() => {
@@ -136,8 +136,6 @@ export default function ROI() {
 
     return () => ctx.revert()
   }, [])
-
-  const benefits = translations[language].roi.benefits
 
   return (
     <section id="roi" className="roi" ref={refSection} aria-labelledby="roi-titre">

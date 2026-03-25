@@ -3,8 +3,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
-import { useLanguage } from '../context/LanguageContext'
-import { translations } from '../i18n/translations'
+import { useTranslation } from 'react-i18next'
 import './Features.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -39,8 +38,8 @@ const idsFeatures = ['voice-ia', 'lead-gen', 'pub-meta', 'multilingue', 'dashboa
 
 export default function Features() {
   const refSection = useRef(null)
-  const { language, t } = useLanguage()
-  const items = translations[language].features.items
+  const { t } = useTranslation()
+  const items = t('features.items', { returnObjects: true })
 
   useEffect(() => {
     const ctx = gsap.context(() => {

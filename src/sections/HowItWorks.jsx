@@ -3,8 +3,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
-import { useLanguage } from '../context/LanguageContext'
-import { translations } from '../i18n/translations'
+import { useTranslation } from 'react-i18next'
 import './HowItWorks.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -26,8 +25,8 @@ const numÉtapes = ['01', '02', '03']
 
 export default function HowItWorks() {
   const refSection = useRef(null)
-  const { language, t } = useLanguage()
-  const steps = translations[language].howItWorks.steps
+  const { t } = useTranslation()
+  const steps = t('howItWorks.steps', { returnObjects: true })
 
   useEffect(() => {
     const ctx = gsap.context(() => {
