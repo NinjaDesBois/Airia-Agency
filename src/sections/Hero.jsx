@@ -151,40 +151,48 @@ function LueurAmbiante() {
   )
 }
 
-/* ===== Paires slot machine — par langue — mot + reste de phrase + sous-titre ===== */
+/* ===== Paires slot machine — par langue ===== */
 const PAIRES_SLOT = {
   fr: [
-    { mot: 'agence',     reste: 'tourne toute seule.', sousTitre: 'Vous fermez les deals.' },
-    { mot: 'cabinet',    reste: 'tourne tout seul.',   sousTitre: 'Vous soignez vos patients.' },
-    { mot: 'atelier',    reste: 'tourne tout seul.',   sousTitre: 'Vous intervenez sur le terrain.' },
-    { mot: 'étude',      reste: 'tourne toute seule.', sousTitre: 'Vous défendez vos clients.' },
-    { mot: 'entreprise', reste: 'tourne toute seule.', sousTitre: 'Vous développez votre activité.' },
-    { mot: 'cabinet',    reste: 'tourne tout seul.',   sousTitre: 'Vous conseillez vos clients.' },
+    { mot: 'agence',     feminin: true,  sousTitre: 'Vous fermez les deals.' },
+    { mot: 'cabinet',    feminin: false, sousTitre: 'Vous soignez vos patients.' },
+    { mot: 'atelier',    feminin: false, sousTitre: 'Vous intervenez sur le terrain.' },
+    { mot: 'étude',      feminin: true,  sousTitre: 'Vous défendez vos clients.' },
+    { mot: 'entreprise', feminin: true,  sousTitre: 'Vous développez votre activité.' },
+    { mot: 'cabinet',    feminin: false, sousTitre: 'Vous conseillez vos clients.' },
   ],
   nl: [
-    { mot: 'kantoor',  reste: 'draait alleen.', sousTitre: 'Jij sluit de deals.' },
-    { mot: 'praktijk', reste: 'draait alleen.', sousTitre: 'Jij behandelt je patiënten.' },
-    { mot: 'atelier',  reste: 'draait alleen.', sousTitre: 'Jij werkt op het terrein.' },
-    { mot: 'studie',   reste: 'draait alleen.', sousTitre: 'Jij verdedigt je klanten.' },
-    { mot: 'bedrijf',  reste: 'draait alleen.', sousTitre: 'Jij ontwikkelt je activiteit.' },
-    { mot: 'kantoor',  reste: 'draait alleen.', sousTitre: 'Jij adviseert je klanten.' },
+    { mot: 'kantoor',  sousTitre: 'Jij sluit de deals.' },
+    { mot: 'praktijk', sousTitre: 'Jij behandelt je patiënten.' },
+    { mot: 'atelier',  sousTitre: 'Jij werkt op het terrein.' },
+    { mot: 'studie',   sousTitre: 'Jij verdedigt je klanten.' },
+    { mot: 'bedrijf',  sousTitre: 'Jij ontwikkelt je activiteit.' },
+    { mot: 'kantoor',  sousTitre: 'Jij adviseert je klanten.' },
   ],
   en: [
-    { mot: 'agency',   reste: 'runs itself.', sousTitre: 'You close the deals.' },
-    { mot: 'practice', reste: 'runs itself.', sousTitre: 'You treat your patients.' },
-    { mot: 'workshop', reste: 'runs itself.', sousTitre: 'You work in the field.' },
-    { mot: 'firm',     reste: 'runs itself.', sousTitre: 'You defend your clients.' },
-    { mot: 'business', reste: 'runs itself.', sousTitre: 'You grow your activity.' },
-    { mot: 'office',   reste: 'runs itself.', sousTitre: 'You advise your clients.' },
+    { mot: 'agency',   sousTitre: 'You close the deals.' },
+    { mot: 'practice', sousTitre: 'You treat your patients.' },
+    { mot: 'workshop', sousTitre: 'You work in the field.' },
+    { mot: 'firm',     sousTitre: 'You defend your clients.' },
+    { mot: 'business', sousTitre: 'You grow your activity.' },
+    { mot: 'office',   sousTitre: 'You advise your clients.' },
   ],
   de: [
-    { mot: 'Agentur',     reste: 'läuft von selbst.', sousTitre: 'Sie schließen die Deals.' },
-    { mot: 'Praxis',      reste: 'läuft von selbst.', sousTitre: 'Sie behandeln Ihre Patienten.' },
-    { mot: 'Werkstatt',   reste: 'läuft von selbst.', sousTitre: 'Sie arbeiten vor Ort.' },
-    { mot: 'Kanzlei',     reste: 'läuft von selbst.', sousTitre: 'Sie vertreten Ihre Mandanten.' },
-    { mot: 'Unternehmen', reste: 'läuft von selbst.', sousTitre: 'Sie entwickeln Ihr Geschäft.' },
-    { mot: 'Büro',        reste: 'läuft von selbst.', sousTitre: 'Sie beraten Ihre Kunden.' },
+    { mot: 'Agentur',     sousTitre: 'Sie schließen die Deals.' },
+    { mot: 'Praxis',      sousTitre: 'Sie behandeln Ihre Patienten.' },
+    { mot: 'Werkstatt',   sousTitre: 'Sie arbeiten vor Ort.' },
+    { mot: 'Kanzlei',     sousTitre: 'Sie vertreten Ihre Mandanten.' },
+    { mot: 'Unternehmen', sousTitre: 'Sie entwickeln Ihr Geschäft.' },
+    { mot: 'Büro',        sousTitre: 'Sie beraten Ihre Kunden.' },
   ],
+}
+
+/* Parties statiques du titre selon la langue */
+const TITRE_STATIQUE = {
+  fr: { prefix: 'Votre', middle: ' tourne tout', suffix: ' seul' },
+  nl: { prefix: 'Jouw',  middle: ' draait alleen.',  suffix: '' },
+  en: { prefix: 'Your',  middle: ' runs itself.',     suffix: '' },
+  de: { prefix: 'Ihre',  middle: ' läuft von selbst.', suffix: '' },
 }
 
 /* ===== Composant principal Hero ===== */
@@ -284,13 +292,33 @@ export default function Hero() {
           {t('hero.badge')}
         </div>
 
-        {/* Titre principal — le mot sectoriel et le reste de phrase animent ensemble */}
+        {/* Titre principal — seul le mot et les "e" de genre (FR) animent, tout le reste est statique */}
         <h1 className="hero__titre">
-          <span>{t('hero.slotPrefixe')} </span>
-          <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
-            <span className="hero__slot-mot">{pairesSlot[indexSlot].mot}</span>
-            {' '}{pairesSlot[indexSlot].reste}
-          </span>
+          {(() => {
+            const { prefix, middle, suffix } = TITRE_STATIQUE[language] || TITRE_STATIQUE.fr
+            const paire = pairesSlot[indexSlot]
+            if (language === 'fr') {
+              const e = paire.feminin ? 'e' : ''
+              return <>
+                <span>{prefix} </span>
+                <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
+                  <span className="hero__slot-mot">{paire.mot}</span>
+                </span>
+                <span>{middle}</span>
+                <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>{e}</span>
+                <span>{suffix}</span>
+                <span className={`hero__slot-e hero__slot-e--${phaseSlot}`}>{e}</span>
+                <span>.</span>
+              </>
+            }
+            return <>
+              <span>{prefix} </span>
+              <span className={`hero__slot-dynamique hero__slot-dynamique--${phaseSlot}`}>
+                <span className="hero__slot-mot">{paire.mot}</span>
+              </span>
+              <span>{middle}</span>
+            </>
+          })()}
         </h1>
 
         {/* Sous-titre — anime en sync avec le mot, même taille que le titre */}
