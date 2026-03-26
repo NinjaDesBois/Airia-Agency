@@ -40,9 +40,9 @@ export default function SeoContent() {
         Pourquoi choisir Airia
       </h3>
       <p>
-        Agence belge, livraison en 48h, sans frais de setup, à partir de 500€ par mois.
-        Nos systèmes sont conçus pour fonctionner à 99% de manière autonome.
-        Contactez-nous à hello@airia.be ou réservez un appel sur Calendly.
+        Agence belge, livraison en 48h, sans frais de setup. Nos systèmes fonctionnent
+        de manière autonome à 99%. Contactez-nous à hello@airia.be ou réservez un appel
+        stratégique sur Calendly.
       </p>
     </section>
   )
