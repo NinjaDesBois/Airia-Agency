@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import ModalContact from './components/ModalContact'
 import ChatWidget from './components/ChatWidget'
 import SEO from './components/SEO'
+import SeoContent from './components/SeoContent'
 
 /* Sections de la landing page — chargement lazy pour le code splitting */
 import Hero from './sections/Hero'
@@ -102,6 +103,9 @@ function PageAccueil() {
           <Temoignages />
         </Suspense>
       </main>
+
+      {/* Contenu SEO crawlable — texte visible pour les moteurs de recherche */}
+      <SeoContent />
 
       {/* Pied de page */}
       <Footer />

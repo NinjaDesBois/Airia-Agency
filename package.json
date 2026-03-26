@@ -6,8 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "react-snap",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "inlineCss": true,
+    "minifyHtml": { "collapseWhitespace": true },
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
@@ -32,6 +39,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
+    "react-snap": "^1.23.0",
     "vite": "^8.0.0"
   }
 }
