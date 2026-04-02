@@ -60,6 +60,14 @@ export default function Navbar() {
       <div className="navbar__conteneur">
         {/* Logo */}
         <a href="#" className="navbar__logo" aria-label="Airia — Accueil">
+          <img
+            src="/logo-airia.png"
+            alt=""
+            className="navbar__logo-image"
+            aria-hidden="true"
+            width="32"
+            height="32"
+          />
           <span className="navbar__logo-texte">AIRIA</span>
           <span className="navbar__logo-point" aria-hidden="true" />
         </a>

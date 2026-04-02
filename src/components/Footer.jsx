@@ -13,6 +13,14 @@ export default function Footer() {
         <div className="footer__haut">
           <div className="footer__marque">
             <div className="footer__logo">
+              <img
+                src="/logo-airia.png"
+                alt=""
+                className="footer__logo-image"
+                aria-hidden="true"
+                width="28"
+                height="28"
+              />
               <span>AIRIA</span>
               <span className="footer__logo-point" aria-hidden="true" />
             </div>
