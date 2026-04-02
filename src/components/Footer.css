@@ -38,12 +38,16 @@
 }
 
 .footer__logo-point {
-  width: 7px;
-  height: 7px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
+  box-shadow:
+    0 0 6px 1px var(--cyan),
+    0 0 18px 4px rgba(0, 245, 255, 0.55),
+    0 0 36px 8px rgba(0, 245, 255, 0.2);
   margin-bottom: 12px;
+  animation: logoPointPulse 2.8s ease-in-out infinite;
 }
 
 .footer__slogan {
