@@ -32,6 +32,13 @@
 }
 
 /* === Logo — colonne gauche === */
+.navbar__logo-image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .navbar__logo {
   flex: 1;
   display: flex;
@@ -56,32 +63,13 @@
 }
 
 .navbar__logo-point {
-  width: 11px;
-  height: 11px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--cyan);
-  box-shadow:
-    0 0 6px 1px var(--cyan),
-    0 0 18px 4px rgba(0, 245, 255, 0.55),
-    0 0 36px 8px rgba(0, 245, 255, 0.2);
-  margin-bottom: 12px;
+  box-shadow: 0 0 10px var(--cyan);
+  margin-bottom: 10px;
   flex-shrink: 0;
-  animation: logoPointPulse 2.8s ease-in-out infinite;
-}
-
-@keyframes logoPointPulse {
-  0%, 100% {
-    box-shadow:
-      0 0 6px 1px var(--cyan),
-      0 0 18px 4px rgba(0, 245, 255, 0.55),
-      0 0 36px 8px rgba(0, 245, 255, 0.2);
-  }
-  50% {
-    box-shadow:
-      0 0 8px 2px var(--cyan),
-      0 0 28px 8px rgba(0, 245, 255, 0.7),
-      0 0 52px 14px rgba(0, 245, 255, 0.3);
-  }
 }
 
 /* === Liens — colonne centrale (centrés) === */

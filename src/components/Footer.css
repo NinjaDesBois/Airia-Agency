@@ -26,6 +26,13 @@
   gap: var(--espace-4);
 }
 
+.footer__logo-image {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .footer__logo {
   display: flex;
   align-items: center;
@@ -38,16 +45,12 @@
 }
 
 .footer__logo-point {
-  width: 11px;
-  height: 11px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--cyan);
-  box-shadow:
-    0 0 6px 1px var(--cyan),
-    0 0 18px 4px rgba(0, 245, 255, 0.55),
-    0 0 36px 8px rgba(0, 245, 255, 0.2);
+  box-shadow: 0 0 10px var(--cyan);
   margin-bottom: 12px;
-  animation: logoPointPulse 2.8s ease-in-out infinite;
 }
 
 .footer__slogan {
