@@ -1,247 +1,289 @@
 /* === Navbar — Airia === */
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  max-width: 100vw;
-  z-index: var(--z-sticky);
-  padding: var(--espace-4) 0;
-  overflow: hidden;
-  transition: background var(--transition-lente), backdrop-filter var(--transition-lente), border-color var(--transition-lente);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100vw;
+    z-index: var(--z-sticky);
+    padding: var(--espace-4) 0;
+    overflow: hidden;
+    transition: background var(--transition-lente), backdrop-filter var(--transition-lente), border-color var(--transition-lente);
 }
 
 .navbar--défilée {
-  background: rgba(5,5,8,0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid var(--verre-bordure);
+    background: rgba(5, 5, 8, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--verre-bordure);
 }
+
 
 /* === Conteneur — layout 3 colonnes : [logo] [liens] [contrôles] === */
+
 .navbar__conteneur {
-  width: 100%;
-  max-width: var(--conteneur-max);
-  margin: 0 auto;
-  padding: 0 var(--espace-6);
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
+    width: 100%;
+    max-width: var(--conteneur-max);
+    margin: 0 auto;
+    padding: 0 var(--espace-6);
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
 }
 
+
 /* === Logo — colonne gauche === */
+
 .navbar__logo-image {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  flex-shrink: 0;
+    width: 47px;
+    height: 47px;
+    object-fit: contain;
+    flex-shrink: 0;
+    animation: logo-glow 2s infinite;
+}
+
+@keyframes logo-glow {
+    0%,
+    100% {
+        filter: brightness(1.0) drop-shadow(0 0 6px rgba(0, 229, 204, 0.4));
+    }
+    50% {
+        filter: brightness(1.2) drop-shadow(0 0 14px rgba(0, 229, 204, 0.8));
+    }
 }
 
 .navbar__logo {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: var(--espace-2);
-  text-decoration: none;
-  flex-shrink: 0;
-  min-width: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--espace-2);
+    text-decoration: none;
+    flex-shrink: 0;
+    min-width: 0;
 }
 
 .navbar__logo-texte {
-  font-family: var(--police-titre);
-  font-size: var(--texte-xl);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--white);
-  transition: color var(--transition-rapide);
+    font-family: 'Syne', sans-serif;
+    font-size: var(--texte-xl);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    transition: color var(--transition-rapide);
+    text-transform: uppercase;
 }
 
+
+/* .brand-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    transition: color var(--transition-rapide);
+    text-transform: uppercase;
+} */
+
 .navbar__logo:hover .navbar__logo-texte {
-  color: var(--cyan);
+    color: var(--cyan);
 }
 
 .navbar__logo-point {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 10px var(--cyan);
-  margin-bottom: 10px;
-  flex-shrink: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+    margin-bottom: 10px;
+    flex-shrink: 0;
 }
 
+
 /* === Liens — colonne centrale (centrés) === */
+
 .navbar__liens {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  gap: var(--espace-1);
-  list-style: none;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: var(--espace-1);
+    list-style: none;
 }
 
 .navbar__lien {
-  padding: var(--espace-2) var(--espace-4);
-  font-size: var(--texte-sm);
-  font-weight: 500;
-  color: var(--gris-300);
-  border-radius: var(--rayon-md);
-  transition: color var(--transition-rapide), background var(--transition-rapide);
-  cursor: pointer;
-  white-space: nowrap;
-  /* reset bouton */
-  background: none;
-  border: none;
-  font-family: inherit;
-  text-decoration: none;
+    padding: var(--espace-2) var(--espace-4);
+    font-size: var(--texte-sm);
+    font-weight: 500;
+    color: var(--gris-300);
+    border-radius: var(--rayon-md);
+    transition: color var(--transition-rapide), background var(--transition-rapide);
+    cursor: pointer;
+    white-space: nowrap;
+    /* reset bouton */
+    background: none;
+    border: none;
+    font-family: inherit;
+    text-decoration: none;
 }
 
 .navbar__lien:hover {
-  color: var(--white);
-  background: rgba(255,255,255,0.05);
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.05);
 }
+
 
 /* === Contrôles — colonne droite (lang switcher + CTA) === */
+
 .navbar__contrôles {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--espace-4);
-  min-width: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--espace-4);
+    min-width: 0;
 }
+
 
 /* === CTA === */
+
 .navbar__cta {
-  padding: var(--espace-3) var(--espace-6);
-  font-size: var(--texte-sm);
-  flex-shrink: 0;
-  white-space: nowrap;
+    padding: var(--espace-3) var(--espace-6);
+    font-size: var(--texte-sm);
+    flex-shrink: 0;
+    white-space: nowrap;
 }
+
 
 /* === Lang switcher mobile === */
+
 .navbar__mobile-lang {
-  padding: var(--espace-2) var(--espace-4);
+    padding: var(--espace-2) var(--espace-4);
 }
 
+
 /* === Burger mobile === */
+
 .navbar__burger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  padding: var(--espace-2);
-  cursor: pointer;
-  flex-shrink: 0;
-  background: none;
-  border: none;
-  /* Pas de margin-left: auto — le flex: 1 du logo pousse déjà le burger à droite */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: var(--espace-2);
+    cursor: pointer;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    /* Pas de margin-left: auto — le flex: 1 du logo pousse déjà le burger à droite */
 }
 
 .navbar__burger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--white);
-  border-radius: var(--rayon-full);
-  transition: transform var(--transition-base), opacity var(--transition-base);
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--white);
+    border-radius: var(--rayon-full);
+    transition: transform var(--transition-base), opacity var(--transition-base);
 }
 
 .navbar__burger--ouvert span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.navbar__burger--ouvert span:nth-child(2) {
-  opacity: 0;
-}
-.navbar__burger--ouvert span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(7px) rotate(45deg);
 }
 
+.navbar__burger--ouvert span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar__burger--ouvert span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
 /* === Menu mobile === */
+
 .navbar__menu-mobile {
-  overflow: hidden;
-  border-top: 1px solid var(--verre-bordure);
-  background: rgba(5,5,8,0.95);
-  backdrop-filter: blur(24px);
-  width: 100%;
+    overflow: hidden;
+    border-top: 1px solid var(--verre-bordure);
+    background: rgba(5, 5, 8, 0.95);
+    backdrop-filter: blur(24px);
+    width: 100%;
 }
 
 .navbar__menu-mobile ul {
-  list-style: none;
-  padding: var(--espace-4) var(--espace-4);
-  display: flex;
-  flex-direction: column;
-  gap: var(--espace-2);
+    list-style: none;
+    padding: var(--espace-4) var(--espace-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espace-2);
 }
 
 .navbar__lien-mobile {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: var(--espace-3) var(--espace-4);
-  font-size: var(--texte-base);
-  font-weight: 500;
-  color: var(--gris-300);
-  border-radius: var(--rayon-md);
-  transition: color var(--transition-rapide), background var(--transition-rapide);
-  /* reset bouton */
-  background: none;
-  border: none;
-  font-family: inherit;
-  cursor: pointer;
-  text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: var(--espace-3) var(--espace-4);
+    font-size: var(--texte-base);
+    font-weight: 500;
+    color: var(--gris-300);
+    border-radius: var(--rayon-md);
+    transition: color var(--transition-rapide), background var(--transition-rapide);
+    /* reset bouton */
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .navbar__lien-mobile:hover {
-  color: var(--white);
-  background: rgba(255,255,255,0.05);
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .navbar__cta-mobile {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin-top: var(--espace-2);
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: var(--espace-2);
 }
+
 
 /* === Responsive === */
 
-/* Tablette : masque les liens nav, garde lang + CTA visibles */
-@media (max-width: 1024px) {
-  .navbar__liens {
-    display: none;
-  }
 
-  /* Le logo prend flex:1 gauche, contrôles restent à droite */
-  .navbar__logo {
-    flex: 1;
-  }
+/* Tablette : masque les liens nav, garde lang + CTA visibles */
+
+@media (max-width: 1024px) {
+    .navbar__liens {
+        display: none;
+    }
+    /* Le logo prend flex:1 gauche, contrôles restent à droite */
+    .navbar__logo {
+        flex: 1;
+    }
 }
 
+
 /* Mobile : masque tout sauf logo + burger */
+
 @media (max-width: 768px) {
-  .navbar__liens,
-  .navbar__contrôles {
-    display: none;
-  }
-
-  .navbar__burger {
-    display: flex;
-  }
-
-  .navbar__conteneur {
-    padding: 0 var(--espace-4);
-  }
-
-  /* Sur mobile : logo à gauche, burger à droite via flex */
-  .navbar__logo {
-    flex: 1;
-  }
+    .navbar__liens,
+    .navbar__contrôles {
+        display: none;
+    }
+    .navbar__burger {
+        display: flex;
+    }
+    .navbar__conteneur {
+        padding: 0 var(--espace-4);
+    }
+    /* Sur mobile : logo à gauche, burger à droite via flex */
+    .navbar__logo {
+        flex: 1;
+    }
 }
 
 @media (max-width: 375px) {
-  .navbar__conteneur {
-    padding: 0 var(--espace-3);
-  }
+    .navbar__conteneur {
+        padding: 0 var(--espace-3);
+    }
 }
