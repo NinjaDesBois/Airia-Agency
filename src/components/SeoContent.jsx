@@ -2,14 +2,14 @@
 export default function SeoContent() {
   return (
     <section style={{
-      padding: '2rem',
-      maxWidth: '900px',
+      padding: '0rem',
+      maxWidth: '0px',
       margin: '0 auto',
-      color: '#555',
-      fontSize: '0.78rem',
-      lineHeight: '1.7'
+      color: '#050508',
+      fontSize: '0rem',
+      lineHeight: '0'
     }}>
-      <h2 style={{ fontSize: '1rem', color: '#666', marginBottom: '0.5rem' }}>
+      <h2 style={{ fontSize: '0rem', color: '#050508', marginBottom: '0rem' }}>
         Automatisation IA pour PME en Belgique
       </h2>
       <p>
@@ -18,7 +18,7 @@ export default function SeoContent() {
         qualification de leads, envoi d'emails, gestion des rendez-vous — pour que vous
         puissiez vous concentrer sur votre cœur de métier.
       </p>
-      <h3 style={{ fontSize: '0.9rem', color: '#666', marginTop: '1rem' }}>
+      <h3 style={{ fontSize: '0rem', color: '#050508', marginTop: '0rem' }}>
         Secteurs que nous servons
       </h3>
       <p>
@@ -26,7 +26,7 @@ export default function SeoContent() {
         notaires, comptables, plombiers et artisans, web agencies et PME en général
         à travers Bruxelles, Charleroi, Liège, Namur, Brabant Wallon et toute la Belgique.
       </p>
-      <h3 style={{ fontSize: '0.9rem', color: '#666', marginTop: '1rem' }}>
+      <h3 style={{ fontSize: '0rem', color: '#050508', marginTop: '0rem' }}>
         Nos systèmes IA
       </h3>
       <p>
@@ -36,7 +36,7 @@ export default function SeoContent() {
         client en temps réel. Intégrations avec plus de 50 outils : n8n, Airtable,
         HubSpot, Twilio, et bien d'autres.
       </p>
-      <h3 style={{ fontSize: '0.9rem', color: '#666', marginTop: '1rem' }}>
+      <h3 style={{ fontSize: '0rem', color: '#050508', marginTop: '0rem' }}>
         Pourquoi choisir Airia
       </h3>
       <p>
