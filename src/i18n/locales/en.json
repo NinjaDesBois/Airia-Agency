@@ -5,7 +5,7 @@
     "demo": "Demo",
     "testimonials": "Testimonials",
     "pricing": "Pricing",
-    "cta": "Book a call",
+    "cta": "Book a strategy call",
     "burgerOpen": "Open menu",
     "burgerClose": "Close menu"
   },
@@ -34,10 +34,22 @@
   },
   "stats": {
     "items": [
-      { "label": "AI qualification rate", "description": "Leads automatically qualified before your team" },
-      { "label": "Deployment", "description": "From signature to full launch of your AI system" },
-      { "label": "Availability", "description": "Your AI receptionist never takes a day off" },
-      { "label": "Setup", "description": "No installation fees. You only pay the subscription." }
+      {
+        "label": "AI qualification rate",
+        "description": "Leads automatically qualified before your team"
+      },
+      {
+        "label": "Deployment",
+        "description": "From signature to full launch of your AI system"
+      },
+      {
+        "label": "Availability",
+        "description": "Your AI receptionist never takes a day off"
+      },
+      {
+        "label": "Setup",
+        "description": "No installation fees. You only pay the subscription."
+      }
     ]
   },
   "probleme": {
@@ -78,19 +90,31 @@
         "durée": "Day 1",
         "titre": "Audit & Setup",
         "description": "We analyse your current workflows, tools and friction points. In 24h, we define exactly what AI will automate for you.",
-        "détails": ["Process audit", "Automation mapping", "Personalised deployment plan"]
+        "détails": [
+          "Process audit",
+          "Automation mapping",
+          "Personalised deployment plan"
+        ]
       },
       {
         "durée": "Day 1 → 2",
         "titre": "AI Deployment",
         "description": "We install and configure your AI agents: vocal receptionist, prospecting sequences, Meta campaigns. Everything connected to your existing tools.",
-        "détails": ["AI agent installation", "Integration with your tools", "Testing & validation"]
+        "détails": [
+          "AI agent installation",
+          "Integration with your tools",
+          "Testing & validation"
+        ]
       },
       {
         "durée": "From Day 3",
         "titre": "You harvest",
         "description": "Your clients receive qualified leads, answered calls, active campaigns. You collect the monthly recurring subscription — effortlessly.",
-        "détails": ["Real-time monitoring", "Weekly reports", "Ongoing support included"]
+        "détails": [
+          "Real-time monitoring",
+          "Weekly reports",
+          "Ongoing support included"
+        ]
       }
     ]
   },
@@ -105,37 +129,62 @@
         "titre": "Voice AI",
         "sousTitre": "24/7 vocal receptionist",
         "description": "Your vocal agent answers calls, qualifies prospects, schedules appointments and transfers only hot leads to your team.",
-        "tags": ["Inbound calls", "Qualification", "Appointment scheduling"]
+        "tags": [
+          "Inbound calls",
+          "Qualification",
+          "Appointment scheduling"
+        ]
       },
       {
         "titre": "Lead Generation",
         "sousTitre": "Automated prospecting",
         "description": "Multi-step email and SMS sequences, personalised by AI. Automatic contact enrichment and smart follow-ups.",
-        "tags": ["AI Email", "SMS", "Enrichment"]
+        "tags": [
+          "AI Email",
+          "SMS",
+          "Enrichment"
+        ]
       },
       {
         "titre": "Meta Ads AI",
         "sousTitre": "Facebook & Instagram campaigns",
         "description": "Automatic creation, optimisation and scaling of your Meta campaigns. AI adjusts budgets, audiences and creatives in real time.",
-        "tags": ["Facebook Ads", "Instagram", "Auto-optimisation"]
+        "tags": [
+          "Facebook Ads",
+          "Instagram",
+          "Auto-optimisation"
+        ]
       },
       {
         "titre": "Multilingual",
         "sousTitre": "EN · FR · NL · DE",
         "description": "Your AI agents communicate in the prospect's language. Perfect for Belgian agencies operating in Flanders, Wallonia and Brussels.",
-        "tags": ["English", "French", "Dutch"]
+        "tags": [
+          "English",
+          "French",
+          "Dutch"
+        ]
       },
       {
         "titre": "Dashboard",
         "sousTitre": "Real-time overview",
         "description": "Centralised dashboard with real-time KPIs: calls handled, qualified leads, conversion rate, revenue generated per client.",
-        "tags": ["Live KPIs", "Auto-reporting", "Multi-client"]
+        "tags": [
+          "Live KPIs",
+          "Auto-reporting",
+          "Multi-client"
+        ]
       },
       {
         "titre": "Integrations",
         "sousTitre": "Connected to 50+ tools",
         "description": "n8n, Airtable, Make, Zapier, HubSpot, Twilio, Calendly and more. Your existing workflows integrate seamlessly in a few clicks.",
-        "tags": ["n8n", "Airtable", "HubSpot", "+47 others"]
+        "tags": [
+          "n8n",
+          "Airtable",
+          "HubSpot",
+          "+47 others"
+        ]
       }
     ]
   },
@@ -153,7 +202,7 @@
     "clientsLabel": "converted / month",
     "revenueLabel": "revenue / month",
     "roiLabel": "Return on investment",
-    "roiSubLabel": "For €750/month Airia service",
+    "roiSubLabel": "For a complete Airia service (~€750/month)",
     "benefitsTitle": "What you gain",
     "benefits": [
       "Zero hours spent on manual prospecting",
@@ -163,16 +212,36 @@
       "Automatic reporting for your clients",
       "Scaling without additional hiring"
     ],
-    "cta": "Calculate my personalised ROI",
+    "cta": "Validate these numbers in 15 min",
     "ctaNote": "Free strategy call · No commitment",
     "sectors": [
-      { "label": "Real estate", "unitéLabel": "average commission" },
-      { "label": "Dental", "unitéLabel": "per consultation" },
-      { "label": "Plumber", "unitéLabel": "per intervention" },
-      { "label": "Lawyer", "unitéLabel": "per opened file" },
-      { "label": "Web agency", "unitéLabel": "per signed project" },
-      { "label": "Accountant", "unitéLabel": "per client/month" }
-    ]
+      {
+        "label": "Real estate",
+        "unitéLabel": "average commission"
+      },
+      {
+        "label": "Dental",
+        "unitéLabel": "per consultation"
+      },
+      {
+        "label": "Plumber",
+        "unitéLabel": "per intervention"
+      },
+      {
+        "label": "Lawyer",
+        "unitéLabel": "per opened file"
+      },
+      {
+        "label": "Web agency",
+        "unitéLabel": "per signed project"
+      },
+      {
+        "label": "Accountant",
+        "unitéLabel": "per client/month"
+      }
+    ],
+    "roiCustom": "Custom plan",
+    "roiCustomNote": "Your volume deserves a tailored offer — let's talk"
   },
   "testimonials": {
     "badge": "Testimonials",
@@ -243,21 +312,37 @@
     "inputPlaceholder": "Ask the AI a question...",
     "sendAriaLabel": "Send",
     "footerTexte": "Install this AI in your business?",
-    "footerBtn": "Book a call",
+    "footerBtn": "Book a strategy call",
     "voix": {
       "badge": "🎙️ Voice call — Coming soon",
       "label": "Call the {{secteur}} AI directly from your browser",
       "btn": "Start voice call"
     },
     "sectors": [
-      { "label": "Real estate" },
-      { "label": "Dental" },
-      { "label": "Lawyer" },
-      { "label": "Notary" },
-      { "label": "Plumber" },
-      { "label": "Electrician" },
-      { "label": "Accountant" },
-      { "label": "Web Agency" }
+      {
+        "label": "Real estate"
+      },
+      {
+        "label": "Dental"
+      },
+      {
+        "label": "Lawyer"
+      },
+      {
+        "label": "Notary"
+      },
+      {
+        "label": "Plumber"
+      },
+      {
+        "label": "Electrician"
+      },
+      {
+        "label": "Accountant"
+      },
+      {
+        "label": "Web Agency"
+      }
     ],
     "accueil": {
       "immobilier": "Hello! I'm the AI receptionist of your real estate agency. Are you looking to buy, sell or rent a property? I can qualify your project and schedule an appointment.",
@@ -282,5 +367,93 @@
       "titre": "Book a time slot",
       "desc": "30 min call · Choose your schedule"
     }
+  },
+  "sectors": {
+    "badge": "Sectors",
+    "title1": "Built for",
+    "title2": "Belgian SMEs",
+    "subtitle": "AI agents tailored to the realities of your trade, whatever your sector.",
+    "items": {
+      "immobilier": "Real estate agencies",
+      "dentaire": "Dental practices",
+      "avocat": "Law firms",
+      "notaire": "Notaries",
+      "comptable": "Accountants",
+      "artisan": "Plumbers & trades",
+      "webagency": "Web agencies",
+      "pme": "SMEs & freelancers"
+    },
+    "coverage": "We support businesses in Brussels, Charleroi, Liège, Namur, Walloon Brabant and all across Belgium — in French, Dutch, English and German."
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title1": "Simple pricing,",
+    "title2": "no surprises",
+    "subtitle": "€0 setup fees, no commitment. Cancel whenever you want.",
+    "voiceName": "Voice AI",
+    "voiceDesc": "24/7 AI voice receptionist — our flagship product",
+    "voicePricePrefix": "from",
+    "voicePrice": "€350",
+    "voicePriceSuffix": "/month",
+    "voiceFeatures": [
+      "Answers 100% of your calls, 24/7",
+      "Automatic qualification and appointment booking",
+      "Summary of every call in your CRM",
+      "Live in 48h, without changing your number"
+    ],
+    "voiceCta": "Book a strategy call",
+    "voiceTag": "Flagship",
+    "customName": "Custom solutions",
+    "customDesc": "Lead generation, AI Meta ads, multilingual agents, dashboard, integrations — assembled to fit your needs.",
+    "customPrice": "On quote",
+    "customFeatures": [
+      "Automated lead generation (email/SMS)",
+      "Self-optimizing Meta campaigns",
+      "FR/NL/EN/DE agents",
+      "50+ integrations (CRM, calendar, telephony)"
+    ],
+    "customCta": "Let's talk about your project",
+    "note": "Free strategy call · €0 setup · No commitment"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title1": "Frequently asked",
+    "title2": "questions",
+    "subtitle": "Everything you need to know before getting started.",
+    "items": [
+      {
+        "q": "Is there a long-term commitment?",
+        "a": "No. The subscription is monthly with no commitment: you can cancel at any time with 30 days' notice. There are no setup fees."
+      },
+      {
+        "q": "How long until my AI agent is live?",
+        "a": "48 hours on average. After the strategy call, we configure your agent (scripts, integrations, voice), test it with you, then put it into production."
+      },
+      {
+        "q": "Who installs and maintains the system?",
+        "a": "We do. Airia configures, hosts, monitors and continuously improves your agents. There is nothing for you to install or maintain."
+      },
+      {
+        "q": "What happens if the AI can't answer?",
+        "a": "The agent transfers to a human or takes a message as soon as a request falls outside its scope. Every call is transcribed and summarized — nothing gets lost."
+      },
+      {
+        "q": "Is my data and my clients' data protected?",
+        "a": "Yes. Processing is GDPR-compliant and hosted with providers offering adequate safeguards. Details are in our privacy policy."
+      },
+      {
+        "q": "How much does it cost?",
+        "a": "The voice receptionist starts at €350/month, with no setup fees. Combined solutions (lead gen, Meta ads, multilingual) are quoted based on your volume and tools."
+      },
+      {
+        "q": "Does the agent speak Dutch or English?",
+        "a": "Yes — French, Dutch, English and German, with automatic detection of the caller's language."
+      }
+    ]
+  },
+  "ctaBand": {
+    "title": "Every missed call is a client for your competitor.",
+    "text": "15 minutes to see what an AI agent would change in your day-to-day.",
+    "button": "Book a strategy call"
   }
 }

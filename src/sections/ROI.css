@@ -179,10 +179,11 @@
 .roi__slider {
   width: 100%;
   -webkit-appearance: none;
+  appearance: none;
   height: 4px;
   background: linear-gradient(
     to right,
-    #00e5cc var(--fill, 25%),
+    var(--cyan) var(--fill, 25%),
     #2a2a3d var(--fill, 25%)
   );
   border-radius: var(--rayon-full);
@@ -202,12 +203,40 @@
   transition: transform var(--transition-rapide), box-shadow var(--transition-rapide);
 }
 
+/* Firefox — mêmes styles que le thumb webkit */
+.roi__slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--cyan);
+  box-shadow: 0 0 12px rgba(0,245,255,0.4);
+  cursor: pointer;
+  transition: transform var(--transition-rapide), box-shadow var(--transition-rapide);
+}
+
+.roi__slider::-moz-range-track {
+  height: 4px;
+  border-radius: var(--rayon-full);
+  background: transparent; /* le gradient du slider sert de piste */
+}
+
 .roi__slider::-webkit-slider-thumb:hover {
   transform: scale(1.2);
   box-shadow: 0 0 20px rgba(0,245,255,0.6);
 }
 
+.roi__slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(0,245,255,0.6);
+}
+
 .roi__slider:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.roi__slider:focus-visible::-moz-range-thumb {
   outline: 2px solid var(--cyan);
   outline-offset: 3px;
 }
@@ -331,6 +360,14 @@
   background: var(--gradient-cyan);
   padding: var(--espace-1) var(--espace-3);
   border-radius: var(--rayon-full);
+}
+
+/* Affiché à la place du % quand le volume est trop faible */
+.roi__global-sur-mesure {
+  font-size: var(--texte-xl);
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: -0.02em;
 }
 
 /* === Bénéfices === */

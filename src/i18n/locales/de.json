@@ -5,7 +5,7 @@
     "demo": "Demo",
     "testimonials": "Referenzen",
     "pricing": "Preise",
-    "cta": "Gespräch buchen",
+    "cta": "Strategiegespräch buchen",
     "burgerOpen": "Menü öffnen",
     "burgerClose": "Menü schließen"
   },
@@ -34,10 +34,22 @@
   },
   "stats": {
     "items": [
-      { "label": "KI-Qualifikationsrate", "description": "Leads automatisch qualifiziert vor Ihrem Team" },
-      { "label": "Einsatz", "description": "Von der Unterzeichnung bis zum vollständigen Start Ihres KI-Systems" },
-      { "label": "Verfügbarkeit", "description": "Ihr KI-Rezeptionist nimmt niemals Urlaub" },
-      { "label": "Setup", "description": "Keine Installationsgebühren. Sie zahlen nur das Abonnement." }
+      {
+        "label": "KI-Qualifikationsrate",
+        "description": "Leads automatisch qualifiziert vor Ihrem Team"
+      },
+      {
+        "label": "Einsatz",
+        "description": "Von der Unterzeichnung bis zum vollständigen Start Ihres KI-Systems"
+      },
+      {
+        "label": "Verfügbarkeit",
+        "description": "Ihr KI-Rezeptionist nimmt niemals Urlaub"
+      },
+      {
+        "label": "Setup",
+        "description": "Keine Installationsgebühren. Sie zahlen nur das Abonnement."
+      }
     ]
   },
   "probleme": {
@@ -78,19 +90,31 @@
         "durée": "Tag 1",
         "titre": "Audit & Konfiguration",
         "description": "Wir analysieren Ihre aktuellen Workflows, Tools und Engpässe. In 24h definieren wir genau, was die KI für Sie automatisiert.",
-        "détails": ["Audit Ihrer Prozesse", "Automatisierungsübersicht", "Personalisierter Einsatzplan"]
+        "détails": [
+          "Audit Ihrer Prozesse",
+          "Automatisierungsübersicht",
+          "Personalisierter Einsatzplan"
+        ]
       },
       {
         "durée": "Tag 1 → 2",
         "titre": "KI-Einsatz",
         "description": "Wir installieren und konfigurieren Ihre KI-Agenten: Sprachrezeptionist, Akquise-Sequenzen, Meta-Kampagnen. Alles verbunden mit Ihren bestehenden Tools.",
-        "détails": ["Installation der KI-Agenten", "Integration in Ihre Tools", "Tests & Validierung"]
+        "détails": [
+          "Installation der KI-Agenten",
+          "Integration in Ihre Tools",
+          "Tests & Validierung"
+        ]
       },
       {
         "durée": "Ab Tag 3",
         "titre": "Sie ernten",
         "description": "Ihre Kunden erhalten qualifizierte Leads, beantwortete Anrufe, aktive Kampagnen. Sie kassieren das monatliche Abonnement — mühelos.",
-        "détails": ["Echtzeit-Monitoring", "Wöchentliche Berichte", "Laufender Support inklusive"]
+        "détails": [
+          "Echtzeit-Monitoring",
+          "Wöchentliche Berichte",
+          "Laufender Support inklusive"
+        ]
       }
     ]
   },
@@ -105,37 +129,62 @@
         "titre": "Voice KI",
         "sousTitre": "24/7 Sprachrezeptionist",
         "description": "Ihr Sprachagent beantwortet Anrufe, qualifiziert Interessenten, plant Termine und leitet nur heiße Leads an Ihr Team weiter.",
-        "tags": ["Eingehende Anrufe", "Qualifizierung", "Terminplanung"]
+        "tags": [
+          "Eingehende Anrufe",
+          "Qualifizierung",
+          "Terminplanung"
+        ]
       },
       {
         "titre": "Lead Generation",
         "sousTitre": "Automatisierte Akquise",
         "description": "Mehrstufige E-Mail- und SMS-Sequenzen, von KI personalisiert. Automatische Kontaktanreicherung und intelligente Nachfassaktionen.",
-        "tags": ["KI-E-Mail", "SMS", "Anreicherung"]
+        "tags": [
+          "KI-E-Mail",
+          "SMS",
+          "Anreicherung"
+        ]
       },
       {
         "titre": "Meta Ads KI",
         "sousTitre": "Facebook & Instagram Kampagnen",
         "description": "Automatische Erstellung, Optimierung und Skalierung Ihrer Meta-Kampagnen. KI passt Budgets, Zielgruppen und Creatives in Echtzeit an.",
-        "tags": ["Facebook Ads", "Instagram", "Auto-Optimierung"]
+        "tags": [
+          "Facebook Ads",
+          "Instagram",
+          "Auto-Optimierung"
+        ]
       },
       {
         "titre": "Mehrsprachig",
         "sousTitre": "DE · FR · NL · EN",
         "description": "Ihre KI-Agenten kommunizieren in der Sprache des Interessenten. Ideal für Agenturen in Belgien, Deutschland, Österreich und der Schweiz.",
-        "tags": ["Deutsch", "Französisch", "Niederländisch"]
+        "tags": [
+          "Deutsch",
+          "Französisch",
+          "Niederländisch"
+        ]
       },
       {
         "titre": "Dashboard",
         "sousTitre": "Echtzeit-Übersicht",
         "description": "Zentralisiertes Dashboard mit Echtzeit-KPIs: bearbeitete Anrufe, qualifizierte Leads, Konversionsrate, generierte Einnahmen pro Kunde.",
-        "tags": ["Live-KPIs", "Auto-Reporting", "Multi-Kunde"]
+        "tags": [
+          "Live-KPIs",
+          "Auto-Reporting",
+          "Multi-Kunde"
+        ]
       },
       {
         "titre": "Integrationen",
         "sousTitre": "Verbunden mit 50+ Tools",
         "description": "n8n, Airtable, Make, Zapier, HubSpot, Twilio, Calendly und mehr. Ihre bestehenden Workflows integrieren sich reibungslos in wenigen Klicks.",
-        "tags": ["n8n", "Airtable", "HubSpot", "+47 andere"]
+        "tags": [
+          "n8n",
+          "Airtable",
+          "HubSpot",
+          "+47 andere"
+        ]
       }
     ]
   },
@@ -153,7 +202,7 @@
     "clientsLabel": "konvertiert / Monat",
     "revenueLabel": "Einnahmen / Monat",
     "roiLabel": "Return on Investment",
-    "roiSubLabel": "Für 750€/Monat Airia-Service",
+    "roiSubLabel": "Für einen kompletten Airia-Service (~750€/Monat)",
     "benefitsTitle": "Was Sie gewinnen",
     "benefits": [
       "Null Stunden für manuelle Akquise",
@@ -163,16 +212,36 @@
       "Automatisches Reporting für Ihre Kunden",
       "Skalierung ohne zusätzliche Einstellungen"
     ],
-    "cta": "Meinen personalisierten ROI berechnen",
+    "cta": "Diese Zahlen in 15 Min. validieren",
     "ctaNote": "Kostenloses Strategiegespräch · Ohne Bindung",
     "sectors": [
-      { "label": "Immobilien", "unitéLabel": "durchschnittliche Provision" },
-      { "label": "Zahnarzt", "unitéLabel": "pro Konsultation" },
-      { "label": "Klempner", "unitéLabel": "pro Einsatz" },
-      { "label": "Anwalt", "unitéLabel": "pro eröffneter Akte" },
-      { "label": "Webagentur", "unitéLabel": "pro unterzeichnetem Projekt" },
-      { "label": "Buchhalter", "unitéLabel": "pro Kunde/Monat" }
-    ]
+      {
+        "label": "Immobilien",
+        "unitéLabel": "durchschnittliche Provision"
+      },
+      {
+        "label": "Zahnarzt",
+        "unitéLabel": "pro Konsultation"
+      },
+      {
+        "label": "Klempner",
+        "unitéLabel": "pro Einsatz"
+      },
+      {
+        "label": "Anwalt",
+        "unitéLabel": "pro eröffneter Akte"
+      },
+      {
+        "label": "Webagentur",
+        "unitéLabel": "pro unterzeichnetem Projekt"
+      },
+      {
+        "label": "Buchhalter",
+        "unitéLabel": "pro Kunde/Monat"
+      }
+    ],
+    "roiCustom": "Individuell",
+    "roiCustomNote": "Ihr Volumen verdient ein maßgeschneidertes Angebot — sprechen wir darüber"
   },
   "testimonials": {
     "badge": "Referenzen",
@@ -243,21 +312,37 @@
     "inputPlaceholder": "Stellen Sie der KI eine Frage...",
     "sendAriaLabel": "Senden",
     "footerTexte": "Diese KI in Ihrem Unternehmen installieren?",
-    "footerBtn": "Gespräch buchen",
+    "footerBtn": "Strategiegespräch buchen",
     "voix": {
       "badge": "🎙️ Sprachanruf — Demnächst verfügbar",
       "label": "Rufen Sie die KI {{secteur}} direkt aus Ihrem Browser an",
       "btn": "Sprachanruf starten"
     },
     "sectors": [
-      { "label": "Immobilien" },
-      { "label": "Zahnarzt" },
-      { "label": "Rechtsanwalt" },
-      { "label": "Notar" },
-      { "label": "Klempner" },
-      { "label": "Elektriker" },
-      { "label": "Buchhalter" },
-      { "label": "Webagentur" }
+      {
+        "label": "Immobilien"
+      },
+      {
+        "label": "Zahnarzt"
+      },
+      {
+        "label": "Rechtsanwalt"
+      },
+      {
+        "label": "Notar"
+      },
+      {
+        "label": "Klempner"
+      },
+      {
+        "label": "Elektriker"
+      },
+      {
+        "label": "Buchhalter"
+      },
+      {
+        "label": "Webagentur"
+      }
     ],
     "accueil": {
       "immobilier": "Hallo! Ich bin der KI-Rezeptionist Ihrer Immobilienagentur. Möchten Sie kaufen, verkaufen oder mieten? Ich kann Ihr Projekt qualifizieren und einen Termin vereinbaren.",
@@ -282,5 +367,93 @@
       "titre": "Einen Zeitslot buchen",
       "desc": "30 Min. Gespräch · Wählen Sie Ihren Termin"
     }
+  },
+  "sectors": {
+    "badge": "Branchen",
+    "title1": "Gemacht für",
+    "title2": "belgische KMU",
+    "subtitle": "KI-Agenten, zugeschnitten auf die Realität Ihres Berufs — unabhängig von Ihrer Branche.",
+    "items": {
+      "immobilier": "Immobilienagenturen",
+      "dentaire": "Zahnarztpraxen",
+      "avocat": "Anwaltskanzleien",
+      "notaire": "Notare",
+      "comptable": "Buchhalter",
+      "artisan": "Installateure & Handwerker",
+      "webagency": "Webagenturen",
+      "pme": "KMU & Selbstständige"
+    },
+    "coverage": "Wir begleiten Unternehmen in Brüssel, Charleroi, Lüttich, Namur, Wallonisch-Brabant und in ganz Belgien — auf Französisch, Niederländisch, Englisch und Deutsch."
+  },
+  "pricing": {
+    "badge": "Preise",
+    "title1": "Ein einfacher Preis,",
+    "title2": "ohne Überraschungen",
+    "subtitle": "0€ Einrichtungsgebühren, keine Vertragsbindung. Sie kündigen, wann Sie wollen.",
+    "voiceName": "Voice AI",
+    "voiceDesc": "KI-Telefonrezeption 24/7 — unser Flaggschiffprodukt",
+    "voicePricePrefix": "ab",
+    "voicePrice": "350€",
+    "voicePriceSuffix": "/Monat",
+    "voiceFeatures": [
+      "Beantwortet 100% Ihrer Anrufe, rund um die Uhr",
+      "Automatische Qualifizierung und Terminbuchung",
+      "Zusammenfassung jedes Anrufs in Ihrem CRM",
+      "In 48h live, ohne Rufnummernwechsel"
+    ],
+    "voiceCta": "Strategiegespräch buchen",
+    "voiceTag": "Flaggschiff",
+    "customName": "Maßgeschneiderte Lösungen",
+    "customDesc": "Leadgenerierung, KI-Meta-Anzeigen, mehrsprachige Agenten, Dashboard, Integrationen — zusammengestellt nach Ihrem Bedarf.",
+    "customPrice": "Auf Anfrage",
+    "customFeatures": [
+      "Automatisierte Leadgenerierung (E-Mail/SMS)",
+      "Selbstoptimierende Meta-Kampagnen",
+      "FR/NL/EN/DE-Agenten",
+      "50+ Integrationen (CRM, Kalender, Telefonie)"
+    ],
+    "customCta": "Sprechen wir über Ihr Projekt",
+    "note": "Kostenloses Strategiegespräch · 0€ Setup · Keine Vertragsbindung"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title1": "Häufige",
+    "title2": "Fragen",
+    "subtitle": "Alles, was Sie vor dem Start wissen müssen.",
+    "items": [
+      {
+        "q": "Gibt es eine Vertragsbindung?",
+        "a": "Nein. Das Abonnement ist monatlich und ohne Bindung: Sie können jederzeit mit einer Frist von 30 Tagen kündigen. Es gibt keine Einrichtungsgebühren."
+      },
+      {
+        "q": "Wie schnell ist mein KI-Agent einsatzbereit?",
+        "a": "Im Schnitt 48 Stunden. Nach dem Strategiegespräch konfigurieren wir Ihren Agenten (Skripte, Integrationen, Stimme), testen ihn mit Ihnen und nehmen ihn in Betrieb."
+      },
+      {
+        "q": "Wer installiert und wartet das System?",
+        "a": "Wir. Airia konfiguriert, hostet, überwacht und verbessert Ihre Agenten kontinuierlich. Sie müssen nichts installieren oder warten."
+      },
+      {
+        "q": "Was passiert, wenn die KI nicht antworten kann?",
+        "a": "Der Agent leitet an einen Menschen weiter oder nimmt eine Nachricht auf, sobald eine Anfrage außerhalb seines Bereichs liegt. Jeder Anruf wird transkribiert und zusammengefasst — nichts geht verloren."
+      },
+      {
+        "q": "Sind meine Daten und die meiner Kunden geschützt?",
+        "a": "Ja. Die Verarbeitung ist DSGVO-konform und wird bei Anbietern mit angemessenen Garantien gehostet. Details finden Sie in unserer Datenschutzrichtlinie."
+      },
+      {
+        "q": "Was kostet es?",
+        "a": "Die Telefonrezeption startet ab 350€/Monat, ohne Einrichtungsgebühren. Kombinierte Lösungen (Leadgen, Meta-Anzeigen, mehrsprachig) werden nach Volumen und Tools angeboten."
+      },
+      {
+        "q": "Spricht der Agent Niederländisch oder Englisch?",
+        "a": "Ja — Französisch, Niederländisch, Englisch und Deutsch, mit automatischer Erkennung der Sprache des Anrufers."
+      }
+    ]
+  },
+  "ctaBand": {
+    "title": "Jeder verpasste Anruf ist ein Kunde für Ihre Konkurrenz.",
+    "text": "15 Minuten, um zu sehen, was ein KI-Agent in Ihrem Alltag verändern würde.",
+    "button": "Strategiegespräch buchen"
   }
 }

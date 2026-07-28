@@ -1,11 +1,14 @@
 /* Modal Démo — Layout fixe : Header | Chat area | Footer CTA
    Ouvrir via : ouvrirModalDemo() depuis n'importe quel CTA */
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { track } from '@vercel/analytics'
+import { ouvrirModalContact } from './ModalContact'
 import './DemoSection.css'
 
 export function ouvrirModalDemo() {
+  track('modal_demo_ouverte')
   window.dispatchEvent(new CustomEvent('airia:ouvrir-modal-demo'))
 }
 
@@ -20,11 +23,11 @@ const nouvelId = () => ++_msgId
 function ZoneChat({ secteurId }) {
   const { t } = useTranslation()
 
-  const getAccueilMsg = (id) => ({
+  const getAccueilMsg = useCallback((id) => ({
     id: nouvelId(),
     role: 'assistant',
     contenu: t(`demo.accueil.${id}`) || 'Bonjour ! Comment puis-je vous aider ?',
-  })
+  }), [t])
 
   const [messages, setMessages] = useState(() => [getAccueilMsg(secteurId)])
   const [saisie, setSaisie] = useState('')
@@ -38,7 +41,7 @@ function ZoneChat({ secteurId }) {
     setMessages([getAccueilMsg(secteurId)])
     setErreur(null)
     setSaisie('')
-  }, [secteurId])
+  }, [secteurId, getAccueilMsg])
 
   /* Scroll au bas à chaque nouveau message */
   useEffect(() => {
@@ -280,20 +283,18 @@ export default function ModalDemo() {
               : <ZoneVoix secteurLabel={secteurLabel} />
             }
 
-            {/* ── FOOTER CTA ── */}
+            {/* ── FOOTER CTA — même parcours que les autres CTA (modal contact) ── */}
             <div className="demo__footer">
               <p className="demo__footer-texte">{t('demo.footerTexte')}</p>
-              <a
-                href="https://calendly.com/hello-airia/appel-strategique-airia"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
                 className="btn-primaire demo__footer-btn"
+                onClick={() => { setOuvert(false); ouvrirModalContact() }}
               >
                 {t('demo.footerBtn')}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
-              </a>
+              </button>
             </div>
 
           </motion.div>

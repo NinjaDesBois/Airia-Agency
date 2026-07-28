@@ -97,7 +97,7 @@ export default function Stats() {
             <motion.div
               key={valeursStats[index].valeur + '-' + index}
               className="stat__carte carte-verre"
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
             >
               <div className="stat__icône">
                 {valeursStats[index].icône}

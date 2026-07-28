@@ -1,9 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
+import { inject } from '@vercel/analytics'
 import './i18n/index.js'
 import './index.css'
 import App from './App.jsx'
+
+/* Mesure d'audience Vercel Analytics — sans cookies */
+inject()
 
 const rootElement = document.getElementById('root')
 const app = (

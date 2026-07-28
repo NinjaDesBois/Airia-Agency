@@ -1,0 +1,54 @@
+/* === Bandeau CTA milieu de page — Airia === */
+
+.bandeau-cta {
+  background: var(--gris-950);
+  padding: var(--espace-10) 0;
+  border-top: 1px solid var(--verre-bordure);
+  border-bottom: 1px solid var(--verre-bordure);
+  position: relative;
+  overflow: hidden;
+}
+
+.bandeau-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-cyan-glow);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.bandeau-cta__conteneur {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espace-8);
+  position: relative;
+}
+
+.bandeau-cta__titre {
+  font-family: var(--police-titre);
+  font-size: var(--texte-xl);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--espace-1);
+}
+
+.bandeau-cta__sous-texte {
+  font-size: var(--texte-sm);
+  color: var(--gris-300);
+}
+
+.bandeau-cta__btn {
+  flex-shrink: 0;
+  gap: var(--espace-2);
+}
+
+@media (max-width: 768px) {
+  .bandeau-cta__conteneur {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--espace-5);
+  }
+}

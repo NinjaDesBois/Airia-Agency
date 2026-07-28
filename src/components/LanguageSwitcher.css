@@ -27,13 +27,13 @@
 }
 
 .lang-switcher__btn:hover {
-  color: var(--blanc);
+  color: var(--white);
   background: rgba(255, 255, 255, 0.08);
 }
 
 .lang-switcher__btn--actif {
   background: linear-gradient(135deg, var(--cyan), var(--accent2));
-  color: var(--noir) !important;
+  color: var(--black) !important;
 }
 
 @media (max-width: 768px) {

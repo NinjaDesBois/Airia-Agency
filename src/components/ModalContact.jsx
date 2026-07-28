@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { track } from '@vercel/analytics'
 import './ModalContact.css'
 
 const WHATSAPP_URL = 'https://wa.me/32495924243'
@@ -9,6 +10,7 @@ const CALENDLY_URL = 'https://calendly.com/hello-airia/appel-strategique-airia'
 
 /* Dispatch cet événement depuis n'importe quel CTA pour ouvrir le modal */
 export function ouvrirModalContact() {
+  track('modal_contact_ouverte')
   window.dispatchEvent(new CustomEvent('airia:ouvrir-modal-contact'))
 }
 
@@ -85,7 +87,7 @@ export default function ModalContact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="modal__option modal__option--whatsapp"
-                onClick={fermer}
+                onClick={() => { track('clic_whatsapp'); fermer() }}
               >
                 <div className="modal__option-icône modal__option-icône--wa">
                   {/* Logo WhatsApp officiel */}
@@ -108,7 +110,7 @@ export default function ModalContact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="modal__option modal__option--calendly"
-                onClick={fermer}
+                onClick={() => { track('clic_calendly'); fermer() }}
               >
                 <div className="modal__option-icône modal__option-icône--cal">
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
