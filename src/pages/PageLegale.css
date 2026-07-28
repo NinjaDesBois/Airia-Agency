@@ -1,0 +1,134 @@
+/* Styles partagés des pages légales — Airia */
+
+.page-legale {
+  min-height: 100vh;
+  background: var(--black);
+  color: var(--white);
+}
+
+.page-legale__entete {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--espace-4) var(--espace-6);
+  background: rgba(5, 5, 8, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gris-700);
+}
+
+.page-legale__retour {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espace-2);
+  font-size: var(--texte-sm);
+  color: var(--gris-300);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.page-legale__retour:hover {
+  color: var(--cyan);
+}
+
+.page-legale__contenu {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--espace-16) var(--espace-6) var(--espace-24);
+}
+
+.page-legale__titre {
+  font-family: var(--police-titre);
+  font-size: var(--texte-4xl);
+  line-height: 1.15;
+  margin-bottom: var(--espace-3);
+  background: var(--gradient-texte);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-legale__maj {
+  font-size: var(--texte-sm);
+  color: var(--gris-400);
+  margin-bottom: var(--espace-12);
+}
+
+.page-legale__contenu h2 {
+  font-family: var(--police-titre);
+  font-size: var(--texte-xl);
+  color: var(--white);
+  margin: var(--espace-10) 0 var(--espace-4);
+}
+
+.page-legale__contenu h3 {
+  font-family: var(--police-titre);
+  font-size: var(--texte-lg);
+  color: var(--gris-100);
+  margin: var(--espace-6) 0 var(--espace-3);
+}
+
+.page-legale__contenu p,
+.page-legale__contenu li {
+  font-size: var(--texte-base);
+  line-height: 1.75;
+  color: var(--gris-200);
+  margin-bottom: var(--espace-4);
+}
+
+.page-legale__contenu ul {
+  padding-left: var(--espace-6);
+  margin-bottom: var(--espace-4);
+}
+
+.page-legale__contenu li {
+  margin-bottom: var(--espace-2);
+}
+
+.page-legale__contenu a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.page-legale__contenu a:hover {
+  text-decoration: underline;
+}
+
+/* Bloc d'identification de la société */
+.page-legale__fiche {
+  background: var(--gradient-carte);
+  border: 1px solid var(--gris-700);
+  border-radius: var(--rayon-lg);
+  padding: var(--espace-6);
+  margin-bottom: var(--espace-8);
+}
+
+.page-legale__fiche dt {
+  font-size: var(--texte-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gris-400);
+  margin-bottom: var(--espace-1);
+}
+
+.page-legale__fiche dd {
+  font-size: var(--texte-base);
+  color: var(--white);
+  margin: 0 0 var(--espace-4);
+}
+
+.page-legale__fiche dd:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .page-legale__titre {
+    font-size: var(--texte-3xl);
+  }
+
+  .page-legale__contenu {
+    padding: var(--espace-10) var(--espace-4) var(--espace-16);
+  }
+}

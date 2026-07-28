@@ -87,12 +87,18 @@ export default function Footer() {
 
         {/* Bas du footer */}
         <div className="footer__bas">
-          <p className="footer__copyright">
-            © {annéeActuelle} Airia SRL — {t('footer.rights')}
-          </p>
+          <div className="footer__identité">
+            <p className="footer__copyright">
+              © {annéeActuelle} Airia — {t('footer.rights')}
+            </p>
+            <p className="footer__mentions-société">
+              Bahassi Solutions SRL — BE 1040.653.711 — Boulevard Sainctelette 39, 7000 Mons
+            </p>
+          </div>
           <div className="footer__légal">
-            <a href="#">{t('footer.privacy')}</a>
-            <a href="#">{t('footer.legal')}</a>
+            <a href="/mentions-legales">{t('footer.legal')}</a>
+            <a href="/cgv">{t('footer.terms')}</a>
+            <a href="/confidentialite">{t('footer.privacy')}</a>
           </div>
         </div>
       </div>

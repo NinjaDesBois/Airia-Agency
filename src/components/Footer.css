@@ -126,9 +126,21 @@
   gap: var(--espace-4);
 }
 
+.footer__identité {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-1);
+}
+
 .footer__copyright {
   font-size: var(--texte-sm);
   color: var(--gris-400);
+}
+
+/* Mentions légales de la société exploitante — Bahassi Solutions SRL */
+.footer__mentions-société {
+  font-size: var(--texte-xs);
+  color: var(--gris-500);
 }
 
 .footer__légal {
@@ -172,6 +184,15 @@
   .footer__bas {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footer__identité {
+    align-items: center;
+  }
+
+  .footer__légal {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
