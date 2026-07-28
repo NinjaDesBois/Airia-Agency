@@ -11,4 +11,22 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://airia.be/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://airia.be/"/>
   </url>
+  <url>
+    <loc>https://airia.be/mentions-legales</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://airia.be/cgv</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://airia.be/confidentialite</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
 </urlset>

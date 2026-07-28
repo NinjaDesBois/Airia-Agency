@@ -27,6 +27,11 @@ const Temoignages = lazy(() => import('./sections/Temoignages'))
 /* Pages */
 const Dashboard = lazy(() => import('./components/Dashboard'))
 
+/* Pages légales — Bahassi Solutions SRL */
+const MentionsLegales = lazy(() => import('./pages/MentionsLegales'))
+const CGV = lazy(() => import('./pages/CGV'))
+const Confidentialite = lazy(() => import('./pages/Confidentialite'))
+
 gsap.registerPlugin(ScrollTrigger)
 
 /* Fallback de chargement léger */
@@ -130,6 +135,30 @@ export default function App() {
     return (
       <Suspense fallback={<SectionSkeleton />}>
         <Dashboard />
+      </Suspense>
+    )
+  }
+
+  if (route.startsWith('/mentions-legales')) {
+    return (
+      <Suspense fallback={<SectionSkeleton />}>
+        <MentionsLegales />
+      </Suspense>
+    )
+  }
+
+  if (route.startsWith('/cgv')) {
+    return (
+      <Suspense fallback={<SectionSkeleton />}>
+        <CGV />
+      </Suspense>
+    )
+  }
+
+  if (route.startsWith('/confidentialite')) {
+    return (
+      <Suspense fallback={<SectionSkeleton />}>
+        <Confidentialite />
       </Suspense>
     )
   }

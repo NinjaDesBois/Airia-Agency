@@ -37,11 +37,15 @@ export default function SEO() {
     provider: {
       '@type': 'Organization',
       name: 'Airia',
+      legalName: 'Bahassi Solutions SRL',
+      vatID: 'BE 1040.653.711',
       url: SITE_URL,
       address: {
         '@type': 'PostalAddress',
+        streetAddress: 'Boulevard Sainctelette 39',
+        postalCode: '7000',
+        addressLocality: 'Mons',
         addressCountry: 'BE',
-        addressLocality: 'Bruxelles',
       },
       contactPoint: {
         '@type': 'ContactPoint',
@@ -65,11 +69,14 @@ export default function SEO() {
     },
   }
 
-  /* Organisation JSON-LD */
+  /* Organisation JSON-LD — marque Airia, exploitée par Bahassi Solutions SRL */
   const orgJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Airia',
+    legalName: 'Bahassi Solutions SRL',
+    vatID: 'BE 1040.653.711',
+    taxID: 'BE 1040.653.711',
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.svg`,
     sameAs: [
@@ -77,8 +84,10 @@ export default function SEO() {
     ],
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Boulevard Sainctelette 39',
+      postalCode: '7000',
+      addressLocality: 'Mons',
       addressCountry: 'BE',
-      addressLocality: 'Bruxelles',
     },
   }
 
