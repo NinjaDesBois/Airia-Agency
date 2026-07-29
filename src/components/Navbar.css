@@ -47,10 +47,10 @@
 @keyframes logo-glow {
     0%,
     100% {
-        filter: brightness(1.0) drop-shadow(0 0 6px rgba(0, 229, 204, 0.4));
+        filter: brightness(1.0) drop-shadow(0 0 6px rgba(0, 245, 255, 0.4));
     }
     50% {
-        filter: brightness(1.2) drop-shadow(0 0 14px rgba(0, 229, 204, 0.8));
+        filter: brightness(1.2) drop-shadow(0 0 14px rgba(0, 245, 255, 0.8));
     }
 }
 
@@ -65,7 +65,7 @@
 }
 
 .navbar__logo-texte {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--police-titre);
     font-size: var(--texte-xl);
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -74,16 +74,6 @@
     text-transform: uppercase;
 }
 
-
-/* .brand-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 26px;
-    color: var(--white);
-    letter-spacing: 0.08em;
-    transition: color var(--transition-rapide);
-    text-transform: uppercase;
-} */
 
 .navbar__logo:hover .navbar__logo-texte {
     color: var(--cyan);
@@ -250,11 +240,14 @@
 /* === Responsive === */
 
 
-/* Tablette : masque les liens nav, garde lang + CTA visibles */
+/* Tablette : liens masqués → le burger prend le relais dès 1024px */
 
 @media (max-width: 1024px) {
     .navbar__liens {
         display: none;
+    }
+    .navbar__burger {
+        display: flex;
     }
     /* Le logo prend flex:1 gauche, contrôles restent à droite */
     .navbar__logo {
@@ -263,22 +256,14 @@
 }
 
 
-/* Mobile : masque tout sauf logo + burger */
+/* Mobile : masque aussi les contrôles (lang + CTA passent dans le menu) */
 
 @media (max-width: 768px) {
-    .navbar__liens,
     .navbar__contrôles {
         display: none;
     }
-    .navbar__burger {
-        display: flex;
-    }
     .navbar__conteneur {
         padding: 0 var(--espace-4);
-    }
-    /* Sur mobile : logo à gauche, burger à droite via flex */
-    .navbar__logo {
-        flex: 1;
     }
 }
 

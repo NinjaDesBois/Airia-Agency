@@ -1,0 +1,163 @@
+/* === Section Tarifs — Airia === */
+
+.pricing {
+  background: var(--black);
+  padding: var(--espace-24) 0;
+}
+
+.pricing__en-tête {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--espace-12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espace-4);
+}
+
+.pricing__titre {
+  font-family: var(--police-titre);
+  font-size: var(--texte-4xl);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.pricing__sous-titre {
+  font-size: var(--texte-lg);
+  color: var(--gris-300);
+  line-height: 1.6;
+}
+
+.pricing__grille {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--espace-6);
+  max-width: 900px;
+  margin: 0 auto var(--espace-8);
+  align-items: stretch;
+}
+
+.pricing__carte {
+  display: flex;
+  flex-direction: column;
+  padding: var(--espace-8);
+  border-radius: var(--rayon-xl);
+  position: relative;
+}
+
+.pricing__carte--principale {
+  border-color: rgba(0, 245, 255, 0.25);
+  box-shadow: var(--ombre-cyan-sm);
+}
+
+.pricing__tag {
+  position: absolute;
+  top: calc(-1 * var(--espace-3));
+  right: var(--espace-6);
+  font-size: var(--texte-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--black);
+  background: var(--gradient-cyan);
+  padding: var(--espace-1) var(--espace-3);
+  border-radius: var(--rayon-full);
+}
+
+.pricing__nom {
+  font-family: var(--police-titre);
+  font-size: var(--texte-2xl);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--espace-2);
+}
+
+.pricing__desc {
+  font-size: var(--texte-sm);
+  color: var(--gris-300);
+  line-height: 1.6;
+  margin-bottom: var(--espace-6);
+}
+
+.pricing__prix {
+  display: flex;
+  align-items: baseline;
+  gap: var(--espace-2);
+  margin-bottom: var(--espace-6);
+}
+
+.pricing__prix-préfixe,
+.pricing__prix-suffixe {
+  font-size: var(--texte-sm);
+  color: var(--gris-300);
+}
+
+.pricing__prix-valeur {
+  font-family: var(--police-titre);
+  font-size: var(--texte-5xl);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--cyan);
+}
+
+.pricing__prix-valeur--devis {
+  font-size: var(--texte-3xl);
+  color: var(--white);
+}
+
+.pricing__liste {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-3);
+  margin-bottom: var(--espace-8);
+  flex: 1;
+}
+
+.pricing__liste li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espace-3);
+  font-size: var(--texte-sm);
+  color: var(--gris-100);
+  line-height: 1.5;
+}
+
+.pricing__coche {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--rayon-full);
+  background: rgba(0, 245, 255, 0.12);
+  color: var(--cyan);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.pricing__btn {
+  width: 100%;
+  justify-content: center;
+  gap: var(--espace-2);
+}
+
+.pricing__note {
+  text-align: center;
+  font-size: var(--texte-sm);
+  color: var(--gris-300);
+}
+
+@media (max-width: 768px) {
+  .pricing__grille {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .pricing__titre {
+    font-size: var(--texte-3xl);
+  }
+}

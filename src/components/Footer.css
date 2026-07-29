@@ -64,7 +64,7 @@
   align-items: center;
   gap: var(--espace-2);
   font-size: var(--texte-sm);
-  color: var(--gris-400);
+  color: var(--gris-300);
 }
 
 .footer__localisation svg {
@@ -103,7 +103,7 @@
 
 .footer__colonne a {
   font-size: var(--texte-sm);
-  color: var(--gris-400);
+  color: var(--gris-300);
   transition: color var(--transition-rapide);
 }
 
@@ -134,13 +134,13 @@
 
 .footer__copyright {
   font-size: var(--texte-sm);
-  color: var(--gris-400);
+  color: var(--gris-300);
 }
 
 /* Mentions légales de la société exploitante — Bahassi Solutions SRL */
 .footer__mentions-société {
   font-size: var(--texte-xs);
-  color: var(--gris-500);
+  color: var(--gris-300);
 }
 
 .footer__légal {
@@ -150,7 +150,7 @@
 
 .footer__légal a {
   font-size: var(--texte-sm);
-  color: var(--gris-400);
+  color: var(--gris-300);
   transition: color var(--transition-rapide);
 }
 

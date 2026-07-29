@@ -44,7 +44,9 @@ export default function Confidentialite() {
         </li>
         <li>
           <strong>Données techniques</strong> : préférence de langue (stockée localement dans le
-          navigateur) et données de fonctionnement strictement nécessaires au site.
+          navigateur), données de fonctionnement strictement nécessaires au site, et statistiques
+          de fréquentation agrégées et anonymes via Vercel Analytics (mesure d'audience sans
+          cookies ni identifiant individuel).
         </li>
       </ul>
 

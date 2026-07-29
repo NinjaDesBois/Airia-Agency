@@ -110,7 +110,7 @@
 }
 
 .dashboard__kpi {
-    background: var(--verre-bg);
+    background: var(--verre-fond);
     border: 1px solid var(--verre-bordure);
     border-radius: var(--rayon-xl);
     padding: var(--espace-5) var(--espace-6);
@@ -168,7 +168,7 @@
 
 .dashboard__graphique-placeholder,
 .dashboard__tableau-placeholder {
-    background: var(--verre-bg);
+    background: var(--verre-fond);
     border: 1px dashed var(--verre-bordure);
     border-radius: var(--rayon-xl);
     padding: var(--espace-12);
@@ -205,7 +205,7 @@
     flex-direction: column;
     align-items: center;
     gap: var(--espace-5);
-    background: var(--verre-bg);
+    background: var(--verre-fond);
     border: 1px solid var(--verre-bordure);
     border-radius: var(--rayon-2xl);
     padding: var(--espace-12) var(--espace-8);

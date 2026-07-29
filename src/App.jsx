@@ -11,6 +11,7 @@ import ModalContact from './components/ModalContact'
 import ChatWidget from './components/ChatWidget'
 import SEO from './components/SEO'
 import SeoContent from './components/SeoContent'
+import BandeauCTA from './components/BandeauCTA'
 
 /* Sections de la landing page — chargement lazy pour le code splitting */
 import Hero from './sections/Hero'
@@ -21,8 +22,10 @@ const Probleme = lazy(() => import('./sections/Probleme'))
 const HowItWorks = lazy(() => import('./sections/HowItWorks'))
 const Features = lazy(() => import('./sections/Features'))
 const ROI = lazy(() => import('./sections/ROI'))
+const Pricing = lazy(() => import('./sections/Pricing'))
 import ModalDemo from './components/DemoSection'
 const Temoignages = lazy(() => import('./sections/Temoignages'))
+const FAQ = lazy(() => import('./sections/FAQ'))
 
 /* Pages */
 const Dashboard = lazy(() => import('./components/Dashboard'))
@@ -87,7 +90,7 @@ function PageAccueil() {
         {/* 2. Logos outils intégrés */}
         <LogosClients />
 
-        {/* 3–9. Sections chargées en lazy avec Suspense */}
+        {/* 3–10. Sections chargées en lazy avec Suspense */}
         <Suspense fallback={<SectionSkeleton />}>
           {/* 3. Chiffres clés */}
           <Stats />
@@ -95,17 +98,26 @@ function PageAccueil() {
           {/* 4. Section problème — bento grid */}
           <Probleme />
 
-          {/* 5. Comment ça marche — 3 étapes */}
+          {/* 5. Bandeau CTA — au moment de douleur maximale */}
+          <BandeauCTA />
+
+          {/* 6. Comment ça marche — 3 étapes */}
           <HowItWorks />
 
-          {/* 6. Fonctionnalités — 6 cartes */}
+          {/* 7. Fonctionnalités — 6 cartes */}
           <Features />
 
-          {/* 7. Calculateur ROI interactif */}
+          {/* 8. Calculateur ROI interactif */}
           <ROI />
 
-          {/* 9. Témoignages */}
+          {/* 9. Tarifs — Voice IA à partir de 350€/mois */}
+          <Pricing />
+
+          {/* 10. Témoignages */}
           <Temoignages />
+
+          {/* 11. FAQ — traitement des objections */}
+          <FAQ />
         </Suspense>
       </main>
 

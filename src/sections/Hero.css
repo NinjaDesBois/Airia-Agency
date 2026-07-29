@@ -86,11 +86,6 @@
     /* Animé par GSAP */
 }
 
-.hero__saut-ligne {
-    display: none;
-}
-
-
 /* === Actions CTA === */
 
 .hero__actions {
@@ -129,13 +124,6 @@
 
 
 /* === Slot machine — titre + sous-titre animés ensemble === */
-
-
-/* "Votre" reste inline, ne participe pas à l'animation */
-
-.hero__slot-statique {
-    display: inline;
-}
 
 
 /* Conteneur animé — inline-block pour supporter transform */
@@ -177,7 +165,7 @@
 /* Mot sectoriel en cyan */
 
 .hero__slot-mot {
-    color: #00e5cc;
+    color: var(--cyan);
     font-style: normal;
 }
 
@@ -263,11 +251,6 @@
 
 /* === Responsive === */
 
-@media (min-width: 1024px) {
-    .hero__saut-ligne {
-        display: inline;
-    }
-}
 
 @media (max-width: 768px) {
     .hero__titre {

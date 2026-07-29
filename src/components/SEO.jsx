@@ -13,6 +13,7 @@ export default function SEO() {
   const description = t('seo.description')
   const ogTitle = t('seo.ogTitle')
   const ogDescription = t('seo.ogDescription')
+  const questionsFaq = t('faq.items', { returnObjects: true })
 
   /* Données structurées JSON-LD — SoftwareApplication */
   const jsonLd = {
@@ -26,11 +27,15 @@ export default function SEO() {
     inLanguage: ['fr-BE', 'nl-BE', 'en'],
     offers: {
       '@type': 'Offer',
-      price: '500',
+      price: '350',
       priceCurrency: 'EUR',
       priceSpecification: {
-        '@type': 'RecurringChargeSpecification',
-        billingPeriod: 'P1M',
+        '@type': 'UnitPriceSpecification',
+        price: '350',
+        priceCurrency: 'EUR',
+        billingDuration: 1,
+        unitCode: 'MON',
+        priceType: 'https://schema.org/MinimumAdvertisedPrice',
       },
       availability: 'https://schema.org/InStock',
     },
@@ -61,12 +66,6 @@ export default function SEO() {
       'Support multilingue FR/NL/EN/DE',
       'Déploiement en 48h',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '12',
-      bestRating: '5',
-    },
   }
 
   /* Organisation JSON-LD — marque Airia, exploitée par Bahassi Solutions SRL */
@@ -143,6 +142,20 @@ export default function SEO() {
       <script type="application/ld+json">
         {JSON.stringify(orgJsonLd)}
       </script>
+      {/* FAQ — contenu réellement affiché dans la section FAQ */}
+      {Array.isArray(questionsFaq) && questionsFaq.length > 0 && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: questionsFaq.map((item) => ({
+              '@type': 'Question',
+              name: item.q,
+              acceptedAnswer: { '@type': 'Answer', text: item.a },
+            })),
+          })}
+        </script>
+      )}
     </Helmet>
   )
 }

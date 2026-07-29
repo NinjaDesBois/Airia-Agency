@@ -5,7 +5,7 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  z-index: 90;
+  z-index: var(--z-overlay); /* sous les modals (--z-modal) */
   display: flex;
   align-items: center;
   gap: 0;
@@ -48,38 +48,38 @@
   position: fixed;
   bottom: calc(2rem + 56px + 12px); /* 56px = hauteur bouton chat, 12px gap */
   right: 2rem;
-  z-index: 90;
+  z-index: var(--z-overlay);
   padding: 0.55rem 1rem;
   border-radius: var(--rayon-full);
   background: rgba(5, 5, 8, 0.92);
-  border: 1px solid rgba(0, 229, 204, 0.55);
-  color: #00e5cc;
+  border: 1px solid rgba(0, 245, 255, 0.55);
+  color: var(--cyan);
   font-size: var(--texte-sm);
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
   backdrop-filter: blur(12px);
   box-shadow:
-    0 0 0 1px rgba(0, 229, 204, 0.1),
+    0 0 0 1px rgba(0, 245, 255, 0.1),
     0 4px 20px rgba(0, 0, 0, 0.35),
-    0 0 16px rgba(0, 229, 204, 0.12);
+    0 0 16px rgba(0, 245, 255, 0.12);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
   font-family: inherit;
 }
 
 .demo__btn-flottant:hover {
-  border-color: rgba(0, 229, 204, 0.9);
-  color: #00f5ff;
+  border-color: rgba(0, 245, 255, 0.9);
+  color: var(--white);
   box-shadow:
-    0 0 0 1px rgba(0, 229, 204, 0.2),
+    0 0 0 1px rgba(0, 245, 255, 0.2),
     0 4px 24px rgba(0, 0, 0, 0.4),
-    0 0 24px rgba(0, 229, 204, 0.22);
+    0 0 24px rgba(0, 245, 255, 0.22);
 }
 
 /* --- Bouton flottant --- */
 .chat__bouton-flottant {
   position: relative; /* dans .chat__zone-flottante */
-  z-index: 90;
+  z-index: 2;
   width: 56px;
   height: 56px;
   border-radius: var(--rayon-full);
@@ -123,7 +123,7 @@
   position: fixed;
   bottom: 5.5rem;
   right: 2rem;
-  z-index: 89;
+  z-index: var(--z-overlay);
   width: 380px;
   max-width: calc(100vw - 2rem);
   max-height: 520px;
@@ -175,13 +175,13 @@
   font-family: var(--police-titre);
   font-size: var(--texte-sm);
   font-weight: 600;
-  color: var(--blanc);
+  color: var(--white);
   line-height: 1.2;
 }
 
 .chat__sous-titre {
   font-size: var(--texte-xs);
-  color: var(--gris-400);
+  color: var(--gris-300);
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -201,9 +201,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--gris-400);
+  color: var(--gris-300);
   padding: 0.35rem;
-  border-radius: var(--rayon-base);
+  border-radius: var(--rayon-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,7 +211,7 @@
 }
 
 .chat__fermer:hover {
-  color: var(--blanc);
+  color: var(--white);
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -271,7 +271,7 @@
   border-radius: 14px;
   font-size: var(--texte-sm);
   line-height: 1.55;
-  color: var(--blanc);
+  color: var(--white);
   white-space: pre-wrap;
   word-break: break-word;
   position: relative;
@@ -361,7 +361,7 @@
   padding: 0.625rem 1rem;
   font-family: var(--police-corps);
   font-size: var(--texte-sm);
-  color: var(--blanc);
+  color: var(--white);
   resize: none;
   min-height: 40px;
   max-height: 100px;
@@ -398,7 +398,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--noir);
+  color: var(--black);
   flex-shrink: 0;
   transition: opacity var(--transition-rapide), transform var(--transition-rapide);
 }

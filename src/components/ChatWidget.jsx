@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { track } from '@vercel/analytics'
 import { ouvrirModalDemo } from './DemoSection'
 import './ChatWidget.css'
 
@@ -70,7 +71,10 @@ export default function ChatWidget() {
 
   const ouvrirChat = useCallback(() => {
     cacherTooltip()
-    setOuvert(prev => !prev)
+    setOuvert(prev => {
+      if (!prev) track('chat_ouvert')
+      return !prev
+    })
   }, [cacherTooltip])
 
   const envoyerMessage = useCallback(async () => {
@@ -152,7 +156,6 @@ export default function ChatWidget() {
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             role="dialog"
             aria-label={t('chat.title')}
-            aria-modal="true"
           >
             {/* En-tête */}
             <div className="chat__en-tête">
@@ -249,19 +252,24 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* Bouton démo flottant — juste au-dessus du chat */}
-      <motion.button
-        className="demo__btn-flottant"
-        onClick={ouvrirModalDemo}
-        aria-label={t('chat.demoBtnAriaLabel')}
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.97 }}
-      >
-        {t('chat.demoBtn')}
-      </motion.button>
+      {/* Bouton démo flottant — masqué quand le panneau chat est ouvert */}
+      <AnimatePresence>
+        {!ouvert && (
+          <motion.button
+            className="demo__btn-flottant"
+            onClick={ouvrirModalDemo}
+            aria-label={t('chat.demoBtnAriaLabel')}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            {t('chat.demoBtn')}
+          </motion.button>
+        )}
+      </AnimatePresence>
 
       {/* Bouton flottant chat + tooltip */}
       <div className="chat__zone-flottante">

@@ -17,10 +17,10 @@ export default function PageLegale({ titre, dateMaj, children }) {
           </svg>
           Retour au site
         </a>
-        <a href="/" className="navbar__logo" aria-label="Airia — Accueil">
-          <img src="/logo.png" alt="Airia logo" className="navbar__logo-image" aria-hidden="true" />
-          <span className="navbar__logo-texte">Airia</span>
-          <span className="navbar__logo-point" aria-hidden="true" />
+        <a href="/" className="footer__logo" aria-label="Airia — Accueil">
+          <img src="/logo.png" alt="Airia logo" className="footer__logo-image" width="28" height="28" />
+          <span>Airia</span>
+          <span className="footer__logo-point" aria-hidden="true" />
         </a>
       </header>
 

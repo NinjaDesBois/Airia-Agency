@@ -85,22 +85,27 @@ function SphèreIA() {
 }
 
 /* ===== Composant particules flottantes ===== */
+const NB_PARTICULES = 2000
+
+/* Positions générées une seule fois au chargement du module
+   (hors render — évite l'instabilité en StrictMode) */
+const POSITIONS_PARTICULES = (() => {
+  const pos = new Float32Array(NB_PARTICULES * 3)
+  for (let i = 0; i < NB_PARTICULES; i++) {
+    const rayon = Math.random() * 3.5 + 2
+    const theta = Math.random() * Math.PI * 2
+    const phi = Math.acos(Math.random() * 2 - 1)
+    pos[i * 3] = rayon * Math.sin(phi) * Math.cos(theta)
+    pos[i * 3 + 1] = rayon * Math.sin(phi) * Math.sin(theta)
+    pos[i * 3 + 2] = rayon * Math.cos(phi)
+  }
+  return pos
+})()
+
 function Particules() {
   const refParticules = useRef()
-  const nbParticules = 2000
-
-  const positions = useMemo(() => {
-    const pos = new Float32Array(nbParticules * 3)
-    for (let i = 0; i < nbParticules; i++) {
-      const rayon = Math.random() * 3.5 + 2
-      const theta = Math.random() * Math.PI * 2
-      const phi = Math.acos(Math.random() * 2 - 1)
-      pos[i * 3] = rayon * Math.sin(phi) * Math.cos(theta)
-      pos[i * 3 + 1] = rayon * Math.sin(phi) * Math.sin(theta)
-      pos[i * 3 + 2] = rayon * Math.cos(phi)
-    }
-    return pos
-  }, [])
+  const nbParticules = NB_PARTICULES
+  const positions = POSITIONS_PARTICULES
 
   useFrame((état, delta) => {
     if (refParticules.current) {
@@ -136,7 +141,7 @@ function Particules() {
 function LueurAmbiante() {
   const refLueur = useRef()
 
-  useFrame((état, delta) => {
+  useFrame((état) => {
     if (refLueur.current) {
       refLueur.current.intensity = 1.5 + Math.sin(état.clock.elapsedTime * 0.8) * 0.3
     }
@@ -226,7 +231,7 @@ export default function Hero() {
       clearInterval(timer)
       clearTimeout(timeoutId)
     }
-  }, [])
+  }, [pairesSlot.length])
 
   // Animation d'entrée GSAP pour le contenu
   useEffect(() => {

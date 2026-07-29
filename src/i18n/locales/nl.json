@@ -5,7 +5,7 @@
     "demo": "Demo",
     "testimonials": "Getuigenissen",
     "pricing": "Tarieven",
-    "cta": "Gesprek reserveren",
+    "cta": "Plan een strategiegesprek",
     "burgerOpen": "Menu openen",
     "burgerClose": "Menu sluiten"
   },
@@ -34,10 +34,22 @@
   },
   "stats": {
     "items": [
-      { "label": "AI-kwalificatiegraad", "description": "Leads automatisch gekwalificeerd vóór uw team" },
-      { "label": "Implementatie", "description": "Van ondertekening tot volledige lancering van uw AI-systeem" },
-      { "label": "Beschikbaarheid", "description": "Uw AI-receptionist neemt nooit verlof" },
-      { "label": "Opstartkosten", "description": "Geen installatiekosten. U betaalt alleen het abonnement." }
+      {
+        "label": "AI-kwalificatiegraad",
+        "description": "Leads automatisch gekwalificeerd vóór uw team"
+      },
+      {
+        "label": "Implementatie",
+        "description": "Van ondertekening tot volledige lancering van uw AI-systeem"
+      },
+      {
+        "label": "Beschikbaarheid",
+        "description": "Uw AI-receptionist neemt nooit verlof"
+      },
+      {
+        "label": "Opstartkosten",
+        "description": "Geen installatiekosten. U betaalt alleen het abonnement."
+      }
     ]
   },
   "probleme": {
@@ -78,19 +90,31 @@
         "durée": "Dag 1",
         "titre": "Audit & Configuratie",
         "description": "We analyseren uw huidige workflows, tools en knelpunten. In 24u bepalen we precies wat de AI voor u automatiseert.",
-        "détails": ["Audit van uw processen", "Automatiseringskaart", "Gepersonaliseerd implementatieplan"]
+        "détails": [
+          "Audit van uw processen",
+          "Automatiseringskaart",
+          "Gepersonaliseerd implementatieplan"
+        ]
       },
       {
         "durée": "Dag 1 → 2",
         "titre": "AI-implementatie",
         "description": "We installeren en configureren uw AI-agenten: vocale receptionist, prospectiesequenties, Meta-campagnes. Alles verbonden met uw bestaande tools.",
-        "détails": ["Installatie van AI-agenten", "Integratie met uw tools", "Testen & validatie"]
+        "détails": [
+          "Installatie van AI-agenten",
+          "Integratie met uw tools",
+          "Testen & validatie"
+        ]
       },
       {
         "durée": "Vanaf dag 3",
         "titre": "U oogst",
         "description": "Uw klanten ontvangen gekwalificeerde leads, beantwoorde oproepen, actieve campagnes. U incasseert het maandelijkse abonnement — zonder moeite.",
-        "détails": ["Real-time monitoring", "Wekelijkse rapporten", "Doorlopende ondersteuning inbegrepen"]
+        "détails": [
+          "Real-time monitoring",
+          "Wekelijkse rapporten",
+          "Doorlopende ondersteuning inbegrepen"
+        ]
       }
     ]
   },
@@ -105,37 +129,62 @@
         "titre": "Voice AI",
         "sousTitre": "Vocale receptionist 24/7",
         "description": "Uw vocale agent beantwoordt oproepen, kwalificeert prospects, plant afspraken en stuurt alleen warme leads door naar uw team.",
-        "tags": ["Inkomende oproepen", "Kwalificatie", "Afsprakenbeheer"]
+        "tags": [
+          "Inkomende oproepen",
+          "Kwalificatie",
+          "Afsprakenbeheer"
+        ]
       },
       {
         "titre": "Lead Generation",
         "sousTitre": "Geautomatiseerde prospectie",
         "description": "Meerstaps e-mail- en sms-sequenties, gepersonaliseerd door AI. Automatische contactverrijking en intelligente follow-ups.",
-        "tags": ["AI-e-mail", "SMS", "Verrijking"]
+        "tags": [
+          "AI-e-mail",
+          "SMS",
+          "Verrijking"
+        ]
       },
       {
         "titre": "Meta Ads AI",
         "sousTitre": "Facebook & Instagram campagnes",
         "description": "Automatisch aanmaken, optimaliseren en opschalen van uw Meta-campagnes. AI past budgetten, doelgroepen en creatives in realtime aan.",
-        "tags": ["Facebook Ads", "Instagram", "Auto-optimalisatie"]
+        "tags": [
+          "Facebook Ads",
+          "Instagram",
+          "Auto-optimalisatie"
+        ]
       },
       {
         "titre": "Meertalig",
         "sousTitre": "NL · FR · EN · DE",
         "description": "Uw AI-agenten communiceren in de taal van de prospect. Perfect voor Belgische agentschappen actief in Vlaanderen, Wallonië en Brussel.",
-        "tags": ["Nederlands", "Frans", "Engels"]
+        "tags": [
+          "Nederlands",
+          "Frans",
+          "Engels"
+        ]
       },
       {
         "titre": "Dashboard",
         "sousTitre": "Realtime overzicht",
         "description": "Gecentraliseerd dashboard met realtime KPI's: verwerkte oproepen, gekwalificeerde leads, conversieratio, gegenereerde inkomsten per klant.",
-        "tags": ["Live KPI's", "Auto-rapportage", "Multi-klant"]
+        "tags": [
+          "Live KPI's",
+          "Auto-rapportage",
+          "Multi-klant"
+        ]
       },
       {
         "titre": "Integraties",
         "sousTitre": "Verbonden met 50+ tools",
         "description": "n8n, Airtable, Make, Zapier, HubSpot, Twilio, Calendly en meer. Uw bestaande workflows integreren naadloos in een paar klikken.",
-        "tags": ["n8n", "Airtable", "HubSpot", "+47 andere"]
+        "tags": [
+          "n8n",
+          "Airtable",
+          "HubSpot",
+          "+47 andere"
+        ]
       }
     ]
   },
@@ -153,7 +202,7 @@
     "clientsLabel": "geconverteerd / maand",
     "revenueLabel": "inkomsten / maand",
     "roiLabel": "Rendement op investering",
-    "roiSubLabel": "Voor 750€/maand Airia-service",
+    "roiSubLabel": "Voor een volledige Airia-service (~€750/maand)",
     "benefitsTitle": "Wat u wint",
     "benefits": [
       "Nul uur besteed aan handmatige prospectie",
@@ -163,16 +212,36 @@
       "Automatische rapportage voor uw klanten",
       "Schalen zonder extra aanwervingen"
     ],
-    "cta": "Bereken mijn gepersonaliseerde ROI",
+    "cta": "Valideer deze cijfers in 15 min",
     "ctaNote": "Gratis strategiegesprek · Zonder verbintenis",
     "sectors": [
-      { "label": "Vastgoed", "unitéLabel": "gemiddelde commissie" },
-      { "label": "Tandarts", "unitéLabel": "per consultatie" },
-      { "label": "Loodgieter", "unitéLabel": "per interventie" },
-      { "label": "Advocaat", "unitéLabel": "per geopend dossier" },
-      { "label": "Webbureau", "unitéLabel": "per ondertekend project" },
-      { "label": "Boekhouder", "unitéLabel": "per klant/maand" }
-    ]
+      {
+        "label": "Vastgoed",
+        "unitéLabel": "gemiddelde commissie"
+      },
+      {
+        "label": "Tandarts",
+        "unitéLabel": "per consultatie"
+      },
+      {
+        "label": "Loodgieter",
+        "unitéLabel": "per interventie"
+      },
+      {
+        "label": "Advocaat",
+        "unitéLabel": "per geopend dossier"
+      },
+      {
+        "label": "Webbureau",
+        "unitéLabel": "per ondertekend project"
+      },
+      {
+        "label": "Boekhouder",
+        "unitéLabel": "per klant/maand"
+      }
+    ],
+    "roiCustom": "Op maat",
+    "roiCustomNote": "Uw volume verdient een aanbod op maat — laten we praten"
   },
   "testimonials": {
     "badge": "Getuigenissen",
@@ -243,21 +312,37 @@
     "inputPlaceholder": "Stel een vraag aan de AI...",
     "sendAriaLabel": "Versturen",
     "footerTexte": "Deze AI installeren in uw bedrijf?",
-    "footerBtn": "Gesprek reserveren",
+    "footerBtn": "Plan een strategiegesprek",
     "voix": {
       "badge": "🎙️ Spraakoproep — Binnenkort beschikbaar",
       "label": "Bel de AI {{secteur}} rechtstreeks vanuit uw browser",
       "btn": "Spraakoproep starten"
     },
     "sectors": [
-      { "label": "Vastgoed" },
-      { "label": "Tandarts" },
-      { "label": "Advocaat" },
-      { "label": "Notaris" },
-      { "label": "Loodgieter" },
-      { "label": "Elektricien" },
-      { "label": "Boekhouder" },
-      { "label": "Webbureau" }
+      {
+        "label": "Vastgoed"
+      },
+      {
+        "label": "Tandarts"
+      },
+      {
+        "label": "Advocaat"
+      },
+      {
+        "label": "Notaris"
+      },
+      {
+        "label": "Loodgieter"
+      },
+      {
+        "label": "Elektricien"
+      },
+      {
+        "label": "Boekhouder"
+      },
+      {
+        "label": "Webbureau"
+      }
     ],
     "accueil": {
       "immobilier": "Goedendag! Ik ben de AI-receptionist van uw vastgoedkantoor. Wilt u kopen, verkopen of huren? Ik kan uw project kwalificeren en een afspraak inplannen.",
@@ -282,5 +367,93 @@
       "titre": "Een tijdslot reserveren",
       "desc": "30 min gesprek · Kies uw tijdstip"
     }
+  },
+  "sectors": {
+    "badge": "Sectoren",
+    "title1": "Gemaakt voor",
+    "title2": "Belgische KMO's",
+    "subtitle": "AI-agenten afgestemd op de realiteit van uw vak, ongeacht uw sector.",
+    "items": {
+      "immobilier": "Vastgoedkantoren",
+      "dentaire": "Tandartspraktijken",
+      "avocat": "Advocaten",
+      "notaire": "Notarissen",
+      "comptable": "Boekhouders",
+      "artisan": "Loodgieters & vakmensen",
+      "webagency": "Webbureaus",
+      "pme": "KMO's & zelfstandigen"
+    },
+    "coverage": "We begeleiden bedrijven in Brussel, Charleroi, Luik, Namen, Waals-Brabant en heel België — in het Frans, Nederlands, Engels en Duits."
+  },
+  "pricing": {
+    "badge": "Tarieven",
+    "title1": "Een eenvoudig tarief,",
+    "title2": "zonder verrassingen",
+    "subtitle": "€0 setupkosten, geen verbintenis. U stopt wanneer u wilt.",
+    "voiceName": "Voice AI",
+    "voiceDesc": "AI-telefoniste 24/7 — ons vlaggenschipproduct",
+    "voicePricePrefix": "vanaf",
+    "voicePrice": "€350",
+    "voicePriceSuffix": "/maand",
+    "voiceFeatures": [
+      "Beantwoordt 100% van uw oproepen, 24/7",
+      "Automatische kwalificatie en afsprakenplanning",
+      "Samenvatting van elk gesprek in uw CRM",
+      "Live in 48u, zonder van nummer te veranderen"
+    ],
+    "voiceCta": "Plan een strategiegesprek",
+    "voiceTag": "Vlaggenschip",
+    "customName": "Oplossingen op maat",
+    "customDesc": "Leadgeneratie, AI Meta-advertenties, meertalige agenten, dashboard, integraties — samengesteld volgens uw behoeften.",
+    "customPrice": "Op offerte",
+    "customFeatures": [
+      "Geautomatiseerde leadgeneratie (e-mail/sms)",
+      "Zelfoptimaliserende Meta-campagnes",
+      "FR/NL/EN/DE-agenten",
+      "50+ integraties (CRM, agenda, telefonie)"
+    ],
+    "customCta": "Laten we over uw project praten",
+    "note": "Gratis strategiegesprek · €0 setup · Geen verbintenis"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title1": "Veelgestelde",
+    "title2": "vragen",
+    "subtitle": "Alles wat u moet weten voor u begint.",
+    "items": [
+      {
+        "q": "Is er een verbintenis van bepaalde duur?",
+        "a": "Nee. Het abonnement is maandelijks, zonder verbintenis: u kunt op elk moment opzeggen met een opzegtermijn van 30 dagen. Er zijn geen setupkosten."
+      },
+      {
+        "q": "Hoe snel is mijn AI-agent operationeel?",
+        "a": "Gemiddeld 48 uur. Na het strategiegesprek configureren we uw agent (scripts, integraties, stem), testen we hem samen met u en zetten we hem in productie."
+      },
+      {
+        "q": "Wie installeert en onderhoudt het systeem?",
+        "a": "Wij. Airia configureert, host, bewaakt en verbetert uw agenten continu. U hoeft niets te installeren of te onderhouden."
+      },
+      {
+        "q": "Wat gebeurt er als de AI het antwoord niet weet?",
+        "a": "De agent schakelt door naar een mens of neemt een bericht aan zodra een vraag buiten zijn bereik valt. Elk gesprek wordt getranscribeerd en samengevat — niets gaat verloren."
+      },
+      {
+        "q": "Zijn mijn gegevens en die van mijn klanten beschermd?",
+        "a": "Ja. De verwerking is AVG-conform en gehost bij aanbieders met passende waarborgen. Details vindt u in ons privacybeleid."
+      },
+      {
+        "q": "Hoeveel kost het?",
+        "a": "De AI-telefoniste start vanaf €350/maand, zonder setupkosten. Gecombineerde oplossingen (leadgen, Meta-ads, meertalig) worden geoffreerd op basis van uw volume en tools."
+      },
+      {
+        "q": "Spreekt de agent Nederlands of Engels?",
+        "a": "Ja — Frans, Nederlands, Engels en Duits, met automatische detectie van de taal van de beller."
+      }
+    ]
+  },
+  "ctaBand": {
+    "title": "Elke gemiste oproep is een klant voor uw concurrent.",
+    "text": "15 minuten om te zien wat een AI-agent in uw dagelijkse werking zou veranderen.",
+    "button": "Plan een strategiegesprek"
   }
 }

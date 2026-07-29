@@ -12,29 +12,17 @@ export default function Footer() {
         {/* Haut du footer */}
         <div className="footer__haut">
           <div className="footer__marque">
-            {/* <div className="footer__logo">
+            <a href="/" className="footer__logo" aria-label="Airia — Accueil">
               <img
-                src="/logo-airia.png"
-                alt=""
+                src="/logo.png"
+                alt="Airia logo"
                 className="footer__logo-image"
-                aria-hidden="true"
                 width="28"
                 height="28"
               />
-              <span>AIRIA</span>
+              <span>Airia</span>
               <span className="footer__logo-point" aria-hidden="true" />
-            </div> */}
-                       <a href="#" className="navbar__logo" aria-label="Airia — Accueil">
-  <img
-   src="/logo.png"
-    alt="Airia logo"
-     className="navbar__logo-image"
-            aria-hidden="true"
-           
-  />
-  <span className="navbar__logo-texte">Airia</span>
-  <span className="navbar__logo-point" aria-hidden="true" />
-    </a> 
+            </a>
             <p className="footer__slogan">
               {t('footer.slogan')}
             </p>
@@ -63,7 +51,7 @@ export default function Footer() {
               <ul role="list">
                 <li><a href="#comment-ca-marche">{t('footer.howItWorks')}</a></li>
                 <li><a href="#temoignages">{t('footer.testimonials')}</a></li>
-                <li><a href="#roi">{t('footer.pricing')}</a></li>
+                <li><a href="#tarifs">{t('footer.pricing')}</a></li>
                 <li><a href="mailto:hello@airia.be">{t('footer.contact')}</a></li>
               </ul>
             </div>
@@ -75,7 +63,7 @@ export default function Footer() {
                   <a href="mailto:hello@airia.be">hello@airia.be</a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  <a href="https://linkedin.com/company/airia-be" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </li>
               </ul>
             </div>

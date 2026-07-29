@@ -89,7 +89,7 @@ export default function Probleme() {
             <motion.div
               key={idsProblèmes[index]}
               className={`probleme__carte probleme__carte--${icônesProblèmes[index].taille} carte-verre`}
-              whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
             >
               <div className="probleme__carte-icône">
                 {icônesProblèmes[index].icône}

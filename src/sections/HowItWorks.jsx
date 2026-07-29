@@ -87,7 +87,7 @@ export default function HowItWorks() {
               <motion.div
                 key={numÉtapes[index]}
                 className="hiw__étape"
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
               >
                 {/* Numéro */}
                 <div className="hiw__numéro-wrapper">

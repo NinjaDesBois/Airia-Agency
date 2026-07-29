@@ -245,7 +245,7 @@ export default function ROI() {
                 </div>
                 <div>
                   <div className="roi__résultat-valeur">
-                    <NombreAnimé valeur={résultats.clientsConvertisParMois} suffixe={` ${t('roi.clientsLabel').split(' ')[0]}`} />
+                    <NombreAnimé valeur={résultats.clientsConvertisParMois} />
                   </div>
                   <div className="roi__résultat-label">{t('roi.clientsLabel')}</div>
                 </div>
@@ -266,17 +266,23 @@ export default function ROI() {
               </div>
             </div>
 
-            {/* ROI global */}
+            {/* ROI global — message sur mesure quand le volume est trop faible pour un % parlant */}
             <div className="roi__global">
               <div className="roi__global-texte">
                 <span className="roi__global-label">{t('roi.roiLabel')}</span>
                 <div className="roi__global-sous-texte">
-                  {t('roi.roiSubLabel')}
+                  {résultats.roiPourcentage > 0 ? t('roi.roiSubLabel') : t('roi.roiCustomNote')}
                 </div>
               </div>
               <div className="roi__global-valeur">
-                <NombreAnimé valeur={résultats.roiPourcentage} suffixe="%" />
-                <span className="roi__global-badge">ROI</span>
+                {résultats.roiPourcentage > 0 ? (
+                  <>
+                    <NombreAnimé valeur={résultats.roiPourcentage} suffixe="%" />
+                    <span className="roi__global-badge">ROI</span>
+                  </>
+                ) : (
+                  <span className="roi__global-sur-mesure">{t('roi.roiCustom')}</span>
+                )}
               </div>
             </div>
 

@@ -4,7 +4,7 @@
 .demo__overlay {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: var(--z-modal);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +61,7 @@
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.05);
-  color: var(--gris-400);
+  color: var(--gris-300);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,7 +119,7 @@
   position: absolute;
   right: 10px;
   pointer-events: none;
-  color: var(--gris-400);
+  color: var(--gris-300);
 }
 
 /* Toggle Chat / Voix */
@@ -140,7 +140,7 @@
   border-radius: 7px;
   border: none;
   background: transparent;
-  color: var(--gris-400);
+  color: var(--gris-300);
   font-family: var(--police-corps);
   font-size: var(--texte-sm);
   font-weight: 500;
@@ -353,7 +353,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gris-400);
+  color: var(--gris-300);
 }
 
 .demo__voix-badge {
@@ -382,7 +382,7 @@
   border-radius: 99px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.05);
-  color: var(--gris-400);
+  color: var(--gris-300);
   font-family: var(--police-corps);
   font-size: var(--texte-base);
   font-weight: 600;
